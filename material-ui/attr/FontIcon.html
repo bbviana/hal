@@ -1,0 +1,97 @@
+<div><!-- react-empty: 4832 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="font-icon">Font Icon</h2>
+    <p>This component will render any <a href="https://www.google.com/design/spec/style/icons.html#icons-system-icons">icon</a>
+        defined in any stylesheet included in your project. You can use sites like <a href="https://icomoon.io/">IcoMoon</a>
+        to generate custom font files, or use prebuilt fonts such as <a href="https://design.google.com/icons/">Material icons</a> or
+        <a href="http://fontawesome.io/">Font Awesome</a> either included in your project, or served from a public
+        <a href="https://en.wikipedia.org/wiki/Content_delivery_network">Content Delivery Network</a>. </p>
+    <p>Refer to this <a href="http://google.github.io/material-design-icons/#icon-font-for-the-web">article</a> to learn how to use font icons from any of the above websites in your project.</p>
+    <p>To use <code>FontIcon</code>, add the icon stylesheet to your project and reference the icon's class in the <code>className</code> prop.
+        If  the icon font supports ligatures, reference the font in the <code>className</code> and enclose the icon name in the <code>FontIcon</code>
+        tag.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Custom icon font</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> {blue500, red500, greenA200} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/styles/colors'</span>;
+
+    <span class="hljs-keyword">const</span> iconStyles = {
+    <span class="hljs-attr">marginRight</span>: <span class="hljs-number">24</span>,
+    };
+
+    <span class="hljs-keyword">const</span> FontIconExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;FontIcon
+    className="muidocs-icon-action-home"
+    style={iconStyles}
+    /&gt;
+
+    &lt;FontIcon
+    className="muidocs-icon-action-home"
+    style={iconStyles}
+    color={blue500}
+    /&gt;
+
+    &lt;FontIcon
+    className="muidocs-icon-action-home"
+    style={iconStyles}
+    color={red500}
+    hoverColor={greenA200}
+    /&gt;
+    &lt;/div&gt;
+    );
+
+    export default FontIconExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>This example uses a custom font (not part of Material-UI). The <code>className</code> defines the specific icon. The third example has a <code>hoverColor</code> defined.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><span class="muidocs-icon-action-home" style="color: rgba(0, 0, 0, 0.87); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-right: 24px;"></span><span class="muidocs-icon-action-home" color="#2196f3" style="color: rgb(33, 150, 243); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-right: 24px;"></span><span class="muidocs-icon-action-home" color="#f44336" style="color: rgb(244, 67, 54); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-right: 24px;"></span></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Public icon font</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> {red500, yellow500, blue500} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/styles/colors'</span>;
+
+    <span class="hljs-keyword">const</span> iconStyles = {
+    <span class="hljs-attr">marginRight</span>: <span class="hljs-number">24</span>,
+    };
+
+    <span class="hljs-keyword">const</span> FontIconExampleIcons = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">FontIcon</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"material-icons"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{iconStyles}</span>&gt;</span>home<span class="hljs-tag">&lt;/<span class="hljs-name">FontIcon</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">FontIcon</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"material-icons"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{iconStyles}</span> <span class="hljs-attr">color</span>=<span class="hljs-string">{red500}</span>&gt;</span>flight_takeoff<span class="hljs-tag">&lt;/<span class="hljs-name">FontIcon</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">FontIcon</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"material-icons"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{iconStyles}</span> <span class="hljs-attr">color</span>=<span class="hljs-string">{yellow500}</span>&gt;</span>cloud_download<span class="hljs-tag">&lt;/<span class="hljs-name">FontIcon</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">FontIcon</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"material-icons"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{iconStyles}</span> <span class="hljs-attr">color</span>=<span class="hljs-string">{blue500}</span>&gt;</span>videogame_asset<span class="hljs-tag">&lt;/<span class="hljs-name">FontIcon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> FontIconExampleIcons;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>This example uses the <a href="http://google.github.io/material-design-icons/#icon-font-for-the-web">Material icons font</a>, referenced in the <code>&lt;head&gt;</code> of the docs site index page. The <code>className</code> defines the font, and the <code>IconFont</code> tag content defines the specific icon.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><span class="material-icons" style="color: rgba(0, 0, 0, 0.87); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-right: 24px;">home</span><span class="material-icons" color="#f44336" style="color: rgb(244, 67, 54); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-right: 24px;">flight_takeoff</span><span class="material-icons" color="#ffeb3b" style="color: rgb(255, 235, 59); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-right: 24px;">cloud_download</span><span class="material-icons" color="#2196f3" style="color: rgb(33, 150, 243); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-right: 24px;">videogame_asset</span></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">color</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">This is the font color of the font icon. If not specified, this component will default to muiTheme.palette.textColor.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">hoverColor</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">This is the icon color when the mouse hovers over the icon.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

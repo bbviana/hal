@@ -1,0 +1,113 @@
+<div><!-- react-empty: 2815 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="badge">Badge</h2>
+    <p>This component generates a small badge to the top-right of its child(ren).</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Badge <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Badge'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> NotificationsIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/social/notifications'</span>;
+
+    <span class="hljs-keyword">const</span> BadgeExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Badge</span>
+      <span class="hljs-attr">badgeContent</span>=<span class="hljs-string">{4}</span>
+      <span class="hljs-attr">primary</span>=<span class="hljs-string">{true}</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">NotificationsIcon</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Badge</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Badge</span>
+      <span class="hljs-attr">badgeContent</span>=<span class="hljs-string">{10}</span>
+      <span class="hljs-attr">secondary</span>=<span class="hljs-string">{true}</span>
+      <span class="hljs-attr">badgeStyle</span>=<span class="hljs-string">{{top:</span> <span class="hljs-attr">12</span>, <span class="hljs-attr">right:</span> <span class="hljs-attr">12</span>}}
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">IconButton</span> <span class="hljs-attr">tooltip</span>=<span class="hljs-string">"Notifications"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">NotificationsIcon</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">IconButton</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Badge</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> BadgeExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Two examples of badges containing text, using primary and secondary colors. The badge is applied to its children - an icon for the first example, and an <a href="/#/components/icon-button">Icon Button</a> with tooltip for the second.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="position: relative; display: inline-block; padding: 24px 24px 12px 12px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path></svg><span style="display: flex; flex-flow: row wrap; justify-content: center; align-content: center; align-items: center; position: absolute; top: 0px; right: 0px; font-weight: 500; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; background-color: rgb(0, 188, 212); color: rgb(255, 255, 255);">4</span></div><div style="position: relative; display: inline-block; padding: 24px 24px 12px 12px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -12.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Notifications</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path></svg></div></button><span style="display: flex; flex-flow: row wrap; justify-content: center; align-content: center; align-items: center; position: absolute; top: 12px; right: 12px; font-weight: 500; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; background-color: rgb(255, 64, 129); color: rgb(255, 255, 255);">10</span></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Further examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Badge <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Badge'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> UploadIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/file/cloud-upload'</span>;
+    <span class="hljs-keyword">import</span> FolderIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/file/folder-open'</span>;
+
+    <span class="hljs-keyword">const</span> BadgeExampleContent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Badge</span>
+      <span class="hljs-attr">badgeContent</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">IconButton</span> <span class="hljs-attr">tooltip</span>=<span class="hljs-string">"Backup"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">UploadIcon</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">IconButton</span>&gt;</span>}
+    &gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">FolderIcon</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Badge</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Badge</span>
+      <span class="hljs-attr">badgeContent</span>=<span class="hljs-string">"&amp;copy;"</span>
+      <span class="hljs-attr">badgeStyle</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>}}
+    &gt;</span>
+      Company Name
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Badge</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> BadgeExampleContent;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Badges containing an <a href="/#/components/icon-button">Icon Button</a> and text, applied to an icon, and text.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="position: relative; display: inline-block; padding: 24px 24px 12px 12px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"></path></svg><span style="display: flex; flex-flow: row wrap; justify-content: center; align-content: center; align-items: center; position: absolute; top: 0px; right: 0px; font-weight: 500; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; background-color: rgb(255, 255, 255); color: rgba(0, 0, 0, 0.87);"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -0.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Backup</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"></path></svg></div></button></span></div><div style="position: relative; display: inline-block; padding: 24px 24px 12px 12px;"><!-- react-text: 2881 -->Company Name<!-- /react-text --><span style="display: flex; flex-flow: row wrap; justify-content: center; align-content: center; align-items: center; position: absolute; top: 0px; right: 0px; font-weight: 500; font-size: 20px; width: 24px; height: 24px; border-radius: 50%; background-color: rgb(255, 255, 255); color: rgba(0, 0, 0, 0.87);">©</span></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left"><span style="color: #31a148">badgeContent *</span></td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">This is the content rendered within the badge.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">badgeStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the badge element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The badge will be added relativelty to this node.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">primary</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the badge will use the primary badge colors.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">secondary</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the badge will use the secondary badge colors.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;">* required property</div></div></div>

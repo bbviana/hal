@@ -1,0 +1,203 @@
+<div><!-- react-empty: 10253 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="time-picker">Time Picker</h2>
+    <p>A <a href="https://www.google.com/design/spec/components/pickers.html#pickers-time-pickers">time picker</a>
+        is used to input a time by displaying an interface the user can interact with.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> TimePicker <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/TimePicker'</span>;
+
+    <span class="hljs-keyword">const</span> TimePickerExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;TimePicker
+    hintText="12hr Format"
+    /&gt;
+    &lt;TimePicker
+    hintText="12hr Format with auto ok"
+    autoOk={true}
+    /&gt;
+    &lt;TimePicker
+    format="24hr"
+    hintText="24hr Format"
+    /&gt;
+    &lt;TimePicker
+    disabled={true}
+    format="24hr"
+    hintText="Disabled TimePicker"
+    /&gt;
+    &lt;/div&gt;
+    );
+
+    export default TimePickerExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Time Picker supports 12 hour and 24 hour formats. In 12 hour format the AM and PM indicators toggle the selected time period. You can also disable the Dialog passing true to the disabled property.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">12hr Format</div><input type="text" value="" id="undefined-12hrFormat-undefined-15743" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><!-- react-empty: 10281 --></div><div><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">12hr Format with auto ok</div><input type="text" value="" id="undefined-12hrFormatwithautook-undefined-17935" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><!-- react-empty: 10289 --></div><div><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">24hr Format</div><input type="text" value="" id="undefined-24hrFormat-undefined-18247" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><!-- react-empty: 10297 --></div><div><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: not-allowed;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">Disabled TimePicker</div><input type="text" value="" id="undefined-DisabledTimePicker-undefined-22935" disabled="" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.3); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgba(0, 0, 0, 0.3); border-left: none rgba(0, 0, 0, 0.3); border-right: none rgba(0, 0, 0, 0.3); border-bottom: 2px dotted rgba(0, 0, 0, 0.3); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><!-- react-empty: 10305 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Controlled examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> TimePicker <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/TimePicker'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimePickerExampleComplex</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">value24</span>: <span class="hljs-literal">null</span>, <span class="hljs-attr">value12</span>: <span class="hljs-literal">null</span>};
+    }
+
+    handleChangeTimePicker24 = <span class="hljs-function">(<span class="hljs-params">event, date</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">value24</span>: date});
+    };
+
+    handleChangeTimePicker12 = <span class="hljs-function">(<span class="hljs-params">event, date</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">value12</span>: date});
+    };
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;TimePicker
+    format="ampm"
+    hintText="12hr Format"
+    value={this.state.value12}
+    onChange={this.handleChangeTimePicker12}
+    /&gt;
+    &lt;TimePicker
+    format="24hr"
+    hintText="24hr Format"
+    value={this.state.value24}
+    onChange={this.handleChangeTimePicker24}
+    /&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p><code>TimePicker</code> can be used as a controlled component.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">12hr Format</div><input type="text" value="" id="undefined-12hrFormat-undefined-1886" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><!-- react-empty: 10333 --></div><div><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">24hr Format</div><input type="text" value="" id="undefined-24hrFormat-undefined-19579" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><!-- react-empty: 10341 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Localised example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> TimePicker <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/TimePicker'</span>;
+
+    <span class="hljs-keyword">const</span> TimePickerInternational = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TimePicker</span>
+      <span class="hljs-attr">hintText</span>=<span class="hljs-string">"Custom Labels"</span>
+      <span class="hljs-attr">okLabel</span>=<span class="hljs-string">"确定"</span>
+      <span class="hljs-attr">cancelLabel</span>=<span class="hljs-string">"取消"</span>
+    /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+);
+
+export default TimePickerInternational;</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The buttons can be localised using the <code>cancelLabel</code> and <code>okLabel</code> properties.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">Custom Labels</div><input type="text" value="" id="undefined-CustomLabels-undefined-1605" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><!-- react-empty: 10369 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">autoOk</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, automatically accept and close the picker on set minutes.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">cancelLabel</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left">'Cancel'</td>
+            <td style="text-align:left">Override the label of the 'Cancel' button.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">defaultTime</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left">null</td>
+            <td style="text-align:left">The initial time value of the TimePicker.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">dialogBodyStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of TimePickerDialog's body element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">dialogStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of TimePickerDialog's root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disabled</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the TimePicker is disabled.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">format</td>
+            <td style="text-align:left">enum:<br>&nbsp;'ampm'<br>&nbsp;'24hr'<br></td>
+            <td style="text-align:left">'ampm'</td>
+            <td style="text-align:left">Tells the component to display the picker in <code>ampm</code> (12hr) format or <code>24hr</code> format.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">okLabel</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left">'OK'</td>
+            <td style="text-align:left">Override the label of the 'OK' button.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function that is fired when the time value changes. The time value is passed in a Date Object. Since there is no particular event associated with the change the first argument will always be null and the second argument will be the new Date instance.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onDismiss</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the TimePicker dialog is dismissed.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onFocus</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the TimePicker <code>TextField</code> gains focus.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onShow</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the TimePicker dialog is shown.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the TimePicker is tapped or clicked.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">pedantic</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, uses ("noon" / "midnight") instead of ("12 a.m." / "12 p.m.").<br>It's technically more correct to refer to "12 noon" and "12 midnight" rather than "12 a.m." and "12 p.m." and it avoids confusion between different locales. By default (for compatibility reasons) TimePicker uses ("12 a.m." / "12 p.m.").</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left">{}</td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">textFieldStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of TimePicker's TextField element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left">null</td>
+            <td style="text-align:left">Sets the time for the Time Picker programmatically.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

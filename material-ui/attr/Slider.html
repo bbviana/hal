@@ -1,0 +1,293 @@
+<div><!-- react-empty: 7657 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="slider">Slider</h2>
+    <p>A <a href="https://www.google.com/design/spec/components/sliders.html">slider</a>
+        is an interface for users to input a value in a range. Sliders can be continuous
+        or discrete and can be enabled or disabled.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Slider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Slider'</span>;
+
+<span class="hljs-comment">/**
+ * The `defaultValue` property sets the initial position of the slider.
+ * The slider appearance changes when not at the starting position.
+ */</span>
+    <span class="hljs-keyword">const</span> SliderExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;Slider /&gt;
+    &lt;Slider defaultValue={0.5} /&gt;
+    &lt;Slider defaultValue={1} /&gt;
+    &lt;/div&gt;
+    );
+
+    export default SliderExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The <code>defaultValue</code> property sets the initial position of the slider.
+    The slider appearance changes when not at the starting position.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(0%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(100%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 0%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(255, 255, 255); background-clip: padding-box; border: 2px solid rgb(189, 189, 189); border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none; box-shadow: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: -2px; left: -2px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="0" required=""></div><div><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(50%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(50%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 50%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="0.5" required=""></div><div><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(100%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(0%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 100%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="1" required=""></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Disabled examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Slider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Slider'</span>;
+
+    <span class="hljs-keyword">const</span> SliderExampleDisabled = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;Slider disabled={true} /&gt;
+    &lt;Slider disabled={true} value={0.5} /&gt;
+    &lt;Slider disabled={true} value={1} /&gt;
+    &lt;/div&gt;
+    );
+
+    export default SliderExampleDisabled;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"></div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(189, 189, 189); margin-right: 6px; width: calc(0% - 6px);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(100% - 6px);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: not-allowed; pointer-events: inherit; top: 0px; left: 0%; z-index: 1; margin: 1px 0px 0px; width: 8px; height: 8px; background-color: rgb(255, 255, 255); background-clip: padding-box; border: 2px solid rgb(189, 189, 189); border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none; box-shadow: none;"></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="0" required=""></div><div value="0.5"><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(189, 189, 189); margin-right: 6px; width: calc(50% - 6px);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(50% - 6px);"></div><div tabindex="0" style="box-sizing: content-box; position: absolute; cursor: not-allowed; pointer-events: inherit; top: 0px; left: 50%; z-index: 1; margin: 1px 0px 0px; width: 8px; height: 8px; background-color: rgb(189, 189, 189); background-clip: padding-box; border: none; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="0.5" required=""></div><div value="1"><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(189, 189, 189); margin-right: 6px; width: calc(100% - 6px);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(0% - 6px);"></div><div tabindex="0" style="box-sizing: content-box; position: absolute; cursor: not-allowed; pointer-events: inherit; top: 0px; left: 100%; z-index: 1; margin: 1px 0px 0px; width: 8px; height: 8px; background-color: rgb(189, 189, 189); background-clip: padding-box; border: none; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="1" required=""></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Stepped example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Slider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Slider'</span>;
+
+<span class="hljs-comment">/**
+ * By default, the slider is continuous.
+ * The `step` property causes the slider to move in discrete increments.
+ */</span>
+    <span class="hljs-keyword">const</span> SliderExampleStep = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Slider</span> <span class="hljs-attr">step</span>=<span class="hljs-string">{0.10}</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{0.5}</span> /&gt;</span>
+);
+
+export default SliderExampleStep;</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>By default, the slider is continuous.
+    The <code>step</code> property causes the slider to move in discrete increments.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div value="0.5"><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(50%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(50%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 50%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="0.1" min="0" max="1" value="0.5" required=""></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Controlled Examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Slider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Slider'</span>;
+
+<span class="hljs-comment">/**
+ * The slider bar can have a set minimum and maximum, and the value can be
+ * obtained through the value parameter fired on an onChange event.
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SliderExampleControlled</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    state = {
+    <span class="hljs-attr">firstSlider</span>: <span class="hljs-number">0.5</span>,
+    <span class="hljs-attr">secondSlider</span>: <span class="hljs-number">50</span>,
+    };
+
+    handleFirstSlider = <span class="hljs-function">(<span class="hljs-params">event, value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">firstSlider</span>: value});
+    };
+
+    handleSecondSlider = <span class="hljs-function">(<span class="hljs-params">event, value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">secondSlider</span>: value});
+    };
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;Slider value={this.state.firstSlider} onChange={this.handleFirstSlider} /&gt;
+    &lt;p&gt;
+    &lt;span&gt;{'The value of this slider is: '}&lt;/span&gt;
+    &lt;span&gt;{this.state.firstSlider}&lt;/span&gt;
+    &lt;span&gt;{' from a range of 0 to 1 inclusive'}&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;Slider
+    min={0}
+    max={100}
+    step={1}
+    value={this.state.secondSlider}
+    onChange={this.handleSecondSlider}
+    /&gt;
+    &lt;p&gt;
+    &lt;span&gt;{'The value of this slider is: '}&lt;/span&gt;
+    &lt;span&gt;{this.state.secondSlider}&lt;/span&gt;
+    &lt;span&gt;{' from a range of 0 to 100 inclusive'}&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The slider bar can have a set minimum and maximum, and the value can be
+    obtained through the value parameter fired on an onChange event.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div value="0.5"><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(50%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(50%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 50%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="0.5" required=""></div><p><span>The value of this slider is: </span><span>0.5</span><span> from a range of 0 to 1 inclusive</span></p><div value="50"><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(50%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(50%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 50%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="1" min="0" max="100" value="50" required=""></div><p><span>The value of this slider is: </span><span>50</span><span> from a range of 0 to 100 inclusive</span></p></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Alternative Axis Examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Slider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Slider'</span>;
+
+    <span class="hljs-keyword">const</span> styles = {
+    <span class="hljs-attr">root</span>: {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'flex'</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">124</span>,
+    <span class="hljs-attr">flexDirection</span>: <span class="hljs-string">'row'</span>,
+    <span class="hljs-attr">justifyContent</span>: <span class="hljs-string">'space-around'</span>,
+    },
+    };
+
+<span class="hljs-comment">/**
+ * The orientation of the slider can be reversed and rotated using the `axis` prop.
+ */</span>
+    <span class="hljs-keyword">const</span> SliderExampleAxis = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div style={styles.root}&gt;
+    &lt;Slider style={{height: 100}} axis="y" defaultValue={0.5} /&gt;
+    &lt;Slider style={{width: 200}} axis="x-reverse" /&gt;
+    &lt;Slider style={{height: 100}} axis="y-reverse" defaultValue={1} /&gt;
+    &lt;/div&gt;
+    );
+
+    export default SliderExampleAxis;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The orientation of the slider can be reversed and rotated using the <code>axis</code> prop.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: flex; height: 124px; flex-direction: row; justify-content: space-around;"><div style="height: 100px;"><span></span><span></span><div style="user-select: none; cursor: default; width: 18px; height: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; left: 8px; bottom: 0px; height: 100%; width: 2px;"><div style="position: absolute; width: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 0px; background-color: rgb(0, 188, 212); margin-top: 6px; height: calc(50%);"></div><div style="position: absolute; width: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px; background-color: rgb(189, 189, 189); margin-bottom: 6px; height: calc(50%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; left: 0px; bottom: 50%; z-index: 1; margin: 0px 0px 0px 1px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, 50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="0.5" required=""></div><div style="width: 200px;"><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; right: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(0, 188, 212); margin-left: 6px; width: calc(0%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(189, 189, 189); margin-right: 6px; width: calc(100%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; right: 0%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(255, 255, 255); background-clip: padding-box; border: 2px solid rgb(189, 189, 189); border-radius: 50%; transform: translate(50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none; box-shadow: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: -2px; left: -2px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="0" required=""></div><div style="height: 100px;"><span></span><span></span><div style="user-select: none; cursor: default; width: 18px; height: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; left: 8px; top: 0px; height: 100%; width: 2px;"><div style="position: absolute; width: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px; background-color: rgb(0, 188, 212); margin-bottom: 6px; height: calc(100%);"></div><div style="position: absolute; width: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 0px; background-color: rgb(189, 189, 189); margin-top: 6px; height: calc(0%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; left: 0px; top: 100%; z-index: 1; margin: 0px 0px 0px 1px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" value="1" required=""></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Custom scale</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Slider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Slider'</span>;
+
+    <span class="hljs-keyword">const</span> min = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> max = <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>);
+    <span class="hljs-keyword">const</span> power = <span class="hljs-number">12</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transform</span>(<span class="hljs-params">value</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.round((<span class="hljs-built_in">Math</span>.exp(power * value / max) - <span class="hljs-number">1</span>) / (<span class="hljs-built_in">Math</span>.exp(power) - <span class="hljs-number">1</span>) * max);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reverse</span>(<span class="hljs-params">value</span>) </span>{
+    <span class="hljs-keyword">return</span> (<span class="hljs-number">1</span> / power) * <span class="hljs-built_in">Math</span>.log(((<span class="hljs-built_in">Math</span>.exp(power) - <span class="hljs-number">1</span>) * value / max) + <span class="hljs-number">1</span>) * max;
+    }
+
+<span class="hljs-comment">/**
+ * You may find yourself needing a custom scale.
+ * Here is how you would implement a [logarithmic scale](https://simple.wikipedia.org/wiki/Logarithmic_scale).
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SliderExampleCustomScale</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    state = {
+    <span class="hljs-attr">slider</span>: <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">10</span>, <span class="hljs-number">4</span>),
+    };
+
+    handleSlider = <span class="hljs-function">(<span class="hljs-params">event, value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">slider</span>: transform(value)});
+    };
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Slider</span>
+          <span class="hljs-attr">min</span>=<span class="hljs-string">{min}</span>
+          <span class="hljs-attr">max</span>=<span class="hljs-string">{max}</span>
+          <span class="hljs-attr">step</span>=<span class="hljs-string">{max</span> / <span class="hljs-attr">100</span>}
+          <span class="hljs-attr">value</span>=<span class="hljs-string">{reverse(this.state.slider)}</span>
+          <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleSlider}</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{'The value of this slider is: '}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{this.state.slider}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>You may find yourself needing a custom scale.
+    Here is how you would implement a <a href="https://simple.wikipedia.org/wiki/Logarithmic_scale">logarithmic scale</a>.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div value="616286.4921757838"><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(61.6286%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(38.3714%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 61.6286%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="10000" min="0" max="1000000" value="616286.4921757838" required=""></div><p><span>The value of this slider is: </span><span>10000</span></p></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">axis</td>
+            <td style="text-align:left">enum:<br>&nbsp;'x'<br>&nbsp;'x-reverse'<br>&nbsp;'y'<br>&nbsp;'y-reverse'<br></td>
+            <td style="text-align:left">'x'</td>
+            <td style="text-align:left">The axis on which the slider will slide.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">defaultValue</td>
+            <td style="text-align:left">valueInRangePropType</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The default value of the slider.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><del>description</del></td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left"><em>Deprecated</em>. Use a sibling node element instead. It will be removed with v0.17.0.<br><br> Describe the slider.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disableFocusRipple</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">Disables focus ripple if set to true.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disabled</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the slider will not be interactable.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><del>error</del></td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left"><em>Deprecated</em>. Use a sibling node element instead. It will be removed with v0.17.0.<br><br> An error message for the slider.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">max</td>
+            <td style="text-align:left">minMaxPropType</td>
+            <td style="text-align:left">1</td>
+            <td style="text-align:left">The maximum value the slider can slide to on a scale from 0 to 1 inclusive. Cannot be equal to min.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">min</td>
+            <td style="text-align:left">minMaxPropType</td>
+            <td style="text-align:left">0</td>
+            <td style="text-align:left">The minimum value the slider can slide to on a scale from 0 to 1 inclusive. Cannot be equal to max.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">name</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The name of the slider. Behaves like the name attribute of an input element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function that is fired when the slider's value changed.<br><br><strong>Signature:</strong><br><code>function(event: object, newValue: number) =&gt; void</code><br><em>event:</em> KeyDown event targeting the slider.<br><em>newValue:</em> The new value of the slider.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onDragStart</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function that is fired when the slider has begun to move.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> MouseDown or TouchStart event targeting the slider.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onDragStop</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function that is fired when the slide has stopped moving.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> MouseEnd or TouchEnd event targeting the slider.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">required</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">Whether or not the slider is required in a form.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">sliderStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the inner slider element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">step</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">0.01</td>
+            <td style="text-align:left">The granularity the slider can step through values.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left">{}</td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">valueInRangePropType</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The value of the slider.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

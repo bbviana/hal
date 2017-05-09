@@ -1,0 +1,240 @@
+<div><!-- react-empty: 2430 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="app-bar">App Bar</h2>
+    <p>The <a href="https://www.google.com/design/spec/layout/structure.html#structure-app-bar">app bar</a>, formerly known as the action bar in Android,
+        is a special kind of toolbar that’s used for branding, navigation, search, and actions.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AppBar <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AppBar'</span>;
+
+<span class="hljs-comment">/**
+ * A simple example of `AppBar` with an icon on the right.
+ * By default, the left icon is a navigation-menu.
+ */</span>
+    <span class="hljs-keyword">const</span> AppBarExampleIcon = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">AppBar</span>
+    <span class="hljs-attr">title</span>=<span class="hljs-string">"Title"</span>
+    <span class="hljs-attr">iconClassNameRight</span>=<span class="hljs-string">"muidocs-icon-navigation-expand-more"</span>
+  /&gt;</span>
+);
+
+export default AppBarExampleIcon;</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>A simple example of <code>AppBar</code> with an icon on the right.
+    By default, the left icon is a navigation-menu.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(0, 188, 212); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 0px; position: relative; z-index: 1100; width: 100%; display: flex; padding-left: 24px; padding-right: 24px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 8px 8px 0px -16px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(255, 255, 255); fill: rgb(255, 255, 255); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div></button><h1 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0px; padding-top: 0px; letter-spacing: 0px; font-size: 24px; font-weight: 400; color: rgb(255, 255, 255); height: 64px; line-height: 64px; flex: 1 1 0%;">Title</h1><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 8px -16px 0px auto; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><span class="muidocs-icon-navigation-expand-more" color="rgba(0, 0, 0, 0.87)" style="color: rgb(255, 255, 255); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; fill: rgb(255, 255, 255);"></span></div></button></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Buttons example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AppBar <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AppBar'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> NavigationClose <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/close'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleTouchTap</span>(<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-string">'onTouchTap triggered on the title component'</span>);
+    }
+
+    <span class="hljs-keyword">const</span> styles = {
+    <span class="hljs-attr">title</span>: {
+    <span class="hljs-attr">cursor</span>: <span class="hljs-string">'pointer'</span>,
+    },
+    };
+
+<span class="hljs-comment">/**
+ * This example uses an [IconButton](/#/components/icon-button) on the left, has a clickable `title`
+ * through the `onTouchTap` property, and a [FlatButton](/#/components/flat-button) on the right.
+ */</span>
+    <span class="hljs-keyword">const</span> AppBarExampleIconButton = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;AppBar
+    title={&lt;span style={styles.title}&gt;Title&lt;/span&gt;}
+    onTitleTouchTap={handleTouchTap}
+    iconElementLeft={&lt;IconButton&gt;&lt;NavigationClose /&gt;&lt;/IconButton&gt;}
+    iconElementRight={&lt;FlatButton label="Save" /&gt;}
+    /&gt;
+    );
+
+    export default AppBarExampleIconButton;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>This example uses an <a href="/#/components/icon-button">IconButton</a> on the left, has a clickable <code>title</code>
+    through the <code>onTouchTap</code> property, and a <a href="/#/components/flat-button">FlatButton</a> on the right.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(0, 188, 212); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 0px; position: relative; z-index: 1100; width: 100%; display: flex; padding-left: 24px; padding-right: 24px;"><div style="margin-top: 8px; margin-right: 8px; margin-left: -16px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(255, 255, 255); fill: rgb(255, 255, 255); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></button></div><div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0px; padding-top: 0px; letter-spacing: 0px; font-size: 24px; font-weight: 400; color: rgb(255, 255, 255); height: 64px; line-height: 64px; flex: 1 1 0%;"><span style="cursor: pointer;">Title</span></div><div style="margin-top: 8px; margin-right: -16px; margin-left: auto;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 7px 0px 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; min-width: 88px; color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center;"><div><span style="position: relative; padding-left: 16px; padding-right: 16px; vertical-align: middle; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; font-size: 14px;">Save</span></div></button></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Composition example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AppBar <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AppBar'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> IconMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+    <span class="hljs-keyword">import</span> Toggle <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Toggle'</span>;
+    <span class="hljs-keyword">import</span> MoreVertIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/more-vert'</span>;
+    <span class="hljs-keyword">import</span> NavigationClose <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/close'</span>;
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Login</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">static</span> muiName = <span class="hljs-string">'FlatButton'</span>;
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;FlatButton {...this.props} label="Login" /&gt;
+    );
+    }
+    }
+
+    const Logged = (props) =&gt; (
+    &lt;IconMenu
+    {...props}
+    iconButtonElement={
+    &lt;IconButton&gt;&lt;MoreVertIcon /&gt;&lt;/IconButton&gt;
+    }
+    targetOrigin={{horizontal: 'right', vertical: 'top'}}
+    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+    &gt;
+    &lt;MenuItem primaryText="Refresh" /&gt;
+    &lt;MenuItem primaryText="Help" /&gt;
+    &lt;MenuItem primaryText="Sign out" /&gt;
+    &lt;/IconMenu&gt;
+    );
+
+    Logged.muiName = 'IconMenu';
+
+    /**
+    * This example is taking advantage of the composability of the `AppBar`
+    * to render different components depending on the application state.
+    */
+    class AppBarExampleComposition extends Component {
+    state = {
+    logged: true,
+    };
+
+    handleChange = (event, logged) =&gt; {
+    this.setState({logged: logged});
+    };
+
+    render() {
+    return (
+    &lt;div&gt;
+    &lt;Toggle
+    label="Logged"
+    defaultToggled={true}
+    onToggle={this.handleChange}
+    labelPosition="right"
+    style={{margin: 20}}
+    /&gt;
+    &lt;AppBar
+    title="Title"
+    iconElementLeft={&lt;IconButton&gt;&lt;NavigationClose /&gt;&lt;/IconButton&gt;}
+    iconElementRight={this.state.logged ? &lt;Logged /&gt; : &lt;Login /&gt;}
+    /&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default AppBarExampleComposition;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>This example is taking advantage of the composability of the <code>AppBar</code>
+    to render different components depending on the application state.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="cursor: pointer; position: relative; overflow: visible; display: table; height: auto; width: 100%; margin: 20px;"><!-- react-empty: 2511 --><input type="checkbox" value="on" style="position: absolute; cursor: inherit; pointer-events: all; opacity: 0; width: 100%; height: 100%; z-index: 2; left: 0px; box-sizing: border-box; padding: 0px; margin: 0px;"><div style="display: flex; width: 100%; height: 100%;"><div style="transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; float: left; position: relative; display: block; flex-shrink: 0; width: 36px; margin-right: 8px; margin-left: 0px; padding: 4px 0px 6px 2px;"><div style="transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 100%; height: 14px; border-radius: 30px; background-color: rgba(0, 188, 212, 0.5);"></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(0, 188, 212); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 50%; position: absolute; top: 1px; left: 100%; width: 20px; height: 20px; line-height: 24px; margin-left: -20px;"><!-- react-text: 2517 --> <!-- /react-text --><div></div><div style="position: absolute; overflow: hidden; height: 100%; width: 100%; top: 0px; left: 0px;"></div><!-- react-text: 2520 --> <!-- /react-text --></div></div><label style="float: left; position: relative; display: block; width: calc(100% - 46px); line-height: 24px; color: rgba(0, 0, 0, 0.87); font-family: Roboto, sans-serif;">Logged</label></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(0, 188, 212); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 0px; position: relative; z-index: 1100; width: 100%; display: flex; padding-left: 24px; padding-right: 24px;"><div style="margin-top: 8px; margin-right: 8px; margin-left: -16px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(255, 255, 255); fill: rgb(255, 255, 255); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></button></div><h1 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0px; padding-top: 0px; letter-spacing: 0px; font-size: 24px; font-weight: 400; color: rgb(255, 255, 255); height: 64px; line-height: 64px; flex: 1 1 0%;">Title</h1><div style="margin-top: 8px; margin-right: -16px; margin-left: auto;"><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(255, 255, 255); fill: rgb(255, 255, 255); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 2536 --><!-- react-empty: 2537 --></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Can be used to render a tab inside an app bar for instance.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Applied to the app bar's root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconClassNameLeft</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The classname of the icon on the left of the app bar. If you are using a stylesheet for your icons, enter the class name for the icon to be used here.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconClassNameRight</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Similiar to the iconClassNameLeft prop except that it applies to the icon displayed on the right of the app bar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconElementLeft</td>
+            <td style="text-align:left">element</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The custom element to be displayed on the left side of the app bar such as an SvgIcon.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconElementRight</td>
+            <td style="text-align:left">element</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Similiar to the iconElementLeft prop except that this element is displayed on the right of the app bar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconStyleLeft</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the element displayed on the left side of the app bar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconStyleRight</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the element displayed on the right side of the app bar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onLeftIconButtonTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function for when the left icon is selected via a touch tap.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> TouchTap event targeting the left <code>IconButton</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onRightIconButtonTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function for when the right icon is selected via a touch tap.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> TouchTap event targeting the right <code>IconButton</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onTitleTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function for when the title text is selected via a touch tap.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> TouchTap event targeting the <code>title</code> node.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">showMenuIconButton</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">Determines whether or not to display the Menu icon next to the title. Setting this prop to false will hide the icon.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">title</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left">''</td>
+            <td style="text-align:left">The title to display on the app bar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">titleStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the app bar's title element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">zDepth</td>
+            <td style="text-align:left">propTypes.zDepth</td>
+            <td style="text-align:left">1</td>
+            <td style="text-align:left">The zDepth of the component. The shadow of the app bar is also dependent on this property.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

@@ -1,0 +1,105 @@
+<div><!-- react-empty: 7109 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="linear-progress">Linear Progress</h2>
+    <p><a href="https://www.google.com/design/spec/components/progress-activity.html#progress-activity-types-of-indicators">Linear Progress</a>
+        bars fill from 0% to 100% to show the progress of a task. It also will animate to
+        show there is a task waiting to be done.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Indeterminate progress</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> LinearProgress <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/LinearProgress'</span>;
+
+    <span class="hljs-keyword">const</span> LinearProgressExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">LinearProgress</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"indeterminate"</span> /&gt;</span>
+);
+
+export default LinearProgressExampleSimple;</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>By default, the indicator animates continuously.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div mode="indeterminate" value="0" min="0" max="100" style="position: relative; height: 4px; display: block; width: 100%; background-color: rgb(189, 189, 189); border-radius: 2px; margin: 0px; overflow: hidden;"><div style="height: 100%;"><div style="position: absolute; background-color: rgb(0, 188, 212); top: 0px; left: -35%; bottom: 0px; transition: all 840ms cubic-bezier(0.65, 0.815, 0.735, 0.395) 0ms; right: 100%;"></div><div style="position: absolute; background-color: rgb(0, 188, 212); top: 0px; left: 107%; bottom: 0px; transition: all 0ms cubic-bezier(0.165, 0.84, 0.44, 1) 0ms; right: -8%;"></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Determinate progress</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> LinearProgress <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/LinearProgress'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinearProgressExampleDeterminate</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+
+    <span class="hljs-keyword">this</span>.state = {
+    <span class="hljs-attr">completed</span>: <span class="hljs-number">0</span>,
+    };
+    }
+
+    componentDidMount() {
+    <span class="hljs-keyword">this</span>.timer = setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.progress(<span class="hljs-number">5</span>), <span class="hljs-number">1000</span>);
+    }
+
+    componentWillUnmount() {
+    clearTimeout(<span class="hljs-keyword">this</span>.timer);
+    }
+
+    progress(completed) {
+    <span class="hljs-keyword">if</span> (completed &gt; <span class="hljs-number">100</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">completed</span>: <span class="hljs-number">100</span>});
+    } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">this</span>.setState({completed});
+    <span class="hljs-keyword">const</span> diff = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">this</span>.timer = setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.progress(completed + diff), <span class="hljs-number">1000</span>);
+    }
+    }
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">LinearProgress</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"determinate"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.completed}</span> /&gt;</span>
+    );
+  }
+}</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>In <code>determinate</code> mode, the indicator adjusts to show the percentage complete, as a ratio of <code>value</code>: <code>max-min</code>.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div mode="determinate" value="41.45917617764683" min="0" max="100" style="position: relative; height: 4px; display: block; width: 100%; background-color: rgb(189, 189, 189); border-radius: 2px; margin: 0px; overflow: hidden;"><div style="height: 100%; background-color: rgb(0, 188, 212); transition: width 0.3s linear 0ms; width: 41.46%;"><div></div><div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">color</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The color of the progress bar, defaults to primary color of theme.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">max</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">100</td>
+            <td style="text-align:left">The max value of progress, only works in determinate mode.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">min</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">0</td>
+            <td style="text-align:left">The min value of progress, only works in determinate mode.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">mode</td>
+            <td style="text-align:left">enum:<br>&nbsp;'determinate'<br>&nbsp;'indeterminate'<br></td>
+            <td style="text-align:left">'indeterminate'</td>
+            <td style="text-align:left">The mode of show your progress, indeterminate for when there is no value for progress.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">0</td>
+            <td style="text-align:left">The value of progress, only works in determinate mode.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

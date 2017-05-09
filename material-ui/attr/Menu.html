@@ -1,0 +1,477 @@
+<div><!-- react-empty: 5890 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="menu">Menu</h2>
+    <p><a href="https://www.google.com/design/spec/components/menus.html">Menus</a> allow you to
+        take an action by selecting from a list revealed upon opening a temporary,
+        new sheet of material.</p>
+    <p>A <code>Menu</code> is typically used in a <a href="/#/components/popover">Popover</a>.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Paper <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Paper'</span>;
+    <span class="hljs-keyword">import</span> Menu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Menu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+
+    <span class="hljs-keyword">const</span> style = {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'inline-block'</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-string">'16px 32px 16px 0'</span>,
+    };
+
+    <span class="hljs-keyword">const</span> MenuExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu&gt;
+    &lt;MenuItem primaryText="Maps" /&gt;
+    &lt;MenuItem primaryText="Books" /&gt;
+    &lt;MenuItem primaryText="Flights" /&gt;
+    &lt;MenuItem primaryText="Apps" /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu&gt;
+    &lt;MenuItem primaryText="Refresh" /&gt;
+    &lt;MenuItem primaryText="Help &amp;amp; feedback" /&gt;
+    &lt;MenuItem primaryText="Settings" /&gt;
+    &lt;MenuItem primaryText="Sign out" /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;/div&gt;
+    );
+
+    export default MenuExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Two simple examples. The menu widths adjusts to accommodate the content in keyline increments.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 84px;"><div role="menu" style="padding: 8px 0px; display: table-cell; user-select: none; width: 84px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Maps</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Books</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Flights</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Apps</div></div></div></span></div></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 168px;"><div role="menu" style="padding: 8px 0px; display: table-cell; user-select: none; width: 168px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Refresh</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Help &amp; feedback</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Settings</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Sign out</div></div></div></span></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Disabled items</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Paper <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Paper'</span>;
+    <span class="hljs-keyword">import</span> Menu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Menu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> Divider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Divider'</span>;
+
+    <span class="hljs-keyword">const</span> style = {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'inline-block'</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-string">'16px 32px 16px 0'</span>,
+    };
+
+    <span class="hljs-keyword">const</span> MenuExampleDisable = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu desktop={true}&gt;
+    &lt;MenuItem primaryText="Back" /&gt;
+    &lt;MenuItem primaryText="Forward" disabled={true} /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Recently closed" disabled={true} /&gt;
+    &lt;MenuItem primaryText="Google" disabled={true} /&gt;
+    &lt;MenuItem primaryText="YouTube" /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu desktop={true}&gt;
+    &lt;MenuItem primaryText="Undo" /&gt;
+    &lt;MenuItem primaryText="Redo" disabled={true} /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Cut" disabled={true} /&gt;
+    &lt;MenuItem primaryText="Copy" disabled={true} /&gt;
+    &lt;MenuItem primaryText="Paste" /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;/div&gt;
+    );
+
+    export default MenuExampleDisable;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The <code>disabled</code> property disables a <code>MenuItem</code>. <code>Menu</code> supports a more compact vertical spacing using the <code>desktop</code> property. The <a href="/#/components/divider">Divider</a> can be used to separate <code>MenuItems</code>.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 192px;"><div role="menu" style="padding: 16px 0px; display: table-cell; user-select: none; width: 192px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div>Back</div></div></div></span></div><div><div role="menuitem" style="color: rgba(0, 0, 0, 0.3); display: block; font-size: 15px; line-height: 32px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 0px 24px; cursor: default; min-height: 32px; white-space: nowrap;"><div>Forward</div></div></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><div role="menuitem" style="color: rgba(0, 0, 0, 0.3); display: block; font-size: 15px; line-height: 32px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 0px 24px; cursor: default; min-height: 32px; white-space: nowrap;"><div>Recently closed</div></div></div><div><div role="menuitem" style="color: rgba(0, 0, 0, 0.3); display: block; font-size: 15px; line-height: 32px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 0px 24px; cursor: default; min-height: 32px; white-space: nowrap;"><div>Google</div></div></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div>YouTube</div></div></div></span></div></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 96px;"><div role="menu" style="padding: 16px 0px; display: table-cell; user-select: none; width: 96px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div>Undo</div></div></div></span></div><div><div role="menuitem" style="color: rgba(0, 0, 0, 0.3); display: block; font-size: 15px; line-height: 32px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 0px 24px; cursor: default; min-height: 32px; white-space: nowrap;"><div>Redo</div></div></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><div role="menuitem" style="color: rgba(0, 0, 0, 0.3); display: block; font-size: 15px; line-height: 32px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 0px 24px; cursor: default; min-height: 32px; white-space: nowrap;"><div>Cut</div></div></div><div><div role="menuitem" style="color: rgba(0, 0, 0, 0.3); display: block; font-size: 15px; line-height: 32px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 0px 24px; cursor: default; min-height: 32px; white-space: nowrap;"><div>Copy</div></div></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div>Paste</div></div></div></span></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Icons</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Paper <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Paper'</span>;
+    <span class="hljs-keyword">import</span> Menu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Menu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> RemoveRedEye <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/image/remove-red-eye'</span>;
+    <span class="hljs-keyword">import</span> PersonAdd <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/social/person-add'</span>;
+    <span class="hljs-keyword">import</span> ContentLink <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/content/link'</span>;
+    <span class="hljs-keyword">import</span> Divider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Divider'</span>;
+    <span class="hljs-keyword">import</span> ContentCopy <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/content/content-copy'</span>;
+    <span class="hljs-keyword">import</span> Download <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/file/file-download'</span>;
+    <span class="hljs-keyword">import</span> Delete <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/action/delete'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+
+    <span class="hljs-keyword">const</span> style = {
+    <span class="hljs-attr">paper</span>: {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'inline-block'</span>,
+    <span class="hljs-attr">float</span>: <span class="hljs-string">'left'</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-string">'16px 32px 16px 0'</span>,
+    },
+    <span class="hljs-attr">rightIcon</span>: {
+    <span class="hljs-attr">textAlign</span>: <span class="hljs-string">'center'</span>,
+    <span class="hljs-attr">lineHeight</span>: <span class="hljs-string">'24px'</span>,
+    },
+    };
+
+    <span class="hljs-keyword">const</span> MenuExampleIcons = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;Paper style={style.paper}&gt;
+    &lt;Menu&gt;
+    &lt;MenuItem primaryText="Preview" leftIcon={&lt;RemoveRedEye /&gt;} /&gt;
+    &lt;MenuItem primaryText="Share" leftIcon={&lt;PersonAdd /&gt;} /&gt;
+    &lt;MenuItem primaryText="Get links" leftIcon={&lt;ContentLink /&gt;} /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Make a copy" leftIcon={&lt;ContentCopy /&gt;} /&gt;
+    &lt;MenuItem primaryText="Download" leftIcon={&lt;Download /&gt;} /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Remove" leftIcon={&lt;Delete /&gt;} /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;Paper style={style.paper}&gt;
+    &lt;Menu&gt;
+    &lt;MenuItem primaryText="Clear Config" /&gt;
+    &lt;MenuItem primaryText="New Config" rightIcon={&lt;PersonAdd /&gt;} /&gt;
+    &lt;MenuItem primaryText="Project" rightIcon={&lt;FontIcon className="material-icons"&gt;settings&lt;/FontIcon&gt;} /&gt;
+    &lt;MenuItem
+    primaryText="Workspace"
+    rightIcon={
+    &lt;FontIcon className="material-icons" style={{color: '#559'}}&gt;settings&lt;/FontIcon&gt;
+    }
+    /&gt;
+    &lt;MenuItem primaryText="Paragraph" rightIcon={&lt;b style={style.rightIcon}&gt;¶&lt;/b&gt;} /&gt;
+    &lt;MenuItem primaryText="Section" rightIcon={&lt;b style={style.rightIcon}&gt;§&lt;/b&gt;} /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;/div&gt;
+    );
+
+    export default MenuExampleIcons;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p><code>MenuItem</code> supports icons through the <code>leftIcon</code> and <code>rightIcon</code> properties.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; float: left; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 224px;"><div role="menu" style="padding: 8px 0px; display: table-cell; user-select: none; width: 224px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px 0px 72px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 0px; margin: 12px; left: 4px;"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg><div>Preview</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px 0px 72px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 0px; margin: 12px; left: 4px;"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg><div>Share</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px 0px 72px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 0px; margin: 12px; left: 4px;"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg><div>Get links</div></div></div></span></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px 0px 72px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 0px; margin: 12px; left: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg><div>Make a copy</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px 0px 72px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 0px; margin: 12px; left: 4px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></svg><div>Download</div></div></div></span></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px 0px 72px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 0px; margin: 12px; left: 4px;"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg><div>Remove</div></div></div></span></div></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; float: left; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 224px;"><div role="menu" style="padding: 8px 0px; display: table-cell; user-select: none; width: 224px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><div>Clear Config</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 72px 0px 16px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 0px; margin: 12px; right: 4px;"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg><div>New Config</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 72px 0px 16px; position: relative;"><span class="material-icons" color="#757575" style="color: rgb(117, 117, 117); position: absolute; font-size: 24px; display: block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; height: 24px; width: 24px; top: 0px; margin: 12px; right: 4px;">settings</span><div>Project</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 72px 0px 16px; position: relative;"><span class="material-icons" color="#757575" style="color: rgb(85, 85, 153); position: absolute; font-size: 24px; display: block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; height: 24px; width: 24px; top: 0px; margin: 12px; right: 4px;">settings</span><div>Workspace</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 72px 0px 16px; position: relative;"><b color="#757575" style="height: 24px; width: 24px; display: block; position: absolute; top: 0px; margin: 12px; right: 4px; text-align: center; line-height: 24px;">¶</b><div>Paragraph</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 72px 0px 16px; position: relative;"><b color="#757575" style="height: 24px; width: 24px; display: block; position: absolute; top: 0px; margin: 12px; right: 4px; text-align: center; line-height: 24px;">§</b><div>Section</div></div></div></span></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Secondary text</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Paper <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Paper'</span>;
+    <span class="hljs-keyword">import</span> Menu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Menu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> Divider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Divider'</span>;
+    <span class="hljs-keyword">import</span> ArrowDropRight <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation-arrow-drop-right'</span>;
+
+    <span class="hljs-keyword">const</span> style = {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'inline-block'</span>,
+    <span class="hljs-attr">float</span>: <span class="hljs-string">'left'</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-string">'16px 32px 16px 0'</span>,
+    };
+
+    <span class="hljs-keyword">const</span> MenuExampleSecondary = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu desktop={true} width={256}&gt;
+    &lt;MenuItem primaryText="Bold" secondaryText="&amp;#8984;B" /&gt;
+    &lt;MenuItem primaryText="Italic" secondaryText="&amp;#8984;I" /&gt;
+    &lt;MenuItem primaryText="Underline" secondaryText="&amp;#8984;U" /&gt;
+    &lt;MenuItem primaryText="Strikethrough" secondaryText="Alt+Shift+5" /&gt;
+    &lt;MenuItem primaryText="Superscript" secondaryText="&amp;#8984;." /&gt;
+    &lt;MenuItem primaryText="Subscript" secondaryText="&amp;#8984;," /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Paragraph styles" rightIcon={&lt;ArrowDropRight /&gt;} /&gt;
+    &lt;MenuItem primaryText="Align" rightIcon={&lt;ArrowDropRight /&gt;} /&gt;
+    &lt;MenuItem primaryText="Line spacing" rightIcon={&lt;ArrowDropRight /&gt;} /&gt;
+    &lt;MenuItem primaryText="Numbered list" rightIcon={&lt;ArrowDropRight /&gt;} /&gt;
+    &lt;MenuItem primaryText="List options" rightIcon={&lt;ArrowDropRight /&gt;} /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Clear formatting" secondaryText="&amp;#8984;/" /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu desktop={true} width={256}&gt;
+    &lt;MenuItem primaryText="Open" secondaryText="Cmd + O" /&gt;
+    &lt;MenuItem primaryText="Paste in place" secondaryText="Shift + V" /&gt;
+    &lt;MenuItem primaryText="Research" secondaryText="Opt + Shift + Cmd + I" /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu desktop={true} width={256}&gt;
+    &lt;MenuItem primaryText="Open" secondaryText="&amp;#8984;O" /&gt;
+    &lt;MenuItem primaryText="Paste in place" secondaryText="&amp;#8679;&amp;#8984;V" /&gt;
+    &lt;MenuItem primaryText="Research" secondaryText="&amp;#8997;&amp;#8679;&amp;#8984;I" /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;/div&gt;
+    );
+
+    export default MenuExampleSecondary;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p><code>MenuItem</code> supports a <code>secondaryText</code> property.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; float: left; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 256px;"><div role="menu" style="padding: 16px 0px; display: table-cell; user-select: none; width: 256px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌘B</div><div>Bold</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌘I</div><div>Italic</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌘U</div><div>Underline</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">Alt+Shift+5</div><div>Strikethrough</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌘.</div><div>Superscript</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌘,</div><div>Subscript</div></div></div></span></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 64px 0px 24px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 4px; margin: 0px; right: 24px;"><path d="M9.5,7l5,5l-5,5V7z"></path></svg><div>Paragraph styles</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 64px 0px 24px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 4px; margin: 0px; right: 24px;"><path d="M9.5,7l5,5l-5,5V7z"></path></svg><div>Align</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 64px 0px 24px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 4px; margin: 0px; right: 24px;"><path d="M9.5,7l5,5l-5,5V7z"></path></svg><div>Line spacing</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 64px 0px 24px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 4px; margin: 0px; right: 24px;"><path d="M9.5,7l5,5l-5,5V7z"></path></svg><div>Numbered list</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 64px 0px 24px; position: relative;"><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 4px; margin: 0px; right: 24px;"><path d="M9.5,7l5,5l-5,5V7z"></path></svg><div>List options</div></div></div></span></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌘/</div><div>Clear formatting</div></div></div></span></div></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; float: left; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 256px;"><div role="menu" style="padding: 16px 0px; display: table-cell; user-select: none; width: 256px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">Cmd + O</div><div>Open</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">Shift + V</div><div>Paste in place</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">Opt + Shift + Cmd + I</div><div>Research</div></div></div></span></div></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; float: left; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 256px;"><div role="menu" style="padding: 16px 0px; display: table-cell; user-select: none; width: 256px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌘O</div><div>Open</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⇧⌘V</div><div>Paste in place</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div style="float: right;">⌥⇧⌘I</div><div>Research</div></div></div></span></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Nested menus</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Paper <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Paper'</span>;
+    <span class="hljs-keyword">import</span> Menu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Menu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> Divider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Divider'</span>;
+    <span class="hljs-keyword">import</span> ArrowDropRight <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation-arrow-drop-right'</span>;
+
+    <span class="hljs-keyword">const</span> style = {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'inline-block'</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-string">'16px 32px 16px 0'</span>,
+    };
+
+    <span class="hljs-keyword">const</span> MenuExampleNested = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;Paper style={style}&gt;
+    &lt;Menu desktop={true} width={320}&gt;
+    &lt;MenuItem primaryText="Single" insetChildren={true} /&gt;
+    &lt;MenuItem primaryText="1.15" insetChildren={true} /&gt;
+    &lt;MenuItem primaryText="Double" insetChildren={true} /&gt;
+    &lt;MenuItem
+    primaryText="Custom: 1.2"
+    checked={true}
+    rightIcon={&lt;ArrowDropRight /&gt;}
+    menuItems={[
+    &lt;MenuItem
+    primaryText="Show"
+    rightIcon={&lt;ArrowDropRight /&gt;}
+    menuItems={[
+    &lt;MenuItem primaryText="Show Level 2" /&gt;,
+    &lt;MenuItem primaryText="Grid lines" checked={true} /&gt;,
+    &lt;MenuItem primaryText="Page breaks" insetChildren={true} /&gt;,
+    &lt;MenuItem primaryText="Rules" checked={true} /&gt;,
+    ]}
+    /&gt;,
+    &lt;MenuItem primaryText="Grid lines" checked={true} /&gt;,
+    &lt;MenuItem primaryText="Page breaks" insetChildren={true} /&gt;,
+    &lt;MenuItem primaryText="Rules" checked={true} /&gt;,
+    ]}
+    /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Add space before paragraph" /&gt;
+    &lt;MenuItem primaryText="Add space after paragraph" /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Custom spacing..." /&gt;
+    &lt;/Menu&gt;
+    &lt;/Paper&gt;
+    &lt;/div&gt;
+    );
+
+    export default MenuExampleNested;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Cascading menus can be configured using the <code>menuItems</code> property of the <code>MenuItem</code> component.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; margin: 16px 32px 16px 0px;"><div role="presentation" style="z-index: 1000; width: 320px;"><div role="menu" style="padding: 16px 0px; display: table-cell; user-select: none; width: 320px;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px 0px 64px; position: relative;"><div>Single</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px 0px 64px; position: relative;"><div>1.15</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px 0px 64px; position: relative;"><div>Double</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 64px; position: relative;"><div style="display: none;"><!-- react-empty: 6316 --><!-- react-empty: 6317 --></div><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 4px; margin: 0px; left: 24px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgb(117, 117, 117); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; position: absolute; top: 4px; margin: 0px; right: 24px;"><path d="M9.5,7l5,5l-5,5V7z"></path></svg><div>Custom: 1.2</div></div></div></span></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div>Add space before paragraph</div></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div>Add space after paragraph</div></div></div></span></div><hr style="margin: 7px 0px 8px; height: 1px; border: none; background-color: rgb(224, 224, 224);"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 24px; position: relative;"><div>Custom spacing...</div></div></div></span></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="menu-properties">Menu Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">autoWidth</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">If true, the width of the menu will be set automatically according to the widths of its children, using proper keyline increments (64px for desktop, 56px otherwise).</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The content of the menu. This is usually used to pass <code>MenuItem</code> elements.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">desktop</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the menu item will render with compact desktop styles.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disableAutoFocus</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the menu will not be auto-focused.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">initiallyKeyboardFocused</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the menu will be keyboard-focused initially.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">listStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the underlying <code>List</code> element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">maxHeight</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">null</td>
+            <td style="text-align:left">The maximum height of the menu in pixels. If specified, the menu will be scrollable if it is taller than the provided height.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuItemStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of menu items.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">multiple</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, <code>value</code> must be an array and the menu will support multiple selections.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function fired when a menu item with <code>value</code> not equal to the current <code>value</code> of the menu is touch-tapped.<br><br><strong>Signature:</strong><br><code>function(event: object, value: any) =&gt; void</code><br><em>event:</em> TouchTap event targeting the menu item.<br><em>value:</em> If <code>multiple</code> is true, the menu's <code>value</code> array with either the menu item's <code>value</code> added (if it wasn't already selected) or omitted (if it was already selected). Otherwise, the <code>value</code> of the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onEscKeyDown</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function fired when the menu is focused and the <em>Esc</em> key is pressed.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> <code>keydown</code> event targeting the menu.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onItemTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function fired when a menu item is touch-tapped.<br><br><strong>Signature:</strong><br><code>function(event: object, menuItem: object, index: number) =&gt; void</code><br><em>event:</em> TouchTap event targeting the menu item.<br><em>menuItem:</em> The menu item.<br><em>index:</em> The index of the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onMenuItemFocusChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the focus on a <code>MenuItem</code> is changed. There will be some "duplicate" changes reported if two different focusing event happen, for example if a <code>MenuItem</code> is focused via the keyboard and then it is clicked on.<br><br><strong>Signature:</strong><br><code>function(event: object, newFocusIndex: number) =&gt; void</code><br><em>event:</em> The event that triggered the focus change. The event can be null since the focus can be changed for non-event reasons such as prop changes.<br><em>newFocusIndex:</em> The index of the newly focused <code>MenuItem</code> or <code>-1</code> if focus was lost.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">selectedMenuItemStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of selected menu items.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">any</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">If <code>multiple</code> is true, an array of the <code>value</code>s of the selected menu items. Otherwise, the <code>value</code> of the selected menu item. If provided, the menu will be a controlled component. This component also supports valueLink.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">valueLink</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">ValueLink for the menu's <code>value</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">width</td>
+            <td style="text-align:left">propTypes.stringOrNumber</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The width of the menu. If not specified, the menu's width will be set according to the widths of its children, using proper keyline increments (64px for desktop, 56px otherwise).</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="menuitem-properties">MenuItem Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">anchorOrigin</td>
+            <td style="text-align:left">propTypes.origin</td>
+            <td style="text-align:left">{horizontal: 'right', vertical: 'top'}</td>
+            <td style="text-align:left">Location of the anchor for the popover of nested <code>MenuItem</code> elements.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">animation</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the default animation component used.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">checked</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, a left check mark will be rendered.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Elements passed as children to the underlying <code>ListItem</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disabled</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the menu item will be disabled.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">focusState</td>
+            <td style="text-align:left">enum:<br>&nbsp;'none'<br>&nbsp;'focused'<br>&nbsp;'keyboard-focused'<br></td>
+            <td style="text-align:left">'none'</td>
+            <td style="text-align:left">The focus state of the menu item. This prop is used to set the focus state of the underlying <code>ListItem</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">innerDivStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the inner div.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">insetChildren</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the children will be indented. This is only needed when there is no <code>leftIcon</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">leftIcon</td>
+            <td style="text-align:left">element</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The <code>SvgIcon</code> or <code>FontIcon</code> to be displayed on the left side.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuItems</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left"><code>MenuItem</code> elements to nest within the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the menu item is touch-tapped.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> TouchTap event targeting the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">primaryText</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Can be used to render primary text within the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">rightIcon</td>
+            <td style="text-align:left">element</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The <code>SvgIcon</code> or <code>FontIcon</code> to be displayed on the right side.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">secondaryText</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Can be used to render secondary text within the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">any</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The value of the menu item.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

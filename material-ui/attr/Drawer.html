@@ -1,0 +1,210 @@
+<div><!-- react-empty: 4327 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="drawer">Drawer</h2>
+    <p>The <a href="https://www.google.com/design/spec/patterns/navigation-drawer.html">Drawer</a> slides in from the side.
+        It is a common pattern found in Google apps and follows the keylines and metrics for lists.</p>
+    <p>There are no examples for uncontrolled mode because an uncontrolled <code>Drawer</code> can only be opened with a swipe.
+        The doc site has an uncontrolled <code>Drawer</code>. Swipe from the left on a touch device to see it.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Docked example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Drawer <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Drawer'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DrawerSimpleExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">open</span>: <span class="hljs-literal">false</span>};
+    }
+
+    handleToggle = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">open</span>: !<span class="hljs-keyword">this</span>.state.open});
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RaisedButton</span>
+          <span class="hljs-attr">label</span>=<span class="hljs-string">"Toggle Drawer"</span>
+          <span class="hljs-attr">onTouchTap</span>=<span class="hljs-string">{this.handleToggle}</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Drawer</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{this.state.open}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">MenuItem</span>&gt;</span>Menu Item<span class="hljs-tag">&lt;/<span class="hljs-name">MenuItem</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">MenuItem</span>&gt;</span>Menu Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">MenuItem</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Drawer</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>A simple controlled <code>Drawer</code>. The Drawer is <code>docked</code> by default, remaining open unless closed through the <code>open</code> prop.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(255, 255, 255); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgba(0, 0, 0, 0.87);">Toggle Drawer</span></div></div></button></div><div><!-- react-empty: 4354 --><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px; border-radius: 0px; height: 100%; width: 256px; position: fixed; z-index: 1300; left: 0px; top: 0px; transform: translate(-266px, 0px); overflow: auto;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><!-- react-text: 4360 -->Menu Item<!-- /react-text --></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><!-- react-text: 4365 -->Menu Item 2<!-- /react-text --></div></div></span></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Undocked example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Drawer <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Drawer'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DrawerUndockedExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">open</span>: <span class="hljs-literal">false</span>};
+    }
+
+    handleToggle = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">open</span>: !<span class="hljs-keyword">this</span>.state.open});
+
+    handleClose = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">open</span>: <span class="hljs-literal">false</span>});
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RaisedButton</span>
+          <span class="hljs-attr">label</span>=<span class="hljs-string">"Open Drawer"</span>
+          <span class="hljs-attr">onTouchTap</span>=<span class="hljs-string">{this.handleToggle}</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Drawer</span>
+          <span class="hljs-attr">docked</span>=<span class="hljs-string">{false}</span>
+          <span class="hljs-attr">width</span>=<span class="hljs-string">{200}</span>
+          <span class="hljs-attr">open</span>=<span class="hljs-string">{this.state.open}</span>
+          <span class="hljs-attr">onRequestChange</span>=<span class="hljs-string">{(open)</span> =&gt;</span> this.setState({open})}
+        &gt;
+          <span class="hljs-tag">&lt;<span class="hljs-name">MenuItem</span> <span class="hljs-attr">onTouchTap</span>=<span class="hljs-string">{this.handleClose}</span>&gt;</span>Menu Item<span class="hljs-tag">&lt;/<span class="hljs-name">MenuItem</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">MenuItem</span> <span class="hljs-attr">onTouchTap</span>=<span class="hljs-string">{this.handleClose}</span>&gt;</span>Menu Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">MenuItem</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Drawer</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>An undocked controlled <code>Drawer</code> with custom width. The Drawer can be cancelled by clicking the overlay or pressing the Esc key. It closes when an item is selected, handled by controlling the <code>open</code> prop.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(255, 255, 255); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgba(0, 0, 0, 0.87);">Open Drawer</span></div></div></button></div><div><!-- react-empty: 4392 --><div style="position: fixed; height: 100%; width: 100%; top: 0px; left: -100%; opacity: 0; background-color: rgba(0, 0, 0, 0.54); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); will-change: opacity; transform: translateZ(0px); transition: left 0ms cubic-bezier(0.23, 1, 0.32, 1) 400ms, opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1200; pointer-events: none;"><!-- react-empty: 4394 --></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px; border-radius: 0px; height: 100%; width: 200px; position: fixed; z-index: 1300; left: 0px; top: 0px; transform: translate(-210px, 0px); overflow: auto;"><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><!-- react-text: 4400 -->Menu Item<!-- /react-text --></div></div></span></div><div><span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 16px; font-weight: inherit; position: relative; z-index: 1; color: rgba(0, 0, 0, 0.87); line-height: 48px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 48px; white-space: nowrap; background: none;"><div><div style="margin-left: 0px; padding: 0px 16px; position: relative;"><!-- react-text: 4405 -->Menu Item 2<!-- /react-text --></div></div></span></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Open secondary example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Drawer <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Drawer'</span>;
+    <span class="hljs-keyword">import</span> AppBar <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AppBar'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DrawerOpenRightExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">open</span>: <span class="hljs-literal">false</span>};
+    }
+
+    handleToggle = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">open</span>: !<span class="hljs-keyword">this</span>.state.open});
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;RaisedButton
+    label="Toggle Drawer"
+    onTouchTap={this.handleToggle}
+    /&gt;
+    &lt;Drawer width={200} openSecondary={true} open={this.state.open} &gt;
+    &lt;AppBar title="AppBar" /&gt;
+    &lt;/Drawer&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The <code>openSecondary</code> prop allows the Drawer to open on the opposite side.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(255, 255, 255); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgba(0, 0, 0, 0.87);">Toggle Drawer</span></div></div></button></div><div><!-- react-empty: 4432 --><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px; border-radius: 0px; height: 100%; width: 200px; position: fixed; z-index: 1300; left: auto; top: 0px; transform: translate(210px, 0px); overflow: auto; right: 0px;"><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(0, 188, 212); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 0px; position: relative; z-index: 1100; width: 100%; display: flex; padding-left: 24px; padding-right: 24px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 8px 8px 0px -16px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(255, 255, 255); fill: rgb(255, 255, 255); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div></button><h1 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0px; padding-top: 0px; letter-spacing: 0px; font-size: 24px; font-weight: 400; color: rgb(255, 255, 255); height: 64px; line-height: 64px; flex: 1 1 0%;">AppBar</h1></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The contents of the <code>Drawer</code></td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The CSS class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">containerClassName</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The CSS class name of the container element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">containerStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the container element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disableSwipeToOpen</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, swiping sideways when the <code>Drawer</code> is closed will not open it.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">docked</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">If true, the <code>Drawer</code> will be docked. In this state, the overlay won't show and clicking on a menu item will not close the <code>Drawer</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onRequestChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the <code>open</code> state of the <code>Drawer</code> is requested to be changed.<br><br><strong>Signature:</strong><br><code>function(open: boolean, reason: string) =&gt; void</code><br><em>open:</em> If true, the <code>Drawer</code> was requested to be opened.<br><em>reason:</em> The reason for the open or close request. Possible values are 'swipe' for open requests; 'clickaway' (on overlay clicks), 'escape' (on escape key press), and 'swipe' for close requests.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">open</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">null</td>
+            <td style="text-align:left">If true, the <code>Drawer</code> is opened.  Providing a value will turn the <code>Drawer</code> into a controlled component.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">openSecondary</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the <code>Drawer</code> is positioned to open from the opposite side.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">overlayClassName</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The CSS class name to add to the <code>Overlay</code> component that is rendered behind the <code>Drawer</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">overlayStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the <code>Overlay</code> component that is rendered behind the <code>Drawer</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">swipeAreaWidth</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">30</td>
+            <td style="text-align:left">The width of the left most (or right most) area in pixels where the <code>Drawer</code> can be swiped open from. Setting this to <code>null</code> spans that area to the entire page (<strong>CAUTION!</strong> Setting this property to <code>null</code> might cause issues with sliders and swipeable <code>Tabs</code>: use at your own risk).</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">width</td>
+            <td style="text-align:left">union:<br>&nbsp;string<br>&nbsp;number<br></td>
+            <td style="text-align:left">null</td>
+            <td style="text-align:left">The width of the <code>Drawer</code> in pixels or percentage in string format ex. <code>50%</code> to fill half of the window or <code>100%</code> and so on. Defaults to using the values from theme.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">zDepth</td>
+            <td style="text-align:left">propTypes.zDepth</td>
+            <td style="text-align:left">2</td>
+            <td style="text-align:left">The zDepth of the <code>Drawer</code>.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

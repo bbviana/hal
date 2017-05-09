@@ -1,0 +1,182 @@
+<div><!-- react-empty: 2746 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="avatar">Avatar</h2>
+    <p>Avatars can be used to represent people or object.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Examples</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Avatar <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Avatar'</span>;
+    <span class="hljs-keyword">import</span> FileFolder <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/file/folder'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> List <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/List/List'</span>;
+    <span class="hljs-keyword">import</span> ListItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/List/ListItem'</span>;
+
+    <span class="hljs-keyword">import</span> {
+    blue300,
+    indigo900,
+    orange200,
+    deepOrange300,
+    pink400,
+    purple500,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/styles/colors'</span>;
+
+    <span class="hljs-keyword">const</span> style = {<span class="hljs-attr">margin</span>: <span class="hljs-number">5</span>};
+
+<span class="hljs-comment">/**
+ * Examples of `Avatar` using an image, [Font Icon](/#/components/font-icon), [SVG Icon](/#/components/svg-icon)
+ * and "Letter" (string), with and without custom colors at the default size (`40dp`) and an alternate size (`30dp`).
+ */</span>
+    <span class="hljs-keyword">const</span> AvatarExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;List&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={
+    &lt;Avatar src="images/uxceo-128.jpg" /&gt;
+    }
+    &gt;
+    Image Avatar
+    &lt;/ListItem&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={
+    &lt;Avatar
+    src="images/uxceo-128.jpg"
+    size={30}
+    style={style}
+    /&gt;
+    }
+    &gt;
+    Image Avatar with custom size
+    &lt;/ListItem&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={
+    &lt;Avatar icon={&lt;FontIcon className="muidocs-icon-communication-voicemail" /&gt;} /&gt;
+    }
+    &gt;
+    FontIcon Avatar
+    &lt;/ListItem&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={
+    &lt;Avatar
+    icon={&lt;FontIcon className="muidocs-icon-communication-voicemail" /&gt;}
+    color={blue300}
+    backgroundColor={indigo900}
+    size={30}
+    style={style}
+    /&gt;
+    }
+    &gt;
+    FontIcon Avatar with custom colors and size
+    &lt;/ListItem&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={
+    &lt;Avatar icon={&lt;FileFolder /&gt;} /&gt;
+    }
+    &gt;
+    SvgIcon Avatar
+    &lt;/ListItem&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={
+    &lt;Avatar
+    icon={&lt;FileFolder /&gt;}
+    color={orange200}
+    backgroundColor={pink400}
+    size={30}
+    style={style}
+    /&gt;
+    }
+    &gt;
+    SvgIcon Avatar with custom colors and size
+    &lt;/ListItem&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={&lt;Avatar&gt;A&lt;/Avatar&gt;}
+    &gt;
+    Letter Avatar
+    &lt;/ListItem&gt;
+    &lt;ListItem
+    disabled={true}
+    leftAvatar={
+    &lt;Avatar
+    color={deepOrange300}
+    backgroundColor={purple500}
+    size={30}
+    style={style}
+    &gt;
+    A
+    &lt;/Avatar&gt;
+    }
+    &gt;
+    Letter Avatar with custom colors and size
+    &lt;/ListItem&gt;
+    &lt;/List&gt;
+    );
+
+    export default AvatarExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Examples of <code>Avatar</code> using an image, <a href="/#/components/font-icon">Font Icon</a>, <a href="/#/components/svg-icon">SVG Icon</a>
+    and "Letter" (string), with and without custom colors at the default size (<code>40dp</code>) and an alternate size (<code>30dp</code>).</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="padding: 8px 0px;"><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2769 -->Image Avatar<!-- /react-text --><img size="40" src="images/uxceo-128.jpg" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; border-radius: 50%; height: 40px; width: 40px; position: absolute; top: 8px; left: 16px;"></div></div><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2773 -->Image Avatar with custom size<!-- /react-text --><img size="30" src="images/uxceo-128.jpg" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; border-radius: 50%; height: 30px; width: 30px; position: absolute; top: 8px; left: 16px; margin: 5px;"></div></div><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2777 -->FontIcon Avatar<!-- /react-text --><div size="40" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; border-radius: 50%; height: 40px; width: 40px; position: absolute; top: 8px; left: 16px;"><span class="muidocs-icon-communication-voicemail" color="#ffffff" style="color: rgb(255, 255, 255); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 24px; height: 24px; margin: 8px;"></span></div></div></div><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2782 -->FontIcon Avatar with custom colors and size<!-- /react-text --><div color="#64b5f6" size="30" style="color: rgb(100, 181, 246); background-color: rgb(26, 35, 126); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; border-radius: 50%; height: 30px; width: 30px; position: absolute; top: 8px; left: 16px; margin: 5px;"><span class="muidocs-icon-communication-voicemail" color="#64b5f6" style="color: rgb(100, 181, 246); position: relative; font-size: 18px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 18px; height: 18px; margin: 6px;"></span></div></div></div><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2787 -->SvgIcon Avatar<!-- /react-text --><div size="40" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; border-radius: 50%; height: 40px; width: 40px; position: absolute; top: 8px; left: 16px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(255, 255, 255); fill: rgb(255, 255, 255); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px; margin: 8px;"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path></svg></div></div></div><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2793 -->SvgIcon Avatar with custom colors and size<!-- /react-text --><div color="#ffcc80" size="30" style="color: rgb(255, 204, 128); background-color: rgb(236, 64, 122); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; border-radius: 50%; height: 30px; width: 30px; position: absolute; top: 8px; left: 16px; margin: 5px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(255, 204, 128); fill: rgb(255, 204, 128); height: 18px; width: 18px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 18px; margin: 6px;"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path></svg></div></div></div><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2799 -->Letter Avatar<!-- /react-text --><div size="40" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; border-radius: 50%; height: 40px; width: 40px; position: absolute; top: 8px; left: 16px;"><!-- react-text: 2801 -->A<!-- /react-text --></div></div></div><div><div style="color: rgba(0, 0, 0, 0.87); display: block; font-size: 16px; line-height: 16px; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-left: 0px; padding: 20px 16px 20px 72px;"><!-- react-text: 2804 -->Letter Avatar with custom colors and size<!-- /react-text --><div color="#ff8a65" size="30" style="color: rgb(255, 138, 101); background-color: rgb(156, 39, 176); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; border-radius: 50%; height: 30px; width: 30px; position: absolute; top: 8px; left: 16px; margin: 5px;"><!-- react-text: 2806 -->A<!-- /react-text --></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">backgroundColor</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The backgroundColor of the avatar. Does not apply to image avatars.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Can be used, for instance, to render a letter inside the avatar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root <code>div</code> or <code>img</code> element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">color</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The icon or letter's color.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">icon</td>
+            <td style="text-align:left">element</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">This is the SvgIcon or FontIcon to be used inside the avatar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">size</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">40</td>
+            <td style="text-align:left">This is the size of the avatar in pixels.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">src</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">If passed in, this component will render an img element. Otherwise, a div will be rendered.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

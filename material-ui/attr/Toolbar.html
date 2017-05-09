@@ -1,0 +1,208 @@
+<div><!-- react-empty: 10377 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="toolbar">Toolbar</h2>
+    <p><a href="https://www.google.com/design/spec/layout/structure.html#structure-toolbars">Toolbars</a> are collections of components stacked horizontally against each other.
+        Toolbars provide greater versatility than AppBars which are a subset of toolbars.
+        The following toolbar components can help organize your layout.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> IconMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconMenu'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> NavigationExpandMoreIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/expand-more'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> DropDownMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/DropDownMenu'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Toolbar'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ToolbarExamplesSimple</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
+    <span class="hljs-attr">value</span>: <span class="hljs-number">3</span>,
+    };
+    }
+
+    handleChange = <span class="hljs-function">(<span class="hljs-params">event, index, value</span>) =&gt;</span> <span class="hljs-keyword">this</span>.setState({value});
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;Toolbar&gt;
+    &lt;ToolbarGroup firstChild={true}&gt;
+    &lt;DropDownMenu value={this.state.value} onChange={this.handleChange}&gt;
+    &lt;MenuItem value={1} primaryText="All Broadcasts" /&gt;
+    &lt;MenuItem value={2} primaryText="All Voice" /&gt;
+    &lt;MenuItem value={3} primaryText="All Text" /&gt;
+    &lt;MenuItem value={4} primaryText="Complete Voice" /&gt;
+    &lt;MenuItem value={5} primaryText="Complete Text" /&gt;
+    &lt;MenuItem value={6} primaryText="Active Voice" /&gt;
+    &lt;MenuItem value={7} primaryText="Active Text" /&gt;
+    &lt;/DropDownMenu&gt;
+    &lt;/ToolbarGroup&gt;
+    &lt;ToolbarGroup&gt;
+    &lt;ToolbarTitle text="Options" /&gt;
+    &lt;FontIcon className="muidocs-icon-custom-sort" /&gt;
+    &lt;ToolbarSeparator /&gt;
+    &lt;RaisedButton label="Create Broadcast" primary={true} /&gt;
+    &lt;IconMenu
+    iconButtonElement={
+    &lt;IconButton touch={true}&gt;
+    &lt;NavigationExpandMoreIcon /&gt;
+    &lt;/IconButton&gt;
+    }
+    &gt;
+    &lt;MenuItem primaryText="Download" /&gt;
+    &lt;MenuItem primaryText="More Info" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;/ToolbarGroup&gt;
+    &lt;/Toolbar&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>An example Toolbar demonstrating the use of the available sub-components, and including a number of other Material-UI components, such as <a href="/#/components/dropdown-menu">Drop Down Menu</a>, <a href="/#/components/font-icon">Font Icon</a>, <a href="/#/components/icon-menu">Icon Menu</a> and <a href="/#/components/raised-button">Raised Button</a> .</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; margin-left: -24px; display: flex; justify-content: space-between; align-items: center;"><div style="display: inline-block; font-size: 15px; height: 48px; font-family: Roboto, sans-serif; outline: none; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; color: rgba(0, 0, 0, 0.54); margin-right: 24px; flex: 1 1 0%; white-space: nowrap; width: auto;"><div style="cursor: pointer; height: 100%; position: relative; width: 100%;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); height: 56px; line-height: 56px; overflow: hidden; opacity: 1; position: relative; padding-left: 24px; padding-right: 56px; text-overflow: ellipsis; top: 0px; white-space: nowrap;">All Text</div><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: absolute; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; fill: rgb(224, 224, 224); right: 16px; top: 4px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: inherit; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M7 10l5 5 5-5z"></path></svg></div></button><div style="border-top: 1px solid rgb(224, 224, 224); bottom: 1px; left: 0px; margin: -1px 24px; right: 0px; position: absolute; display: none;"></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div><div style="display: none;"><!-- react-empty: 10410 --><!-- react-empty: 10411 --></div></div></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Options</span><span class="muidocs-icon-custom-sort" color="rgba(0, 0, 0, 0.4)" style="color: rgba(0, 0, 0, 0.4); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; line-height: 56px; padding-left: 24px;"></span><span style="background-color: rgba(0, 0, 0, 0.176); display: block; height: 32px; margin-left: 24px; width: 1px; color: rgba(0, 0, 0, 0.4); line-height: 56px;"></span><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px; margin: 10px 24px; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(0, 188, 212); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgb(255, 255, 255);">Create Broadcast</span></div></div></button></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 10427 --><!-- react-empty: 10428 --></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="toolbar-properties">Toolbar Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Can be a <code>ToolbarGroup</code> to render a group of related items.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">noGutter</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">Do not apply <code>desktopGutter</code> to the <code>Toolbar</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="toolbargroup-properties">ToolbarGroup Properties</h3>
+    <p><code>ToolbarGroup</code> contains a collection of components for you.
+        It is recommended that all components in a <code>Toolbar</code> are contained within a <code>ToolbarGroup</code>.</p>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Can be any node or number of nodes.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">firstChild</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">Set this to true for if the <code>ToolbarGroup</code> is the first child of <code>Toolbar</code> to prevent setting the left gap.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">lastChild</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">Set this to true for if the <code>ToolbarGroup</code> is the last child of <code>Toolbar</code> to prevent setting the right gap.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="toolbarseparator-properties">ToolbarSeparator Properties</h3>
+    <p>A vertical bar used to separate groups of components.
+        It is used to easily organize components within a <code>Toolbar</code>.</p>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="toolbartitle-properties">ToolbarTitle Properties</h3>
+    <p>A simple text that is displayed in the <code>Toolbar</code>.</p>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">text</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The text to be displayed.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

@@ -1,0 +1,1202 @@
+<div><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h1 id="stepper">Stepper</h1>
+    <p>A <a href="https://www.google.com/design/spec/components/steppers.html">stepper</a>
+        is an interface for users to show numbered steps or for navigation. It just provides
+        views, not handling logic (when the step is active, or when the step is completed, or how to move
+        to the next step).</p>
+    <h2 id="basic-usage">Basic Usage</h2>
+    <p>The <code>&lt;Stepper&gt;</code> can be controlled by passing the current step index (zero based) as the <code>activeStep</code> prop. <code>&lt;Stepper&gt;</code> orientation is set using the <code>orientation</code> prop. Below are basic implementations of both the horizontal and vertical stepper.</p>
+    <p><strong>Note:</strong> In the linear examples we're using <code>&lt;StepLabel&gt;</code> to display the icon and heading. But in other types of Steppers (or other situations), you may want to use the <code>&lt;StepButton&gt;</code> component to make your step clickable.</p>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Horizontal linear stepper</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepLabel,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+
+<span class="hljs-comment">/**
+ * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
+ * Avoid using long step names in horizontal steppers.
+ *
+ * Linear steppers require users to complete one step in order to move on to the next.
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HorizontalLinearStepper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    state = {
+    <span class="hljs-attr">finished</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-number">0</span>,
+    };
+
+    handleNext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>,
+    <span class="hljs-attr">finished</span>: stepIndex &gt;= <span class="hljs-number">2</span>,
+    });
+    };
+
+    handlePrev = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>});
+    }
+    };
+
+    getStepContent(stepIndex) {
+    <span class="hljs-keyword">switch</span> (stepIndex) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Select campaign settings...'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'What is an ad group anyways?'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'This is the bit I really care about!'</span>;
+    <span class="hljs-keyword">default</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'You\'re a long way from home sonny jim!'</span>;
+    }
+    }
+
+    render() {
+    <span class="hljs-keyword">const</span> {finished, stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">const</span> contentStyle = {<span class="hljs-attr">margin</span>: <span class="hljs-string">'0 16px'</span>};
+
+    <span class="hljs-keyword">return</span> (
+    &lt;div style={{width: '100%', maxWidth: 700, margin: 'auto'}}&gt;
+    &lt;Stepper activeStep={stepIndex}&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Select campaign settings&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad group&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+    &lt;/Stepper&gt;
+    &lt;div style={contentStyle}&gt;
+    {finished ? (
+    &lt;p&gt;
+    &lt;a
+    href="#"
+    onClick={(event) =&gt; {
+    event.preventDefault();
+    this.setState({stepIndex: 0, finished: false});
+    }}
+    &gt;
+    Click here
+    &lt;/a&gt; to reset the example.
+    &lt;/p&gt;
+    ) : (
+    &lt;div&gt;
+    &lt;p&gt;{this.getStepContent(stepIndex)}&lt;/p&gt;
+    &lt;div style={{marginTop: 12}}&gt;
+    &lt;FlatButton
+    label="Back"
+    disabled={stepIndex === 0}
+    onTouchTap={this.handlePrev}
+    style={{marginRight: 12}}
+    /&gt;
+    &lt;RaisedButton
+    label={stepIndex === 2 ? 'Finish' : 'Next'}
+    primary={true}
+    onTouchTap={this.handleNext}
+    /&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    )}
+    &lt;/div&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default HorizontalLinearStepper;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Horizontal steppers are ideal when the contents of one step depend on an earlier step.
+    Avoid using long step names in horizontal steppers.</p>
+    <p>Linear steppers require users to complete one step in order to move on to the next.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="margin-bottom: 50px;"><div style="width: 100%; max-width: 700px; margin: auto;"><div style="display: flex; flex-direction: row; align-content: center; align-items: center; justify-content: space-between;"><div style="flex: 0 0 auto;"><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; font-weight: 500;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(0, 188, 212); fill: rgb(0, 188, 212); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8378 -->Select campaign settings<!-- /react-text --></span></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><span disabled="" style="height: 72px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">2</text></svg></span><!-- react-text: 8387 -->Create an ad group<!-- /react-text --></span></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><span disabled="" style="height: 72px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8396 -->Create an ad<!-- /react-text --></span></div></div><div style="margin: 0px 16px;"><div><p>Select campaign settings...</p><div style="margin-top: 12px;"><button disabled="" tabindex="-1" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 0px 12px 0px 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; min-width: 88px; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center;"><span style="position: relative; padding-left: 16px; padding-right: 16px; vertical-align: middle; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; font-size: 14px;">Back</span></button><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(0, 188, 212); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgb(255, 255, 255);">Next</span></div></div></button></div></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Vertical linear stepper</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepLabel,
+    StepContent,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+
+<span class="hljs-comment">/**
+ * Vertical steppers are designed for narrow screen sizes. They are ideal for mobile.
+ *
+ * To use the vertical stepper with the contained content as seen in spec examples,
+ * you must use the `&lt;StepContent&gt;` component inside the `&lt;Step&gt;`.
+ *
+ * &lt;small&gt;(The vertical stepper can also be used without `&lt;StepContent&gt;` to display a basic stepper.)&lt;/small&gt;
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VerticalLinearStepper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    state = {
+    <span class="hljs-attr">finished</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-number">0</span>,
+    };
+
+    handleNext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>,
+    <span class="hljs-attr">finished</span>: stepIndex &gt;= <span class="hljs-number">2</span>,
+    });
+    };
+
+    handlePrev = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>});
+    }
+    };
+
+    renderStepActions(step) {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+
+    <span class="hljs-keyword">return</span> (
+    &lt;div style={{margin: '12px 0'}}&gt;
+    &lt;RaisedButton
+    label={stepIndex === 2 ? 'Finish' : 'Next'}
+    disableTouchRipple={true}
+    disableFocusRipple={true}
+    primary={true}
+    onTouchTap={this.handleNext}
+    style={{marginRight: 12}}
+    /&gt;
+    {step &gt; 0 &amp;&amp; (
+    &lt;FlatButton
+    label="Back"
+    disabled={stepIndex === 0}
+    disableTouchRipple={true}
+    disableFocusRipple={true}
+    onTouchTap={this.handlePrev}
+    /&gt;
+    )}
+    &lt;/div&gt;
+    );
+    }
+
+    render() {
+    const {finished, stepIndex} = this.state;
+
+    return (
+    &lt;div style={{maxWidth: 380, maxHeight: 400, margin: 'auto'}}&gt;
+    &lt;Stepper activeStep={stepIndex} orientation="vertical"&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Select campaign settings&lt;/StepLabel&gt;
+    &lt;StepContent&gt;
+    &lt;p&gt;
+    For each ad campaign that you create, you can control how much
+    you're willing to spend on clicks and conversions, which networks
+    and geographical locations you want your ads to show on, and more.
+    &lt;/p&gt;
+    {this.renderStepActions(0)}
+    &lt;/StepContent&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad group&lt;/StepLabel&gt;
+    &lt;StepContent&gt;
+    &lt;p&gt;An ad group contains one or more ads which target a shared set of keywords.&lt;/p&gt;
+    {this.renderStepActions(1)}
+    &lt;/StepContent&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad&lt;/StepLabel&gt;
+    &lt;StepContent&gt;
+    &lt;p&gt;
+    Try out different ad text to see what brings in the most customers,
+    and learn how to enhance your ads using features like ad extensions.
+    If you run into any problems with your ads, find out how to tell if
+    they're running and how to resolve approval issues.
+    &lt;/p&gt;
+    {this.renderStepActions(2)}
+    &lt;/StepContent&gt;
+    &lt;/Step&gt;
+    &lt;/Stepper&gt;
+    {finished &amp;&amp; (
+    &lt;p style={{margin: '20px 0', textAlign: 'center'}}&gt;
+    &lt;a
+    href="#"
+    onClick={(event) =&gt; {
+    event.preventDefault();
+    this.setState({stepIndex: 0, finished: false});
+    }}
+    &gt;
+    Click here
+    &lt;/a&gt; to reset the example.
+    &lt;/p&gt;
+    )}
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default VerticalLinearStepper;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Vertical steppers are designed for narrow screen sizes. They are ideal for mobile.</p>
+    <p>To use the vertical stepper with the contained content as seen in spec examples,
+        you must use the <code>&lt;StepContent&gt;</code> component inside the <code>&lt;Step&gt;</code>.</p>
+    <p><small>(The vertical stepper can also be used without <code>&lt;StepContent&gt;</code> to display a basic stepper.)</small></p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 10px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="margin-bottom: 50px;"><div style="max-width: 380px; max-height: 400px; margin: auto;"><div style="display: flex; flex-direction: column; align-content: center; align-items: stretch; justify-content: space-between;"><div style="flex: 0 0 auto;"><span style="height: 64px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; font-weight: 500;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(0, 188, 212); fill: rgb(0, 188, 212); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8436 -->Select campaign settings<!-- /react-text --></span><div icon="1" style="margin-top: -14px; margin-left: 25px; padding-left: 21px; padding-right: 16px; overflow: hidden; border-left: 1px solid rgb(189, 189, 189);"><div style="position: relative; overflow: hidden; height: auto;"><div style="position: relative; height: auto; width: 100%; top: 0px; left: 0px; overflow: hidden; transition: height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><div style="overflow: hidden;"><p>For each ad campaign that you create, you can control how much you're willing to spend on clicks and conversions, which networks and geographical locations you want your ads to show on, and more.</p><div style="margin: 12px 0px;"><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px; margin-right: 12px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(0, 188, 212); text-align: center;"><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgb(255, 255, 255);">Next</span></div></button></div></div></div></div></div></div></div></div><div style="flex: 1 1 auto; margin-left: 25px;"><span style="display: block; border-color: rgb(189, 189, 189); border-left-style: solid; border-left-width: 1px; min-height: 28px;"></span></div><div style="flex: 0 0 auto; margin-top: -14px;"><span disabled="" style="height: 64px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">2</text></svg></span><!-- react-text: 8456 -->Create an ad group<!-- /react-text --></span><div disabled="" icon="2" style="margin-top: -14px; margin-left: 25px; padding-left: 21px; padding-right: 16px; overflow: hidden; border-left: 1px solid rgb(189, 189, 189);"><div style="position: relative; overflow: hidden; height: auto;"></div></div></div><div style="flex: 1 1 auto; margin-left: 25px;"><span style="display: block; border-color: rgb(189, 189, 189); border-left-style: solid; border-left-width: 1px; min-height: 28px;"></span></div><div style="flex: 0 0 auto; margin-top: -14px;"><span disabled="" style="height: 64px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8467 -->Create an ad<!-- /react-text --></span><div disabled="" icon="3" style="margin-top: -14px; margin-left: 25px; padding-left: 21px; padding-right: 16px; overflow: hidden;"><div style="position: relative; overflow: hidden; height: auto;"></div></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Horizontal non-linear stepper</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepButton,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+
+<span class="hljs-comment">/**
+ * Non-linear steppers allow users to enter a multi-step flow at any point.
+ *
+ * This example is similar to the regular horizontal stepper, except steps are no longer
+ * automatically set to `disabled={true}` based on the `activeStep` prop.
+ *
+ * We've used the `&lt;StepButton&gt;` here to demonstrate clickable step labels.
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HorizontalNonLinearStepper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    state = {
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-number">0</span>,
+    };
+
+    handleNext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &lt; <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>});
+    }
+    };
+
+    handlePrev = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>});
+    }
+    };
+
+    getStepContent(stepIndex) {
+    <span class="hljs-keyword">switch</span> (stepIndex) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Select campaign settings...'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'What is an ad group anyways?'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'This is the bit I really care about!'</span>;
+    <span class="hljs-keyword">default</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'You\'re a long way from home sonny jim!'</span>;
+    }
+    }
+
+    render() {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">const</span> contentStyle = {<span class="hljs-attr">margin</span>: <span class="hljs-string">'0 16px'</span>};
+
+    <span class="hljs-keyword">return</span> (
+    &lt;div style={{width: '100%', maxWidth: 700, margin: 'auto'}}&gt;
+    &lt;Stepper linear={false} activeStep={stepIndex}&gt;
+    &lt;Step&gt;
+    &lt;StepButton onClick={() =&gt; this.setState({stepIndex: 0})}&gt;
+    Select campaign settings
+    &lt;/StepButton&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepButton onClick={() =&gt; this.setState({stepIndex: 1})}&gt;
+    Create an ad group
+    &lt;/StepButton&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepButton onClick={() =&gt; this.setState({stepIndex: 2})}&gt;
+    Create an ad
+    &lt;/StepButton&gt;
+    &lt;/Step&gt;
+    &lt;/Stepper&gt;
+    &lt;div style={contentStyle}&gt;
+    &lt;p&gt;{this.getStepContent(stepIndex)}&lt;/p&gt;
+    &lt;div style={{marginTop: 12}}&gt;
+    &lt;FlatButton
+    label="Back"
+    disabled={stepIndex === 0}
+    onTouchTap={this.handlePrev}
+    style={{marginRight: 12}}
+    /&gt;
+    &lt;RaisedButton
+    label="Next"
+    disabled={stepIndex === 2}
+    primary={true}
+    onTouchTap={this.handleNext}
+    /&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default HorizontalNonLinearStepper;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Non-linear steppers allow users to enter a multi-step flow at any point.</p>
+    <p>This example is similar to the regular horizontal stepper, except steps are no longer
+        automatically set to <code>disabled={true}</code> based on the <code>activeStep</code> prop.</p>
+    <p>We've used the <code>&lt;StepButton&gt;</code> here to demonstrate clickable step labels.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="margin-bottom: 50px;"><div style="width: 100%; max-width: 700px; margin: auto;"><div style="display: flex; flex-direction: row; align-content: center; align-items: center; justify-content: space-between;"><div style="flex: 0 0 auto;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; font-weight: 500;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(0, 188, 212); fill: rgb(0, 188, 212); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8500 -->Select campaign settings<!-- /react-text --></span></div></button></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">2</text></svg></span><!-- react-text: 8511 -->Create an ad group<!-- /react-text --></span></div></button></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8522 -->Create an ad<!-- /react-text --></span></div></button></div></div><div style="margin: 0px 16px;"><p>Select campaign settings...</p><div style="margin-top: 12px;"><button disabled="" tabindex="-1" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 0px 12px 0px 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; min-width: 88px; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center;"><span style="position: relative; padding-left: 16px; padding-right: 16px; vertical-align: middle; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; font-size: 14px;">Back</span></button><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(0, 188, 212); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgb(255, 255, 255);">Next</span></div></div></button></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Vertical non-linear stepper</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepButton,
+    StepContent,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+
+<span class="hljs-comment">/**
+ * A basic vertical non-linear implementation
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VerticalNonLinear</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    state = {
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-number">0</span>,
+    };
+
+    handleNext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &lt; <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>});
+    }
+    };
+
+    handlePrev = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>});
+    }
+    };
+
+    renderStepActions(step) {
+    <span class="hljs-keyword">return</span> (
+    &lt;div style={{margin: '12px 0'}}&gt;
+    &lt;RaisedButton
+    label="Next"
+    disableTouchRipple={true}
+    disableFocusRipple={true}
+    primary={true}
+    onTouchTap={this.handleNext}
+    style={{marginRight: 12}}
+    /&gt;
+    {step &gt; 0 &amp;&amp; (
+    &lt;FlatButton
+    label="Back"
+    disableTouchRipple={true}
+    disableFocusRipple={true}
+    onTouchTap={this.handlePrev}
+    /&gt;
+    )}
+    &lt;/div&gt;
+    );
+    }
+
+    render() {
+    const {stepIndex} = this.state;
+
+    return (
+    &lt;div style={{maxWidth: 380, maxHeight: 400, margin: 'auto'}}&gt;
+    &lt;Stepper
+    activeStep={stepIndex}
+    linear={false}
+    orientation="vertical"
+    &gt;
+    &lt;Step&gt;
+    &lt;StepButton onTouchTap={() =&gt; this.setState({stepIndex: 0})}&gt;
+    Select campaign settings
+    &lt;/StepButton&gt;
+    &lt;StepContent&gt;
+    &lt;p&gt;
+    For each ad campaign that you create, you can control how much
+    you're willing to spend on clicks and conversions, which networks
+    and geographical locations you want your ads to show on, and more.
+    &lt;/p&gt;
+    {this.renderStepActions(0)}
+    &lt;/StepContent&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepButton onTouchTap={() =&gt; this.setState({stepIndex: 1})}&gt;
+    Create an ad group
+    &lt;/StepButton&gt;
+    &lt;StepContent&gt;
+    &lt;p&gt;An ad group contains one or more ads which target a shared set of keywords.&lt;/p&gt;
+    {this.renderStepActions(1)}
+    &lt;/StepContent&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepButton onTouchTap={() =&gt; this.setState({stepIndex: 2})}&gt;
+    Create an ad
+    &lt;/StepButton&gt;
+    &lt;StepContent&gt;
+    &lt;p&gt;
+    Try out different ad text to see what brings in the most customers,
+    and learn how to enhance your ads using features like ad extensions.
+    If you run into any problems with your ads, find out how to tell if
+    they're running and how to resolve approval issues.
+    &lt;/p&gt;
+    {this.renderStepActions(2)}
+    &lt;/StepContent&gt;
+    &lt;/Step&gt;
+    &lt;/Stepper&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default VerticalNonLinear;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>A basic vertical non-linear implementation</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 10px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="margin-bottom: 50px;"><div style="max-width: 380px; max-height: 400px; margin: auto;"><div style="display: flex; flex-direction: column; align-content: center; align-items: stretch; justify-content: space-between;"><div style="flex: 0 0 auto;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 100%;"><div><span style="height: 64px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; font-weight: 500;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(0, 188, 212); fill: rgb(0, 188, 212); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8563 -->Select campaign settings<!-- /react-text --></span></div></button><div icon="1" style="margin-top: -14px; margin-left: 25px; padding-left: 21px; padding-right: 16px; overflow: hidden; border-left: 1px solid rgb(189, 189, 189);"><div style="position: relative; overflow: hidden; height: auto;"><div style="position: relative; height: auto; width: 100%; top: 0px; left: 0px; overflow: hidden; transition: height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><div style="overflow: hidden;"><p>For each ad campaign that you create, you can control how much you're willing to spend on clicks and conversions, which networks and geographical locations you want your ads to show on, and more.</p><div style="margin: 12px 0px;"><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px; margin-right: 12px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(0, 188, 212); text-align: center;"><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgb(255, 255, 255);">Next</span></div></button></div></div></div></div></div></div></div></div><div style="flex: 1 1 auto; margin-left: 25px;"><span style="display: block; border-color: rgb(189, 189, 189); border-left-style: solid; border-left-width: 1px; min-height: 28px;"></span></div><div style="flex: 0 0 auto; margin-top: -14px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 100%;"><div><span style="height: 64px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">2</text></svg></span><!-- react-text: 8585 -->Create an ad group<!-- /react-text --></span></div></button><div icon="2" style="margin-top: -14px; margin-left: 25px; padding-left: 21px; padding-right: 16px; overflow: hidden; border-left: 1px solid rgb(189, 189, 189);"><div style="position: relative; overflow: hidden; height: auto;"></div></div></div><div style="flex: 1 1 auto; margin-left: 25px;"><span style="display: block; border-color: rgb(189, 189, 189); border-left-style: solid; border-left-width: 1px; min-height: 28px;"></span></div><div style="flex: 0 0 auto; margin-top: -14px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 100%;"><div><span style="height: 64px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8598 -->Create an ad<!-- /react-text --></span></div></button><div icon="3" style="margin-top: -14px; margin-left: 25px; padding-left: 21px; padding-right: 16px; overflow: hidden;"><div style="position: relative; overflow: hidden; height: auto;"></div></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="advanced-usage">Advanced Usage</h2>
+    <p>The <code>&lt;Stepper&gt;</code> can also be controlled by interfacing directly with the <code>&lt;Step&gt;</code> components placed inside <code>&lt;Stepper&gt;</code>. These individual props are also compatible with the <code>activeStep</code> prop, and will take precedence if found on the component.</p>
+    <p>You can also place completely custom components inside <code>&lt;Step&gt;</code> if required and they will be passed the same props as the other <code>&lt;Step&gt;</code> children.</p>
+    <p>These features allows for all sorts of usage scenarios -- the world is your oyster.</p>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Granular control</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepButton,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+
+    <span class="hljs-keyword">const</span> getStyles = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">root</span>: {
+    <span class="hljs-attr">width</span>: <span class="hljs-string">'100%'</span>,
+    <span class="hljs-attr">maxWidth</span>: <span class="hljs-number">700</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-string">'auto'</span>,
+    },
+    <span class="hljs-attr">content</span>: {
+    <span class="hljs-attr">margin</span>: <span class="hljs-string">'0 16px'</span>,
+    },
+    <span class="hljs-attr">actions</span>: {
+    <span class="hljs-attr">marginTop</span>: <span class="hljs-number">12</span>,
+    },
+    <span class="hljs-attr">backButton</span>: {
+    <span class="hljs-attr">marginRight</span>: <span class="hljs-number">12</span>,
+    },
+    };
+    };
+
+<span class="hljs-comment">/**
+ * This is similar to the horizontal non-linear example, except the
+ * `&lt;Step&gt;` components are being controlled manually via individual props.
+ *
+ * An enhancement made possible by this functionality (shown below),
+ * is to permanently mark steps as complete once the user has satisfied the
+ * application's required conditions (in this case, once it has visited the step).
+ *
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GranularControlStepper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    state = {
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">visited</span>: [],
+    };
+
+    componentWillMount() {
+    <span class="hljs-keyword">const</span> {stepIndex, visited} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">visited</span>: visited.concat(stepIndex)});
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+    <span class="hljs-keyword">const</span> {stepIndex, visited} = nextState;
+    <span class="hljs-keyword">if</span> (visited.indexOf(stepIndex) === <span class="hljs-number">-1</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">visited</span>: visited.concat(stepIndex)});
+    }
+    }
+
+    handleNext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &lt; <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>});
+    }
+    };
+
+    handlePrev = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>});
+    }
+    };
+
+    getStepContent(stepIndex) {
+    <span class="hljs-keyword">switch</span> (stepIndex) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Select campaign settings...'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'What is an ad group anyways?'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'This is the bit I really care about!'</span>;
+    <span class="hljs-keyword">default</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Click a step to get started.'</span>;
+    }
+    }
+
+    render() {
+    <span class="hljs-keyword">const</span> {stepIndex, visited} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">const</span> styles = getStyles();
+
+    <span class="hljs-keyword">return</span> (
+    &lt;div style={styles.root}&gt;
+    &lt;p&gt;
+    &lt;a
+    href="#"
+    onClick={(event) =&gt; {
+    event.preventDefault();
+    this.setState({stepIndex: null, visited: []});
+    }}
+    &gt;
+    Click here
+    &lt;/a&gt; to reset the example.
+    &lt;/p&gt;
+    &lt;Stepper linear={false}&gt;
+    &lt;Step completed={visited.indexOf(0) !== -1} active={stepIndex === 0}&gt;
+    &lt;StepButton onClick={() =&gt; this.setState({stepIndex: 0})}&gt;
+    Select campaign settings
+    &lt;/StepButton&gt;
+    &lt;/Step&gt;
+    &lt;Step completed={visited.indexOf(1) !== -1} active={stepIndex === 1}&gt;
+    &lt;StepButton onClick={() =&gt; this.setState({stepIndex: 1})}&gt;
+    Create an ad group
+    &lt;/StepButton&gt;
+    &lt;/Step&gt;
+    &lt;Step completed={visited.indexOf(2) !== -1} active={stepIndex === 2}&gt;
+    &lt;StepButton onClick={() =&gt; this.setState({stepIndex: 2})}&gt;
+    Create an ad
+    &lt;/StepButton&gt;
+    &lt;/Step&gt;
+    &lt;/Stepper&gt;
+    &lt;div style={styles.content}&gt;
+    &lt;p&gt;{this.getStepContent(stepIndex)}&lt;/p&gt;
+    {stepIndex !== null &amp;&amp; (
+    &lt;div style={styles.actions}&gt;
+    &lt;FlatButton
+    label="Back"
+    disabled={stepIndex === 0}
+    onTouchTap={this.handlePrev}
+    style={styles.backButton}
+    /&gt;
+    &lt;RaisedButton
+    label="Next"
+    primary={true}
+    onTouchTap={this.handleNext}
+    /&gt;
+    &lt;/div&gt;
+    )}
+    &lt;/div&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default GranularControlStepper;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>This is similar to the horizontal non-linear example, except the
+    <code>&lt;Step&gt;</code> components are being controlled manually via individual props.</p>
+    <p>An enhancement made possible by this functionality (shown below),
+        is to permanently mark steps as complete once the user has satisfied the
+        application's required conditions (in this case, once it has visited the step).</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="margin-bottom: 50px;"><div style="width: 100%; max-width: 700px; margin: auto;"><p><a href="#">Click here</a><!-- react-text: 8625 --> to reset the example.<!-- /react-text --></p><div style="display: flex; flex-direction: row; align-content: center; align-items: center; justify-content: space-between;"><div style="flex: 0 0 auto;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8635 -->Select campaign settings<!-- /react-text --></span></div></button></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">2</text></svg></span><!-- react-text: 8646 -->Create an ad group<!-- /react-text --></span></div></button></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: transparent; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8657 -->Create an ad<!-- /react-text --></span></div></button></div></div><div style="margin: 0px 16px;"><p>Click a step to get started.</p></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Custom icon</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepLabel,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> WarningIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/alert/warning'</span>;
+    <span class="hljs-keyword">import</span> {red500} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/styles/colors'</span>;
+
+<span class="hljs-comment">/**
+ * Custom icons can be used to create different visual states.
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomIcon</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    state = {
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-number">0</span>,
+    };
+
+    handleNext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &lt; <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>});
+    }
+    };
+
+    handlePrev = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (stepIndex &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>});
+    }
+    };
+
+    getStepContent(stepIndex) {
+    <span class="hljs-keyword">switch</span> (stepIndex) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Select campaign settings...'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'What is an ad group anyways?'</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'This is the bit I really care about!'</span>;
+    <span class="hljs-keyword">default</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'You\'re a long way from home sonny jim!'</span>;
+    }
+    }
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{width:</span> '<span class="hljs-attr">100</span>%', <span class="hljs-attr">maxWidth:</span> <span class="hljs-attr">700</span>, <span class="hljs-attr">margin:</span> '<span class="hljs-attr">auto</span>'}}&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Stepper</span> <span class="hljs-attr">linear</span>=<span class="hljs-string">{false}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Step</span> <span class="hljs-attr">completed</span>=<span class="hljs-string">{false}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StepLabel</span>&gt;</span>
+              Select campaign settings
+            <span class="hljs-tag">&lt;/<span class="hljs-name">StepLabel</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Step</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Step</span> <span class="hljs-attr">completed</span>=<span class="hljs-string">{false}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StepLabel</span>
+              <span class="hljs-attr">icon</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">WarningIcon</span> <span class="hljs-attr">color</span>=<span class="hljs-string">{red500}</span> /&gt;</span>}
+              style={{color: red500}}
+            &gt;
+              Create an ad group
+            <span class="hljs-tag">&lt;/<span class="hljs-name">StepLabel</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Step</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Step</span> <span class="hljs-attr">completed</span>=<span class="hljs-string">{false}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StepLabel</span>&gt;</span>
+              Create an ad
+            <span class="hljs-tag">&lt;/<span class="hljs-name">StepLabel</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Step</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Stepper</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}
+
+export default CustomIcon;</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Custom icons can be used to create different visual states.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="margin-bottom: 50px;"><div style="width: 100%; max-width: 700px; margin: auto;"><div style="display: flex; flex-direction: row; align-content: center; align-items: center; justify-content: space-between;"><div style="flex: 0 0 auto;"><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8688 -->Select campaign settings<!-- /react-text --></span></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><span style="height: 72px; color: rgb(244, 67, 54); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: rgb(244, 67, 54); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path></svg></span><!-- react-text: 8696 -->Create an ad group<!-- /react-text --></span></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8705 -->Create an ad<!-- /react-text --></span></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Horizontal step transition example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepLabel,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+    <span class="hljs-keyword">import</span> ExpandTransition <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/internal/ExpandTransition'</span>;
+    <span class="hljs-keyword">import</span> TextField <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/TextField'</span>;
+
+<span class="hljs-comment">/**
+ * A contrived example using a transition between steps
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HorizontalTransition</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    state = {
+    <span class="hljs-attr">loading</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">finished</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-number">0</span>,
+    };
+
+    dummyAsync = <span class="hljs-function">(<span class="hljs-params">cb</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">loading</span>: <span class="hljs-literal">true</span>}, () =&gt; {
+    <span class="hljs-keyword">this</span>.asyncTimer = setTimeout(cb, <span class="hljs-number">500</span>);
+    });
+    };
+
+    handleNext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.state.loading) {
+    <span class="hljs-keyword">this</span>.dummyAsync(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">loading</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>,
+    <span class="hljs-attr">finished</span>: stepIndex &gt;= <span class="hljs-number">2</span>,
+    }));
+    }
+    };
+
+    handlePrev = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.state.loading) {
+    <span class="hljs-keyword">this</span>.dummyAsync(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">loading</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>,
+    }));
+    }
+    };
+
+    getStepContent(stepIndex) {
+    <span class="hljs-keyword">switch</span> (stepIndex) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">return</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+            Select campaign settings. Campaign settings can include your budget, network, bidding
+            options and adjustments, location targeting, campaign end date, and other settings that
+            affect an entire campaign.
+          <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+    );
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;TextField style={{marginTop: 0}} floatingLabelText="Ad group name" /&gt;
+    &lt;p&gt;
+    Ad group status is different than the statuses for campaigns, ads, and keywords, though the
+    statuses can affect each other. Ad groups are contained within a campaign, and each campaign can
+    have one or more ad groups. Within each ad group are ads, keywords, and bids.
+    &lt;/p&gt;
+    &lt;p&gt;Something something whatever cool&lt;/p&gt;
+    &lt;/div&gt;
+    );
+    case 2:
+    return (
+    &lt;p&gt;
+    Try out different ad text to see what brings in the most customers, and learn how to
+    enhance your ads using features like ad extensions. If you run into any problems with your
+    ads, find out how to tell if they're running and how to resolve approval issues.
+    &lt;/p&gt;
+    );
+    default:
+    return 'You\'re a long way from home sonny jim!';
+    }
+    }
+
+    renderContent() {
+    const {finished, stepIndex} = this.state;
+    const contentStyle = {margin: '0 16px', overflow: 'hidden'};
+
+    if (finished) {
+    return (
+    &lt;div style={contentStyle}&gt;
+    &lt;p&gt;
+    &lt;a
+    href="#"
+    onClick={(event) =&gt; {
+    event.preventDefault();
+    this.setState({stepIndex: 0, finished: false});
+    }}
+    &gt;
+    Click here
+    &lt;/a&gt; to reset the example.
+    &lt;/p&gt;
+    &lt;/div&gt;
+    );
+    }
+
+    return (
+    &lt;div style={contentStyle}&gt;
+    &lt;div&gt;{this.getStepContent(stepIndex)}&lt;/div&gt;
+    &lt;div style={{marginTop: 24, marginBottom: 12}}&gt;
+    &lt;FlatButton
+    label="Back"
+    disabled={stepIndex === 0}
+    onTouchTap={this.handlePrev}
+    style={{marginRight: 12}}
+    /&gt;
+    &lt;RaisedButton
+    label={stepIndex === 2 ? 'Finish' : 'Next'}
+    primary={true}
+    onTouchTap={this.handleNext}
+    /&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    );
+    }
+
+    render() {
+    const {loading, stepIndex} = this.state;
+
+    return (
+    &lt;div style={{width: '100%', maxWidth: 700, margin: 'auto'}}&gt;
+    &lt;Stepper activeStep={stepIndex}&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Select campaign settings&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad group&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+    &lt;/Stepper&gt;
+    &lt;ExpandTransition loading={loading} open={true}&gt;
+    {this.renderContent()}
+    &lt;/ExpandTransition&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default HorizontalTransition;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>A contrived example using a transition between steps</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="margin-bottom: 50px;"><div style="width: 100%; max-width: 700px; margin: auto;"><div style="display: flex; flex-direction: row; align-content: center; align-items: center; justify-content: space-between;"><div style="flex: 0 0 auto;"><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; font-weight: 500;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(0, 188, 212); fill: rgb(0, 188, 212); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8734 -->Select campaign settings<!-- /react-text --></span></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><span disabled="" style="height: 72px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">2</text></svg></span><!-- react-text: 8743 -->Create an ad group<!-- /react-text --></span></div><div style="flex: 1 1 auto;"><span style="display: block; border-color: rgb(189, 189, 189); margin-left: -6px; border-top-style: solid; border-top-width: 1px;"></span></div><div style="flex: 0 0 auto; margin-left: -6px;"><span disabled="" style="height: 72px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8752 -->Create an ad<!-- /react-text --></span></div></div><div style="position: relative; overflow: hidden; height: auto;"><div style="position: relative; height: auto; width: 100%; top: 0px; left: 0px; overflow: hidden; transition: height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div><div style="margin: 0px 16px; overflow: hidden;"><div><p>Select campaign settings. Campaign settings can include your budget, network, bidding options and adjustments, location targeting, campaign end date, and other settings that affect an entire campaign.</p></div><div style="margin-top: 24px; margin-bottom: 12px;"><button disabled="" tabindex="-1" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 0px 12px 0px 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; min-width: 88px; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center;"><span style="position: relative; padding-left: 16px; padding-right: 16px; vertical-align: middle; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; font-size: 14px;">Back</span></button><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(0, 188, 212); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgb(255, 255, 255);">Next</span></div></div></button></div></div></div></div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Custom step connector</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> FlatButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FlatButton'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> {
+    Step,
+    Stepper,
+    StepLabel,
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Stepper'</span>;
+    <span class="hljs-keyword">import</span> ArrowForwardIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/arrow-forward'</span>;
+
+<span class="hljs-comment">/**
+ * It is possible to specify your own step connector by passing an element to the `connector`
+ * prop. If you want to remove the connector, pass `null` to the `connector` prop.
+ */</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomStepConnector</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+
+    <span class="hljs-keyword">this</span>.handleNext = <span class="hljs-keyword">this</span>.handleNext.bind(<span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">this</span>.handlePrev = <span class="hljs-keyword">this</span>.handlePrev.bind(<span class="hljs-keyword">this</span>);
+    }
+
+    state = {
+    <span class="hljs-attr">stepIndex</span>: <span class="hljs-number">0</span>,
+    };
+
+    getStepContent(stepIndex) {
+    <span class="hljs-keyword">switch</span> (stepIndex) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">return</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+            {'For each ad campaign that you create, you can control how much you\'re willing to ' +
+            'spend on clicks and conversions, which networks and geographical locations you want ' +
+            'your ads to show on, and more.'}
+          <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+    );
+
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+            {'An ad group contains one or more ads which target a shared set of keywords.'}
+          <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+    );
+
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-keyword">return</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+            {'Try out different ad text to see what brings in the most customers, and learn ' +
+            'how to enhance your ads using features like ad extensions. If you run into any ' +
+            'problems with your ads, find out how to tell if they\'re running and how to ' +
+            'resolve approval issues.'}
+          <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+    );
+    }
+    }
+
+    handleNext() {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+
+    <span class="hljs-keyword">if</span> (stepIndex &lt; <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex + <span class="hljs-number">1</span>});
+    }
+    }
+
+    handlePrev() {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+
+    <span class="hljs-keyword">if</span> (stepIndex &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">stepIndex</span>: stepIndex - <span class="hljs-number">1</span>});
+    }
+    }
+
+    render() {
+    <span class="hljs-keyword">const</span> {stepIndex} = <span class="hljs-keyword">this</span>.state;
+
+    <span class="hljs-keyword">return</span> (
+    &lt;div style={{width: '100%', maxWidth: 700, margin: 'auto'}}&gt;
+    &lt;Stepper activeStep={stepIndex} connector={&lt;ArrowForwardIcon /&gt;}&gt;
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Select campaign settings&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad group&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+
+    &lt;Step&gt;
+    &lt;StepLabel&gt;Create an ad&lt;/StepLabel&gt;
+    &lt;/Step&gt;
+    &lt;/Stepper&gt;
+
+    {this.getStepContent(stepIndex)}
+
+    &lt;div style={{marginTop: 24, marginBottom: 12}}&gt;
+    &lt;FlatButton
+    label="Back"
+    disabled={stepIndex === 0}
+    onTouchTap={this.handlePrev}
+    style={{marginRight: 12}}
+    /&gt;
+    &lt;RaisedButton
+    label={stepIndex === 2 ? 'Finish' : 'Next'}
+    primary={true}
+    onTouchTap={this.handleNext}
+    /&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+
+    export default CustomStepConnector;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>It is possible to specify your own step connector by passing an element to the <code>connector</code>
+    prop. If you want to remove the connector, pass <code>null</code> to the <code>connector</code> prop.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="width: 100%; max-width: 700px; margin: auto;"><div style="display: flex; flex-direction: row; align-content: center; align-items: center; justify-content: space-between;"><div style="flex: 0 0 auto;"><span style="height: 72px; color: rgba(0, 0, 0, 0.87); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; font-weight: 500;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(0, 188, 212); fill: rgb(0, 188, 212); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">1</text></svg></span><!-- react-text: 8794 -->Select campaign settings<!-- /react-text --></span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg><div style="flex: 0 0 auto; margin-left: -6px;"><span disabled="" style="height: 72px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">2</text></svg></span><!-- react-text: 8803 -->Create an ad group<!-- /react-text --></span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg><div style="flex: 0 0 auto; margin-left: -6px;"><span disabled="" style="height: 72px; color: rgba(0, 0, 0, 0.26); display: flex; align-items: center; font-family: Roboto, sans-serif; font-size: 14px; padding-left: 14px; padding-right: 14px; cursor: default;"><span style="padding-right: 8px;"><svg viewBox="0 0 24 24" style="display: block; color: rgb(158, 158, 158); fill: rgb(158, 158, 158); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px;"><circle cx="12" cy="12" r="10"></circle><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">3</text></svg></span><!-- react-text: 8812 -->Create an ad<!-- /react-text --></span></div></div><p>For each ad campaign that you create, you can control how much you're willing to spend on clicks and conversions, which networks and geographical locations you want your ads to show on, and more.</p><div style="margin-top: 24px; margin-bottom: 12px;"><button disabled="" tabindex="-1" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 0px 12px 0px 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; min-width: 88px; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center;"><span style="position: relative; padding-left: 16px; padding-right: 16px; vertical-align: middle; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; font-size: 14px;">Back</span></button><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(0, 188, 212); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgb(255, 255, 255);">Next</span></div></div></button></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="stepper-properties">Stepper properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">activeStep</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Set the active step (zero based index). This will enable <code>Step</code> control helpers.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Should be two or more <code>&lt;Step /&gt;</code> components.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">connector</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"><stepconnector></stepconnector></td>
+            <td style="text-align:left">A component to be placed between each step.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">linear</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">If set to <code>true</code>, the <code>Stepper</code> will assist in controlling steps for linear flow</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">orientation</td>
+            <td style="text-align:left">enum:<br>&nbsp;'horizontal'<br>&nbsp;'vertical'<br></td>
+            <td style="text-align:left">'horizontal'</td>
+            <td style="text-align:left">The stepper orientation (layout flow direction)</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-style of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="step-properties">Step properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">active</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Sets the step as active. Is passed to child components.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Should be <code>Step</code> sub-components such as <code>StepLabel</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">completed</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Mark the step as completed. Is passed to child components.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disabled</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Mark the step as disabled, will also disable the button if <code>StepButton</code> is a child of <code>Step</code>. Is passed to child components.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-style of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="steplabel-properties">StepLabel properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">active</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Sets active styling. Overrides disabled coloring.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The label text node</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">completed</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Sets completed styling. Overrides disabled coloring.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disabled</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Sets disabled styling.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">icon</td>
+            <td style="text-align:left">union:<br>&nbsp;element<br>&nbsp;string<br>&nbsp;number<br></td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The icon displayed by the step label.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconContainerStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the icon container element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-style of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="stepbutton-properties">StepButton properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">active</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Passed from <code>Step</code> Is passed to StepLabel.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Can be a <code>StepLabel</code> or a node to place inside <code>StepLabel</code> as children.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">completed</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Sets completed styling. Is passed to StepLabel.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disabled</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Disables the button and sets disabled styling. Is passed to StepLabel.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">icon</td>
+            <td style="text-align:left">union:<br>&nbsp;element<br>&nbsp;string<br>&nbsp;number<br></td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The icon displayed by the step label.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconContainerStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the icon container element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-style of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="stepcontent-properties">StepContent properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">active</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Expands the content</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Step content</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-style of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">transition</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">function ExpandTransition(props) {  return <transitioncomponent {...props}="">;}</transitioncomponent></td>
+            <td style="text-align:left">ReactTransitionGroup component.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">transitionDuration</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">450</td>
+            <td style="text-align:left">Adjust the duration of the content expand transition. Passed as a prop to the transition component.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

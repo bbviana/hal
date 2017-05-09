@@ -1,0 +1,108 @@
+<div><!-- react-empty: 2889 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="bottom-navigation">Bottom Navigation</h2>
+    <p>The <a href="https://www.google.com/design/spec/components/bottom-navigation.html#bottom-navigation-behavior">bottom navigation</a> is a special kind of toolbar that’s used for navigation.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> {BottomNavigation, BottomNavigationItem} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/BottomNavigation'</span>;
+    <span class="hljs-keyword">import</span> Paper <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Paper'</span>;
+    <span class="hljs-keyword">import</span> IconLocationOn <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/communication/location-on'</span>;
+
+    <span class="hljs-keyword">const</span> recentsIcon = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FontIcon</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>restore<span class="hljs-tag">&lt;/<span class="hljs-name">FontIcon</span>&gt;</span></span>;
+    <span class="hljs-keyword">const</span> favoritesIcon = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FontIcon</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>favorite<span class="hljs-tag">&lt;/<span class="hljs-name">FontIcon</span>&gt;</span></span>;
+    <span class="hljs-keyword">const</span> nearbyIcon = &lt;IconLocationOn /&gt;;
+
+    /**
+    * A simple example of `BottomNavigation`, with three labels and icons
+    * provided. The selected `BottomNavigationItem` is determined by application
+    * state (for instance, by the URL).
+    */
+    class BottomNavigationExampleSimple extends Component {
+    state = {
+    selectedIndex: 0,
+    };
+
+    select = (index) =&gt; this.setState({selectedIndex: index});
+
+    render() {
+    return (
+    &lt;Paper zDepth={1}&gt;
+    &lt;BottomNavigation selectedIndex={this.state.selectedIndex}&gt;
+    &lt;BottomNavigationItem
+    label="Recents"
+    icon={recentsIcon}
+    onTouchTap={() =&gt; this.select(0)}
+    /&gt;
+    &lt;BottomNavigationItem
+    label="Favorites"
+    icon={favoritesIcon}
+    onTouchTap={() =&gt; this.select(1)}
+    /&gt;
+    &lt;BottomNavigationItem
+    label="Nearby"
+    icon={nearbyIcon}
+    onTouchTap={() =&gt; this.select(2)}
+    /&gt;
+    &lt;/BottomNavigation&gt;
+    &lt;/Paper&gt;
+    );
+    }
+    }
+
+    export default BottomNavigationExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>A simple example of <code>BottomNavigation</code>, with three labels and icons
+    provided. The selected <code>BottomNavigationItem</code> is determined by application
+    state (for instance, by the URL).</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px;"><div style="position: relative; width: 100%; display: flex; justify-content: center; background-color: rgb(255, 255, 255); height: 56px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 6px 12px 10px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; transition: padding-top 0.3s; min-width: 80px; max-width: 168px; flex: 1 1 0%; background: none;"><div><span class="material-icons" color="#00bcd4" style="color: rgb(0, 188, 212); position: relative; font-size: 24px; display: block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 100%;">restore</span><div style="font-size: 14px; transition: color 0.3s, font-size 0.3s; color: rgb(0, 188, 212);">Recents</div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 8px 12px 10px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; transition: padding-top 0.3s; min-width: 80px; max-width: 168px; flex: 1 1 0%; background: none;"><div><span class="material-icons" color="rgba(0, 0, 0, 0.54)" style="color: rgba(0, 0, 0, 0.54); position: relative; font-size: 24px; display: block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 100%;">favorite</span><div style="font-size: 12px; transition: color 0.3s, font-size 0.3s; color: rgba(0, 0, 0, 0.54);">Favorites</div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 8px 12px 10px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; transition: padding-top 0.3s; min-width: 80px; max-width: 168px; flex: 1 1 0%; background: none;"><div><svg viewBox="0 0 24 24" style="display: block; color: rgba(0, 0, 0, 0.87); fill: rgba(0, 0, 0, 0.54); height: 24px; width: 100%; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg><div style="font-size: 12px; transition: color 0.3s, font-size 0.3s; color: rgba(0, 0, 0, 0.54);">Nearby</div></div></button></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="bottomnavigation-properties">BottomNavigation Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The <code>BottomNavigationItem</code>s to populate the element with.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">selectedIndex</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The index of the currently selected navigation item.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="bottomnavigationitem-properties">BottomNavigationItem Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">icon</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Set the icon representing the view for this item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">label</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Set the label describing the view for this item.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

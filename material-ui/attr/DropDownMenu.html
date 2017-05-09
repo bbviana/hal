@@ -1,0 +1,292 @@
+<div><!-- react-empty: 6513 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="drop-down-menu">Drop Down Menu</h2>
+    <p>The <code>DropDownMenu</code> component is Material-UI's implementation of the
+        <a href="https://www.google.com/design/spec/components/menus.html#menus-usage">Textfield dropdown</a>.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> DropDownMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/DropDownMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+
+    <span class="hljs-keyword">const</span> styles = {
+    <span class="hljs-attr">customWidth</span>: {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">200</span>,
+    },
+    };
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DropDownMenuSimpleExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">value</span>: <span class="hljs-number">1</span>};
+    }
+
+    handleChange = <span class="hljs-function">(<span class="hljs-params">event, index, value</span>) =&gt;</span> <span class="hljs-keyword">this</span>.setState({value});
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;DropDownMenu value={this.state.value} onChange={this.handleChange}&gt;
+    &lt;MenuItem value={1} primaryText="Never" /&gt;
+    &lt;MenuItem value={2} primaryText="Every Night" /&gt;
+    &lt;MenuItem value={3} primaryText="Weeknights" /&gt;
+    &lt;MenuItem value={4} primaryText="Weekends" /&gt;
+    &lt;MenuItem value={5} primaryText="Weekly" /&gt;
+    &lt;/DropDownMenu&gt;
+    &lt;br /&gt;
+    &lt;DropDownMenu
+    value={this.state.value}
+    onChange={this.handleChange}
+    style={styles.customWidth}
+    autoWidth={false}
+    &gt;
+    &lt;MenuItem value={1} primaryText="Custom width" /&gt;
+    &lt;MenuItem value={2} primaryText="Every Night" /&gt;
+    &lt;MenuItem value={3} primaryText="Weeknights" /&gt;
+    &lt;MenuItem value={4} primaryText="Weekends" /&gt;
+    &lt;MenuItem value={5} primaryText="Weekly" /&gt;
+    &lt;/DropDownMenu&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p><code>DropDownMenu</code> is implemented as a controlled component, with the current selection set through the <code>value</code> property.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; font-size: 15px; height: 48px; font-family: Roboto, sans-serif; outline: none; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: auto;"><div style="cursor: pointer; height: 100%; position: relative; width: 100%;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); height: 56px; line-height: 56px; overflow: hidden; opacity: 1; position: relative; padding-left: 24px; padding-right: 56px; text-overflow: ellipsis; top: 0px; white-space: nowrap;">Never</div><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: absolute; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; fill: rgb(224, 224, 224); right: 16px; top: 4px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: inherit; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M7 10l5 5 5-5z"></path></svg></div></button><div style="border-top: 1px solid rgb(224, 224, 224); bottom: 1px; left: 0px; margin: -1px 24px; right: 0px; position: absolute;"></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div><div style="display: none;"><!-- react-empty: 6545 --><!-- react-empty: 6546 --></div></div><br><div style="display: inline-block; font-size: 15px; height: 48px; font-family: Roboto, sans-serif; outline: none; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 200px;"><div style="cursor: pointer; height: 100%; position: relative; width: 100%;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); height: 56px; line-height: 56px; overflow: hidden; opacity: 1; position: relative; padding-left: 24px; padding-right: 56px; text-overflow: ellipsis; top: 0px; white-space: nowrap;">Custom width</div><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: absolute; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; fill: rgb(224, 224, 224); right: 16px; top: 4px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: inherit; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M7 10l5 5 5-5z"></path></svg></div></button><div style="border-top: 1px solid rgb(224, 224, 224); bottom: 1px; left: 0px; margin: -1px 24px; right: 0px; position: absolute;"></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div><div style="display: none;"><!-- react-empty: 6559 --><!-- react-empty: 6560 --></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Open Immediate example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> DropDownMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/DropDownMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DropDownMenuOpenImmediateExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">value</span>: <span class="hljs-number">2</span>};
+    }
+
+    handleChange = <span class="hljs-function">(<span class="hljs-params">event, index, value</span>) =&gt;</span> <span class="hljs-keyword">this</span>.setState({value});
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;DropDownMenu value={this.state.value} onChange={this.handleChange} openImmediately={true}&gt;
+    &lt;MenuItem value={1} primaryText="Never" /&gt;
+    &lt;MenuItem value={2} primaryText="Every Night" /&gt;
+    &lt;MenuItem value={3} primaryText="Weeknights" /&gt;
+    &lt;MenuItem value={4} primaryText="Weekends" /&gt;
+    &lt;MenuItem value={5} primaryText="Weekly" /&gt;
+    &lt;/DropDownMenu&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>With <code>openImmediately</code> property set, the menu will open on mount.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: inline-block; font-size: 15px; height: 48px; font-family: Roboto, sans-serif; outline: none; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: auto; opacity: 1;"><div style="cursor: pointer; height: 100%; position: relative; width: 100%;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); height: 56px; line-height: 56px; overflow: hidden; opacity: 0; position: relative; padding-left: 24px; padding-right: 56px; text-overflow: ellipsis; top: 7px; white-space: nowrap;">Every Night</div><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: absolute; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; fill: rgb(224, 224, 224); right: 16px; top: 4px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: inherit; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M7 10l5 5 5-5z"></path></svg></div></button><div style="border-top: 1px solid rgb(224, 224, 224); bottom: 1px; left: 0px; margin: -1px 24px; right: 0px; position: absolute;"></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div><div style="display: none;"><!-- react-empty: 6591 --><!-- react-empty: 6592 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Long example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> DropDownMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/DropDownMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+
+    <span class="hljs-keyword">const</span> items = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ ) {
+    items.push(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MenuItem</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{i}</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{i}</span> <span class="hljs-attr">primaryText</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">Item</span> ${<span class="hljs-attr">i</span>}`} /&gt;</span>);
+}
+
+export default class DropDownMenuLongMenuExample extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {value: 10};
+  }
+
+  handleChange = (event, index, value) =&gt; this.setState({value});
+
+  render() {
+    return (
+      <span class="hljs-tag">&lt;<span class="hljs-name">DropDownMenu</span> <span class="hljs-attr">maxHeight</span>=<span class="hljs-string">{300}</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.value}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}</span>&gt;</span>
+        {items}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">DropDownMenu</span>&gt;</span>
+    );
+  }
+}</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>With the <code>maxHeight</code> property set, the menu will be scrollable if the number of items causes the height to exceed this limit.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: inline-block; font-size: 15px; height: 48px; font-family: Roboto, sans-serif; outline: none; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: auto;"><div style="cursor: pointer; height: 100%; position: relative; width: 100%;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); height: 56px; line-height: 56px; overflow: hidden; opacity: 1; position: relative; padding-left: 24px; padding-right: 56px; text-overflow: ellipsis; top: 0px; white-space: nowrap;">Item 10</div><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: absolute; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; fill: rgb(224, 224, 224); right: 16px; top: 4px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: inherit; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M7 10l5 5 5-5z"></path></svg></div></button><div style="border-top: 1px solid rgb(224, 224, 224); bottom: 1px; left: 0px; margin: -1px 24px; right: 0px; position: absolute;"></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div><div style="display: none;"><!-- react-empty: 6623 --><!-- react-empty: 6624 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Label example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> DropDownMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/DropDownMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DropDownMenuLabeledExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">value</span>: <span class="hljs-number">2</span>};
+    }
+
+    handleChange = <span class="hljs-function">(<span class="hljs-params">event, index, value</span>) =&gt;</span> <span class="hljs-keyword">this</span>.setState({value});
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;DropDownMenu value={this.state.value} onChange={this.handleChange}&gt;
+    &lt;MenuItem value={1} label="5 am - 12 pm" primaryText="Morning" /&gt;
+    &lt;MenuItem value={2} label="12 pm - 5 pm" primaryText="Afternoon" /&gt;
+    &lt;MenuItem value={3} label="5 pm - 9 pm" primaryText="Evening" /&gt;
+    &lt;MenuItem value={4} label="9 pm - 5 am" primaryText="Night" /&gt;
+    &lt;/DropDownMenu&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>With a <code>label</code> applied to each <code>MenuItem</code>, <code>DropDownMenu</code> displays a complementary description of the selected item.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: inline-block; font-size: 15px; height: 48px; font-family: Roboto, sans-serif; outline: none; position: relative; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: auto;"><div style="cursor: pointer; height: 100%; position: relative; width: 100%;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="color: rgba(0, 0, 0, 0.87); height: 56px; line-height: 56px; overflow: hidden; opacity: 1; position: relative; padding-left: 24px; padding-right: 56px; text-overflow: ellipsis; top: 0px; white-space: nowrap;">12 pm - 5 pm</div><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: absolute; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; fill: rgb(224, 224, 224); right: 16px; top: 4px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: inherit; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M7 10l5 5 5-5z"></path></svg></div></button><div style="border-top: 1px solid rgb(224, 224, 224); bottom: 1px; left: 0px; margin: -1px 24px; right: 0px; position: absolute;"></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div><div style="display: none;"><!-- react-empty: 6655 --><!-- react-empty: 6656 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">anchorOrigin</td>
+            <td style="text-align:left">propTypes.origin</td>
+            <td style="text-align:left">{  vertical: 'top',  horizontal: 'left',}</td>
+            <td style="text-align:left">This is the point on the anchor that the popover's <code>targetOrigin</code> will attach to. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">animated</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">If true, the popover will apply transitions when it gets added to the DOM.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">animation</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the default animation component used.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">autoWidth</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">The width will automatically be set according to the items inside the menu. To control this width in css instead, set this prop to <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The <code>MenuItem</code>s to populate the <code>Menu</code> with. If the <code>MenuItems</code> have the prop <code>label</code> that value will be used to render the representation of that item within the field.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disabled</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">Disables the menu.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconButton</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"><dropdownarrow></dropdownarrow></td>
+            <td style="text-align:left">Overrides default <code>SvgIcon</code> dropdown arrow component.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Overrides the styles of icon element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">labelStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Overrides the styles of label when the <code>DropDownMenu</code> is inactive.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">listStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The style object to use to override underlying list style.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">maxHeight</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">500</td>
+            <td style="text-align:left">The maximum height of the <code>Menu</code> when it is displayed.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuItemStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of menu items.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Overrides the styles of <code>Menu</code> when the <code>DropDownMenu</code> is displayed.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">multiple</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, <code>value</code> must be an array and the menu will support multiple selections.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when a menu item is clicked, other than the one currently selected.<br><br><strong>Signature:</strong><br><code>function(event: object, key: number, value: any) =&gt; void</code><br><em>event:</em> TouchTap event targeting the menu item that was clicked.<br><em>key:</em> The index of the clicked menu item in the <code>children</code> collection.<br><em>value:</em> If <code>multiple</code> is true, the menu's <code>value</code> array with either the menu item's <code>value</code> added (if it wasn't already selected) or omitted (if it was already selected). Otherwise, the <code>value</code> of the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onClose</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the menu is closed.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">openImmediately</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">Set to true to have the <code>DropDownMenu</code> automatically open on mount.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">selectedMenuItemStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of selected menu items.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">selectionRenderer</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when a menu item is clicked, other than the one currently selected.<br><br><strong>Signature:</strong><br><code>function(value: any) =&gt; void</code><br><em>value:</em> If <code>multiple</code> is true, the menu's <code>value</code> array with either the menu item's <code>value</code> added (if it wasn't already selected) or omitted (if it was already selected). Otherwise, the <code>value</code> of the menu item.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">targetOrigin</td>
+            <td style="text-align:left">propTypes.origin</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">This is the point on the popover which will attach to the anchor's origin. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">underlineStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Overrides the inline-styles of the underline.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">any</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">If <code>multiple</code> is true, an array of the <code>value</code>s of the selected menu items. Otherwise, the <code>value</code> of the selected menu item. If provided, the menu will be a controlled component.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

@@ -1,0 +1,250 @@
+<div><!-- react-empty: 3641 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="chip">Chip</h2>
+    <p><a href="https://www.google.com/design/spec/components/chips.html">Chips</a>
+        represent complex entities in small blocks, such as a contact.</p>
+    <p>While included here as a standalone component, the most common use will
+        be in some form of input, so some of the behaviour demonstrated is not
+        shown in context.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Example Chips</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Avatar <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Avatar'</span>;
+    <span class="hljs-keyword">import</span> Chip <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Chip'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> SvgIconFace <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/action/face'</span>;
+    <span class="hljs-keyword">import</span> {blue300, indigo900} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/styles/colors'</span>;
+
+    <span class="hljs-keyword">const</span> styles = {
+    <span class="hljs-attr">chip</span>: {
+    <span class="hljs-attr">margin</span>: <span class="hljs-number">4</span>,
+    },
+    <span class="hljs-attr">wrapper</span>: {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'flex'</span>,
+    <span class="hljs-attr">flexWrap</span>: <span class="hljs-string">'wrap'</span>,
+    },
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleRequestDelete</span>(<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-string">'You clicked the delete button.'</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleTouchTap</span>(<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-string">'You clicked the Chip.'</span>);
+    }
+
+<span class="hljs-comment">/**
+ * Examples of Chips, using an image [Avatar](/#/components/font-icon), [Font Icon](/#/components/font-icon) Avatar,
+ * [SVG Icon](/#/components/svg-icon) Avatar, "Letter" (string) Avatar, and with custom colors.
+ *
+ * Chips with the `onRequestDelete` property defined will display a delete icon.
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ChipExampleSimple</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div style={styles.wrapper}&gt;
+
+    &lt;Chip
+    style={styles.chip}
+    &gt;
+    Text Chip
+    &lt;/Chip&gt;
+
+    &lt;Chip
+    onRequestDelete={handleRequestDelete}
+    onTouchTap={handleTouchTap}
+    style={styles.chip}
+    &gt;
+    Deletable Text Chip
+    &lt;/Chip&gt;
+
+    &lt;Chip
+    onTouchTap={handleTouchTap}
+    style={styles.chip}
+    &gt;
+    &lt;Avatar src="images/uxceo-128.jpg" /&gt;
+    Image Avatar Chip
+    &lt;/Chip&gt;
+
+    &lt;Chip
+    onRequestDelete={handleRequestDelete}
+    onTouchTap={handleTouchTap}
+    style={styles.chip}
+    &gt;
+    &lt;Avatar src="images/ok-128.jpg" /&gt;
+    Deletable Avatar Chip
+    &lt;/Chip&gt;
+
+    &lt;Chip
+    onTouchTap={handleTouchTap}
+    style={styles.chip}
+    &gt;
+    &lt;Avatar icon={&lt;FontIcon className="material-icons"&gt;perm_identity&lt;/FontIcon&gt;} /&gt;
+    FontIcon Avatar Chip
+    &lt;/Chip&gt;
+
+    &lt;Chip
+    onRequestDelete={handleRequestDelete}
+    onTouchTap={handleTouchTap}
+    style={styles.chip}
+    &gt;
+    &lt;Avatar color="#444" icon={&lt;SvgIconFace /&gt;} /&gt;
+    SvgIcon Avatar Chip
+    &lt;/Chip&gt;
+
+    &lt;Chip onTouchTap={handleTouchTap} style={styles.chip}&gt;
+    &lt;Avatar size={32}&gt;A&lt;/Avatar&gt;
+    Text Avatar Chip
+    &lt;/Chip&gt;
+
+    &lt;Chip
+    backgroundColor={blue300}
+    onRequestDelete={handleRequestDelete}
+    onTouchTap={handleTouchTap}
+    style={styles.chip}
+    &gt;
+    &lt;Avatar size={32} color={blue300} backgroundColor={indigo900}&gt;
+    MB
+    &lt;/Avatar&gt;
+    Colored Chip
+    &lt;/Chip&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Examples of Chips, using an image <a href="/#/components/font-icon">Avatar</a>, <a href="/#/components/font-icon">Font Icon</a> Avatar,
+    <a href="/#/components/svg-icon">SVG Icon</a> Avatar, "Letter" (string) Avatar, and with custom colors.</p>
+    <p>Chips with the <code>onRequestDelete</code> property defined will display a delete icon.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: flex; flex-wrap: wrap;"><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;">Text Chip</span></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;">Deletable Text Chip</span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><img size="32" src="images/uxceo-128.jpg" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; border-radius: 50%; height: 32px; width: 32px; margin-right: -4px;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;"><!-- react-text: 3671 -->Image Avatar Chip<!-- /react-text --></span></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><img size="32" src="images/ok-128.jpg" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; border-radius: 50%; height: 32px; width: 32px; margin-right: -4px;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;"><!-- react-text: 3675 -->Deletable Avatar Chip<!-- /react-text --></span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><div size="32" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; border-radius: 50%; height: 32px; width: 32px; margin-right: -4px;"><span class="material-icons" color="#ffffff" style="color: rgb(255, 255, 255); position: relative; font-size: 19.2px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 19.2px; height: 19.2px; margin: 6.4px;">perm_identity</span></div><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;"><!-- react-text: 3682 -->FontIcon Avatar Chip<!-- /react-text --></span></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><div color="#444" size="32" style="color: rgb(68, 68, 68); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; border-radius: 50%; height: 32px; width: 32px; margin-right: -4px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgb(68, 68, 68); fill: rgb(68, 68, 68); height: 19.2px; width: 19.2px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 19.2px; margin: 6.4px;"><path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 14.05 10 17.42 10c.78 0 1.53-.09 2.25-.26.21.71.33 1.47.33 2.26 0 4.41-3.59 8-8 8z"></path></svg></div><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;"><!-- react-text: 3688 -->SvgIcon Avatar Chip<!-- /react-text --></span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><div size="32" style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; border-radius: 50%; height: 32px; width: 32px; margin-right: -4px;"><!-- react-text: 3693 -->A<!-- /react-text --></div><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;"><!-- react-text: 3695 -->Text Avatar Chip<!-- /react-text --></span></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(100, 181, 246); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><div size="32" color="#64b5f6" style="color: rgb(100, 181, 246); background-color: rgb(26, 35, 126); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; border-radius: 50%; height: 32px; width: 32px; margin-right: -4px;"><!-- react-text: 3698 -->MB<!-- /react-text --></div><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;"><!-- react-text: 3700 -->Colored Chip<!-- /react-text --></span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Example array</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> Chip <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Chip'</span>;
+
+<span class="hljs-comment">/**
+ * An example of rendering multiple Chips from an array of values. Deleting a chip removes it from the array.
+ * Note that since no `onTouchTap` property is defined, the Chip can be focused, but does not gain depth
+ * while clicked or touched.
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ChipExampleArray</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">chipData</span>: [
+    {<span class="hljs-attr">key</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'Angular'</span>},
+    {<span class="hljs-attr">key</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'JQuery'</span>},
+    {<span class="hljs-attr">key</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'Polymer'</span>},
+    {<span class="hljs-attr">key</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'ReactJS'</span>},
+    ]};
+    <span class="hljs-keyword">this</span>.styles = {
+    <span class="hljs-attr">chip</span>: {
+    <span class="hljs-attr">margin</span>: <span class="hljs-number">4</span>,
+    },
+    <span class="hljs-attr">wrapper</span>: {
+    <span class="hljs-attr">display</span>: <span class="hljs-string">'flex'</span>,
+    <span class="hljs-attr">flexWrap</span>: <span class="hljs-string">'wrap'</span>,
+    },
+    };
+    }
+
+    handleRequestDelete = <span class="hljs-function">(<span class="hljs-params">key</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (key === <span class="hljs-number">3</span>) {
+    alert(<span class="hljs-string">'Why would you want to delete React?! :)'</span>);
+    <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-keyword">this</span>.chipData = <span class="hljs-keyword">this</span>.state.chipData;
+    <span class="hljs-keyword">const</span> chipToDelete = <span class="hljs-keyword">this</span>.chipData.map(<span class="hljs-function">(<span class="hljs-params">chip</span>) =&gt;</span> chip.key).indexOf(key);
+    <span class="hljs-keyword">this</span>.chipData.splice(chipToDelete, <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">chipData</span>: <span class="hljs-keyword">this</span>.chipData});
+    };
+
+    renderChip(data) {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Chip</span>
+        <span class="hljs-attr">key</span>=<span class="hljs-string">{data.key}</span>
+        <span class="hljs-attr">onRequestDelete</span>=<span class="hljs-string">{()</span> =&gt;</span> this.handleRequestDelete(data.key)}
+        style={this.styles.chip}
+      &gt;
+        {data.label}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Chip</span>&gt;</span></span>
+    );
+    }
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{this.styles.wrapper}</span>&gt;</span>
+        {this.state.chipData.map(this.renderChip, this)}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>An example of rendering multiple Chips from an array of values. Deleting a chip removes it from the array.
+    Note that since no <code>onTouchTap</code> property is defined, the Chip can be focused, but does not gain depth
+    while clicked or touched.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: flex; flex-wrap: wrap;"><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;">Angular</span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;">JQuery</span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;">Polymer</span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div><div tabindex="0" style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 4px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: -webkit-fit-content;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;">ReactJS</span><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.26); fill: rgba(0, 0, 0, 0.26); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: pointer; margin: 4px 4px 0px -8px;"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">backgroundColor</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the background color of the chip.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Used to render elements inside the Chip.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">CSS <code>className</code> of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">containerElement</td>
+            <td style="text-align:left">union:<br>&nbsp;string<br>&nbsp;element<br></td>
+            <td style="text-align:left">'div'</td>
+            <td style="text-align:left">The element to use as the container for the Chip. Either a string to use a DOM element or a ReactElement.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">labelColor</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the label color.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">labelStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the label.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onRequestDelete</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the delete icon is clicked. If set, the delete icon will be shown.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> <code>touchTap</code> event targeting the element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the <code>Chip</code> element is touch-tapped.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> TouchTap event targeting the element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

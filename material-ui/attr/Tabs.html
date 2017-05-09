@@ -1,0 +1,373 @@
+<div><!-- react-empty: 9726 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="tabs">Tabs</h2>
+    <p><a href="https://www.google.com/design/spec/components/tabs.html">Tabs</a> make it easy to explore and switch between different views or functional aspects of an app or to browse categorized data sets.</p>
+    <p>Tabs can operate in two different modes: controlled and uncontrolled.</p>
+    <ul>
+        <li>The uncontrolled mode takes over automatically if no value prop is passed to your
+            Tabs and Tab components.</li>
+        <li>If you want controllable tabs, passing a value to both the Tabs and Tab elements
+            will let you programmatically adjust which one is selected.</li>
+    </ul>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {Tabs, Tab} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Tabs'</span>;
+    <span class="hljs-keyword">import</span> Slider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Slider'</span>;
+
+    <span class="hljs-keyword">const</span> styles = {
+    <span class="hljs-attr">headline</span>: {
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">24</span>,
+    <span class="hljs-attr">paddingTop</span>: <span class="hljs-number">16</span>,
+    <span class="hljs-attr">marginBottom</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">fontWeight</span>: <span class="hljs-number">400</span>,
+    },
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleActive</span>(<span class="hljs-params">tab</span>) </span>{
+    alert(<span class="hljs-string">`A tab with this route property <span class="hljs-subst">${tab.props[<span class="hljs-string">'data-route'</span>]}</span> was activated.`</span>);
+    }
+
+    <span class="hljs-keyword">const</span> TabsExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Tabs</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Item One"</span> &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.headline}</span>&gt;</span>Tab One<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+          This is an example tab.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+          You can put any sort of HTML or react component in here. It even keeps the component state!
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Slider</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slider0"</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">{0.5}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Item Two"</span> &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.headline}</span>&gt;</span>Tab Two<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+          This is another example tab.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span>
+      <span class="hljs-attr">label</span>=<span class="hljs-string">"onActive"</span>
+      <span class="hljs-attr">data-route</span>=<span class="hljs-string">"/home"</span>
+      <span class="hljs-attr">onActive</span>=<span class="hljs-string">{handleActive}</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.headline}</span>&gt;</span>Tab Three<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+          This is a third example tab.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Tabs</span>&gt;</span>
+);
+
+export default TabsExampleSimple;</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>A simple example of Tabs. The third tab demonstrates the <code>onActive</code> property of <code>Tab</code>.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="width: 100%; background-color: rgb(0, 188, 212); white-space: nowrap; display: flex;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgb(255, 255, 255); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9751 -->Item One<!-- /react-text --></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9755 -->Item Two<!-- /react-text --></div></div></button><button data-route="/home" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9759 -->onActive<!-- /react-text --></div></div></button></div><div style="width: 100%;"><div style="left: 0%; width: 33.3333%; bottom: 0px; display: block; background-color: rgb(255, 64, 129); height: 2px; margin-top: -2px; position: relative; transition: left 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div><div style="width: 100%; position: relative; text-align: initial;"><div><h2 style="font-size: 24px; padding-top: 16px; margin-bottom: 12px; font-weight: 400;">Tab One</h2><p>This is an example tab.</p><p>You can put any sort of HTML or react component in here. It even keeps the component state!</p><div><span></span><span></span><div style="user-select: none; cursor: default; height: 18px; width: 100%; position: relative; margin-top: 24px; margin-bottom: 48px;"><div style="position: absolute; top: 8px; left: 0px; width: 100%; height: 2px;"><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; left: 0px; background-color: rgb(0, 188, 212); margin-right: 6px; width: calc(50%);"></div><div style="position: absolute; height: 100%; transition: margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; right: 0px; background-color: rgb(189, 189, 189); margin-left: 6px; width: calc(50%);"></div><div tabindex="0" style="box-sizing: border-box; position: absolute; cursor: pointer; pointer-events: inherit; top: 0px; left: 50%; z-index: 1; margin: 1px 0px 0px; width: 12px; height: 12px; background-color: rgb(0, 188, 212); background-clip: padding-box; border: 0px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, border-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; overflow: visible; outline: none;"><div style="position: absolute; overflow: visible; height: 12px; width: 12px; top: 0px; left: 0px;"></div></div></div></div><input type="hidden" step="0.01" min="0" max="1" name="slider0" value="0.5" required=""></div></div></div><div style="width: 100%; position: relative; text-align: initial; height: 0px; overflow: hidden;"><div><h2 style="font-size: 24px; padding-top: 16px; margin-bottom: 12px; font-weight: 400;">Tab Two</h2><p>This is another example tab.</p></div></div><div style="width: 100%; position: relative; text-align: initial; height: 0px; overflow: hidden;"><div><h2 style="font-size: 24px; padding-top: 16px; margin-bottom: 12px; font-weight: 400;">Tab Three</h2><p>This is a third example tab.</p></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Controlled example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {Tabs, Tab} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Tabs'</span>;
+
+    <span class="hljs-keyword">const</span> styles = {
+    <span class="hljs-attr">headline</span>: {
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">24</span>,
+    <span class="hljs-attr">paddingTop</span>: <span class="hljs-number">16</span>,
+    <span class="hljs-attr">marginBottom</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">fontWeight</span>: <span class="hljs-number">400</span>,
+    },
+    };
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TabsExampleControlled</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
+    <span class="hljs-attr">value</span>: <span class="hljs-string">'a'</span>,
+    };
+    }
+
+    handleChange = <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">value</span>: value,
+    });
+    };
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Tabs</span>
+        <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.value}</span>
+        <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Tab A"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"a"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.headline}</span>&gt;</span>Controllable Tab A<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+              Tabs are also controllable if you want to programmatically pass them their values.
+              This allows for more functionality in Tabs such as not
+              having any Tab selected or assigning them different values.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Tab B"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"b"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.headline}</span>&gt;</span>Controllable Tab B<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+              This is another example of a controllable tab. Remember, if you
+              use controllable Tabs, you need to give all of your tabs values or else
+              you wont be able to select them.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Tabs</span>&gt;</span></span>
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>An example of controlled tabs. The selected tab is handled through state and callbacks in the parent (example) component.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div value="a"><div style="width: 100%; background-color: rgb(0, 188, 212); white-space: nowrap; display: flex;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgb(255, 255, 255); width: 50%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9810 -->Tab A<!-- /react-text --></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 50%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9814 -->Tab B<!-- /react-text --></div></div></button></div><div style="width: 100%;"><div style="left: 0%; width: 50%; bottom: 0px; display: block; background-color: rgb(255, 64, 129); height: 2px; margin-top: -2px; position: relative; transition: left 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div><div style="width: 100%; position: relative; text-align: initial;"><div><h2 style="font-size: 24px; padding-top: 16px; margin-bottom: 12px; font-weight: 400;">Controllable Tab A</h2><p>Tabs are also controllable if you want to programmatically pass them their values. This allows for more functionality in Tabs such as not having any Tab selected or assigning them different values.</p></div></div><div style="width: 100%; position: relative; text-align: initial; height: 0px; overflow: hidden;"><div><h2 style="font-size: 24px; padding-top: 16px; margin-bottom: 12px; font-weight: 400;">Controllable Tab B</h2><p>This is another example of a controllable tab. Remember, if you use controllable Tabs, you need to give all of your tabs values or else you wont be able to select them.</p></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Swipeable example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {Tabs, Tab} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Tabs'</span>;
+    <span class="hljs-comment">// From https://github.com/oliviertassinari/react-swipeable-views</span>
+    <span class="hljs-keyword">import</span> SwipeableViews <span class="hljs-keyword">from</span> <span class="hljs-string">'react-swipeable-views'</span>;
+
+    <span class="hljs-keyword">const</span> styles = {
+    <span class="hljs-attr">headline</span>: {
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">24</span>,
+    <span class="hljs-attr">paddingTop</span>: <span class="hljs-number">16</span>,
+    <span class="hljs-attr">marginBottom</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">fontWeight</span>: <span class="hljs-number">400</span>,
+    },
+    <span class="hljs-attr">slide</span>: {
+    <span class="hljs-attr">padding</span>: <span class="hljs-number">10</span>,
+    },
+    };
+
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TabsExampleSwipeable</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
+    <span class="hljs-attr">slideIndex</span>: <span class="hljs-number">0</span>,
+    };
+    }
+
+    handleChange = <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">slideIndex</span>: value,
+    });
+    };
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;Tabs
+    onChange={this.handleChange}
+    value={this.state.slideIndex}
+    &gt;
+    &lt;Tab label="Tab One" value={0} /&gt;
+    &lt;Tab label="Tab Two" value={1} /&gt;
+    &lt;Tab label="Tab Three" value={2} /&gt;
+    &lt;/Tabs&gt;
+    &lt;SwipeableViews
+    index={this.state.slideIndex}
+    onChangeIndex={this.handleChange}
+    &gt;
+    &lt;div&gt;
+    &lt;h2 style={styles.headline}&gt;Tabs with slide effect&lt;/h2&gt;
+    Swipe to see the next slide.&lt;br /&gt;
+    &lt;/div&gt;
+    &lt;div style={styles.slide}&gt;
+    slide n°2
+    &lt;/div&gt;
+    &lt;div style={styles.slide}&gt;
+    slide n°3
+    &lt;/div&gt;
+    &lt;/SwipeableViews&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>This example integrates the <a href="https://github.com/oliviertassinari/react-swipeable-views">react-swipeable-views</a> component with Tabs, animating the Tab transition, and allowing tabs to be swiped on touch devices.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div value="0"><div style="width: 100%; background-color: rgb(0, 188, 212); white-space: nowrap; display: flex;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgb(255, 255, 255); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9851 -->Tab One<!-- /react-text --></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9855 -->Tab Two<!-- /react-text --></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><!-- react-text: 9859 -->Tab Three<!-- /react-text --></div></div></button></div><div style="width: 100%;"><div style="left: 0%; width: 33.3333%; bottom: 0px; display: block; background-color: rgb(255, 64, 129); height: 2px; margin-top: -2px; position: relative; transition: left 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div></div></div><div role="listbox" style="overflow-x: hidden;"><div style="transform: translate(0%, 0px); flex-direction: row; display: flex; will-change: transform;"><div aria-hidden="false" role="option" style="width: 100%; flex-shrink: 0; overflow: auto;"><div><h2 style="font-size: 24px; padding-top: 16px; margin-bottom: 12px; font-weight: 400;">Tabs with slide effect</h2><!-- react-text: 9868 -->Swipe to see the next slide.<!-- /react-text --><br></div></div><div aria-hidden="true" role="option" style="width: 100%; flex-shrink: 0; overflow: auto;"><div style="padding: 10px;">slide n°2</div></div><div aria-hidden="true" role="option" style="width: 100%; flex-shrink: 0; overflow: auto;"><div style="padding: 10px;">slide n°3</div></div></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Icon example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {Tabs, Tab} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Tabs'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> ActionFlightTakeoff <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/action/flight-takeoff'</span>;
+
+    <span class="hljs-keyword">const</span> TabsExampleIcon = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;Tabs&gt;
+    &lt;Tab icon={&lt;FontIcon className="muidocs-icon-action-home" /&gt;} /&gt;
+    &lt;Tab icon={&lt;ActionFlightTakeoff /&gt;} /&gt;
+    &lt;Tab icon={&lt;FontIcon className="material-icons"&gt;favorite&lt;/FontIcon&gt;} /&gt;
+    &lt;/Tabs&gt;
+    );
+
+    export default TabsExampleIcon;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>An example of tabs with icon.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="width: 100%; background-color: rgb(0, 188, 212); white-space: nowrap; display: flex;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgb(255, 255, 255); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><span class="muidocs-icon-action-home" style="color: rgb(255, 255, 255); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-bottom: 0px;"></span></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(255, 255, 255, 0.7); fill: rgba(255, 255, 255, 0.7); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px; margin-bottom: 0px;"><path d="M2.5 19h19v2h-19zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-6.9-6.43-1.93.51 4.14 7.17-4.97 1.33-1.97-1.54-1.45.39 1.82 3.16.77 1.33 1.6-.43 5.31-1.42 4.35-1.16L21 11.49c.81-.23 1.28-1.05 1.07-1.85z"></path></svg></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px;"><span class="material-icons" style="color: rgba(255, 255, 255, 0.7); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-bottom: 0px;">favorite</span></div></div></button></div><div style="width: 100%;"><div style="left: 0%; width: 33.3333%; bottom: 0px; display: block; background-color: rgb(255, 64, 129); height: 2px; margin-top: -2px; position: relative; transition: left 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Icon and text example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> {Tabs, Tab} <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Tabs'</span>;
+    <span class="hljs-keyword">import</span> FontIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/FontIcon'</span>;
+    <span class="hljs-keyword">import</span> MapsPersonPin <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/maps/person-pin'</span>;
+
+    <span class="hljs-keyword">const</span> TabsExampleIconText = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;Tabs&gt;
+    &lt;Tab
+    icon={&lt;FontIcon className="material-icons"&gt;phone&lt;/FontIcon&gt;}
+    label="RECENTS"
+    /&gt;
+    &lt;Tab
+    icon={&lt;FontIcon className="material-icons"&gt;favorite&lt;/FontIcon&gt;}
+    label="FAVORITES"
+    /&gt;
+    &lt;Tab
+    icon={&lt;MapsPersonPin /&gt;}
+    label="NEARBY"
+    /&gt;
+    &lt;/Tabs&gt;
+    );
+
+    export default TabsExampleIconText;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>An example of tabs with icon and text.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="width: 100%; background-color: rgb(0, 188, 212); white-space: nowrap; display: flex;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgb(255, 255, 255); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 72px;"><span class="material-icons" style="color: rgb(255, 255, 255); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-bottom: 5px;">phone</span><!-- react-text: 9932 -->RECENTS<!-- /react-text --></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 72px;"><span class="material-icons" style="color: rgba(255, 255, 255, 0.7); position: relative; font-size: 24px; display: inline-block; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; margin-bottom: 5px;">favorite</span><!-- react-text: 9937 -->FAVORITES<!-- /react-text --></div></div></button><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 14px; font-weight: 500; position: relative; z-index: 1; color: rgba(255, 255, 255, 0.7); width: 33.3333%; text-transform: uppercase; background: none;"><div><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 72px;"><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(255, 255, 255, 0.7); fill: rgba(255, 255, 255, 0.7); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; font-size: 24px; margin-bottom: 5px;"><path d="M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 3.3c1.49 0 2.7 1.21 2.7 2.7 0 1.49-1.21 2.7-2.7 2.7-1.49 0-2.7-1.21-2.7-2.7 0-1.49 1.21-2.7 2.7-2.7zM18 16H6v-.9c0-2 4-3.1 6-3.1s6 1.1 6 3.1v.9z"></path></svg><!-- react-text: 9943 -->NEARBY<!-- /react-text --></div></div></button></div><div style="width: 100%;"><div style="left: 0%; width: 33.3333%; bottom: 0px; display: block; background-color: rgb(255, 64, 129); height: 2px; margin-top: -2px; position: relative; transition: left 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="tabs-properties">Tabs Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Should be used to pass <code>Tab</code> components.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">contentContainerClassName</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the content's container.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">contentContainerStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the content's container.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">initialSelectedIndex</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">0</td>
+            <td style="text-align:left">Specify initial visible tab index. If <code>initialSelectedIndex</code> is set but larger than the total amount of specified tabs, <code>initialSelectedIndex</code> will revert back to default. If <code>initialSelectedIndex</code> is set to any negative value, no tab will be selected intially.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">inkBarStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the InkBar.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Called when the selected value change.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">tabItemContainerStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the tab-labels container.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">tabTemplate</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the default tab template used to wrap the content of each tab element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">tabTemplateStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the tab template.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">any</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Makes Tabs controllable and selects the tab whose value prop matches this prop.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="tab-properties">Tab Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">buttonStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the button element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The css class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">icon</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Sets the icon of the tab, you can pass <code>FontIcon</code> or <code>SvgIcon</code> elements.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">label</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Sets the text value of the tab item to the string specified.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onActive</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Fired when the active tab changes by touch or tap. Use this event to specify any functionality when an active tab changes. For example - we are using this to route to home when the third tab becomes active. This function will always recieve the active tab as it\'s first argument.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">value</td>
+            <td style="text-align:left">any</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">If value prop passed to Tabs component, this value prop is also required. It assigns a value to the tab so that it can be selected by the Tabs.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;"></div></div></div>

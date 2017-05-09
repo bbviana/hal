@@ -1,0 +1,452 @@
+<div><!-- react-empty: 2544 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="auto-complete">Auto Complete</h2>
+    <p>The <a href="https://www.google.com/design/spec/components/text-fields.html#text-fields-auto-complete-text-field">auto-complete</a>
+        is an extension of a regular text-field that will auto-complete the input dynamically. It can take different auto-complete filters and
+        uses a menu to display suggestions.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Simple example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AutoComplete <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AutoComplete'</span>;
+
+<span class="hljs-comment">/**
+ * The input is used to create the `dataSource`, so the input always matches three entries.
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AutoCompleteExampleSimple</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    state = {
+    <span class="hljs-attr">dataSource</span>: [],
+    };
+
+    handleUpdateInput = <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">dataSource</span>: [
+    value,
+    value + value,
+    value + value + value,
+    ],
+    });
+    };
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;AutoComplete
+    hintText="Type anything"
+    dataSource={this.state.dataSource}
+    onUpdateInput={this.handleUpdateInput}
+    /&gt;
+    &lt;AutoComplete
+    hintText="Type anything"
+    dataSource={this.state.dataSource}
+    onUpdateInput={this.handleUpdateInput}
+    floatingLabelText="Full width"
+    fullWidth={true}
+    /&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The input is used to create the <code>dataSource</code>, so the input always matches three entries.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">Type anything</div><input type="text" autocomplete="off" value="" id="undefined-Typeanything-undefined-60839" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2573 --><!-- react-empty: 2574 --></div></div><div style="display: inline-block; position: relative; width: 100%;"><div style="font-size: 16px; line-height: 24px; width: 100%; height: 72px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><label for="undefined-Typeanything-Fullwidth-41182" style="position: absolute; line-height: 22px; top: 38px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(1) translate(0px, 0px); transform-origin: left top 0px; pointer-events: none; user-select: none; color: rgba(0, 0, 0, 0.3);">Full width</label><div style="position: absolute; opacity: 0; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">Type anything</div><input type="text" autocomplete="off" value="" id="undefined-Typeanything-Fullwidth-41182" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; box-sizing: border-box; margin-top: 14px; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2584 --><!-- react-empty: 2585 --></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Data sources</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AutoComplete <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AutoComplete'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+
+    <span class="hljs-keyword">const</span> dataSource1 = [
+    {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">'text-value1'</span>,
+    <span class="hljs-attr">value</span>: (
+    &lt;MenuItem
+    primaryText="text-value1"
+    secondaryText="&amp;#9786;"
+    /&gt;
+    ),
+    },
+    {
+    text: 'text-value2',
+    value: (
+    &lt;MenuItem
+    primaryText="text-value2"
+    secondaryText="&amp;#9786;"
+    /&gt;
+    ),
+    },
+    ];
+
+    const dataSource2 = ['12345', '23456', '34567'];
+
+    const dataSource3 = [
+    {textKey: 'Some Text', valueKey: 'someFirstValue'},
+    {textKey: 'Some Text', valueKey: 'someSecondValue'},
+    ];
+    const dataSourceConfig = {
+    text: 'textKey',
+    value: 'valueKey',
+    };
+
+    /**
+    * The first example has `MenuItem`s in its data source that display on data entry.
+    * The second example uses an array of values as its `dataSource`, and updates on focus.
+    * Both examples have filtering disabled.
+    */
+    const AutoCompleteExampleDataSource = () =&gt; (
+    &lt;div&gt;
+    &lt;AutoComplete
+    hintText="text-value data"
+    filter={AutoComplete.noFilter}
+    dataSource={dataSource1}
+    /&gt;&lt;br /&gt;
+    &lt;AutoComplete
+    floatingLabelText="showAllItems"
+    filter={AutoComplete.noFilter}
+    openOnFocus={true}
+    dataSource={dataSource2}
+    /&gt;&lt;br /&gt;
+    &lt;AutoComplete
+    floatingLabelText="Same text, different values"
+    filter={AutoComplete.noFilter}
+    openOnFocus={true}
+    dataSource={dataSource3}
+    dataSourceConfig={dataSourceConfig}
+    /&gt;
+    &lt;/div&gt;
+    );
+
+    export default AutoCompleteExampleDataSource;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The first example has <code>MenuItem</code>s in its data source that display on data entry.
+    The second example uses an array of values as its <code>dataSource</code>, and updates on focus.
+    Both examples have filtering disabled.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">text-value data</div><input type="text" autocomplete="off" value="" id="undefined-text-valuedata-undefined-53063" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2614 --><!-- react-empty: 2615 --></div></div><br><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 72px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><label for="undefined-undefined-showAllItems-4058" style="position: absolute; line-height: 22px; top: 38px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(1) translate(0px, 0px); transform-origin: left top 0px; pointer-events: none; user-select: none; color: rgba(0, 0, 0, 0.3);">showAllItems</label><input type="text" autocomplete="off" value="" id="undefined-undefined-showAllItems-4058" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; box-sizing: border-box; margin-top: 14px; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2625 --><!-- react-empty: 2626 --></div></div><br><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 72px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><label for="undefined-undefined-Sametextdifferentvalues-54007" style="position: absolute; line-height: 22px; top: 38px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(1) translate(0px, 0px); transform-origin: left top 0px; pointer-events: none; user-select: none; color: rgba(0, 0, 0, 0.3);">Same text, different values</label><input type="text" autocomplete="off" value="" id="undefined-undefined-Sametextdifferentvalues-54007" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; box-sizing: border-box; margin-top: 14px; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2636 --><!-- react-empty: 2637 --></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Filters</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AutoComplete <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AutoComplete'</span>;
+
+    <span class="hljs-keyword">const</span> colors = [
+    <span class="hljs-string">'Red'</span>,
+    <span class="hljs-string">'Orange'</span>,
+    <span class="hljs-string">'Yellow'</span>,
+    <span class="hljs-string">'Green'</span>,
+    <span class="hljs-string">'Blue'</span>,
+    <span class="hljs-string">'Purple'</span>,
+    <span class="hljs-string">'Black'</span>,
+    <span class="hljs-string">'White'</span>,
+    ];
+
+    <span class="hljs-keyword">const</span> fruit = [
+    <span class="hljs-string">'Apple'</span>, <span class="hljs-string">'Apricot'</span>, <span class="hljs-string">'Avocado'</span>,
+    <span class="hljs-string">'Banana'</span>, <span class="hljs-string">'Bilberry'</span>, <span class="hljs-string">'Blackberry'</span>, <span class="hljs-string">'Blackcurrant'</span>, <span class="hljs-string">'Blueberry'</span>,
+    <span class="hljs-string">'Boysenberry'</span>, <span class="hljs-string">'Blood Orange'</span>,
+    <span class="hljs-string">'Cantaloupe'</span>, <span class="hljs-string">'Currant'</span>, <span class="hljs-string">'Cherry'</span>, <span class="hljs-string">'Cherimoya'</span>, <span class="hljs-string">'Cloudberry'</span>,
+    <span class="hljs-string">'Coconut'</span>, <span class="hljs-string">'Cranberry'</span>, <span class="hljs-string">'Clementine'</span>,
+    <span class="hljs-string">'Damson'</span>, <span class="hljs-string">'Date'</span>, <span class="hljs-string">'Dragonfruit'</span>, <span class="hljs-string">'Durian'</span>,
+    <span class="hljs-string">'Elderberry'</span>,
+    <span class="hljs-string">'Feijoa'</span>, <span class="hljs-string">'Fig'</span>,
+    <span class="hljs-string">'Goji berry'</span>, <span class="hljs-string">'Gooseberry'</span>, <span class="hljs-string">'Grape'</span>, <span class="hljs-string">'Grapefruit'</span>, <span class="hljs-string">'Guava'</span>,
+    <span class="hljs-string">'Honeydew'</span>, <span class="hljs-string">'Huckleberry'</span>,
+    <span class="hljs-string">'Jabouticaba'</span>, <span class="hljs-string">'Jackfruit'</span>, <span class="hljs-string">'Jambul'</span>, <span class="hljs-string">'Jujube'</span>, <span class="hljs-string">'Juniper berry'</span>,
+    <span class="hljs-string">'Kiwi fruit'</span>, <span class="hljs-string">'Kumquat'</span>,
+    <span class="hljs-string">'Lemon'</span>, <span class="hljs-string">'Lime'</span>, <span class="hljs-string">'Loquat'</span>, <span class="hljs-string">'Lychee'</span>,
+    <span class="hljs-string">'Nectarine'</span>,
+    <span class="hljs-string">'Mango'</span>, <span class="hljs-string">'Marion berry'</span>, <span class="hljs-string">'Melon'</span>, <span class="hljs-string">'Miracle fruit'</span>, <span class="hljs-string">'Mulberry'</span>, <span class="hljs-string">'Mandarine'</span>,
+    <span class="hljs-string">'Olive'</span>, <span class="hljs-string">'Orange'</span>,
+    <span class="hljs-string">'Papaya'</span>, <span class="hljs-string">'Passionfruit'</span>, <span class="hljs-string">'Peach'</span>, <span class="hljs-string">'Pear'</span>, <span class="hljs-string">'Persimmon'</span>, <span class="hljs-string">'Physalis'</span>, <span class="hljs-string">'Plum'</span>, <span class="hljs-string">'Pineapple'</span>,
+    <span class="hljs-string">'Pumpkin'</span>, <span class="hljs-string">'Pomegranate'</span>, <span class="hljs-string">'Pomelo'</span>, <span class="hljs-string">'Purple Mangosteen'</span>,
+    <span class="hljs-string">'Quince'</span>,
+    <span class="hljs-string">'Raspberry'</span>, <span class="hljs-string">'Raisin'</span>, <span class="hljs-string">'Rambutan'</span>, <span class="hljs-string">'Redcurrant'</span>,
+    <span class="hljs-string">'Salal berry'</span>, <span class="hljs-string">'Satsuma'</span>, <span class="hljs-string">'Star fruit'</span>, <span class="hljs-string">'Strawberry'</span>, <span class="hljs-string">'Squash'</span>, <span class="hljs-string">'Salmonberry'</span>,
+    <span class="hljs-string">'Tamarillo'</span>, <span class="hljs-string">'Tamarind'</span>, <span class="hljs-string">'Tomato'</span>, <span class="hljs-string">'Tangerine'</span>,
+    <span class="hljs-string">'Ugli fruit'</span>,
+    <span class="hljs-string">'Watermelon'</span>,
+    ];
+
+<span class="hljs-comment">/**
+ * Two examples of filtering. The first uses `caseInsensitiveFilter`, the second uses `fuzzyFilter`,
+ * and limits the number of results displayed using the `maxSearchResults` property.
+ */</span>
+    <span class="hljs-keyword">const</span> AutoCompleteExampleFilters = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;AutoComplete
+    floatingLabelText="Type 'r', case insensitive"
+    filter={AutoComplete.caseInsensitiveFilter}
+    dataSource={colors}
+    /&gt;
+    &lt;br /&gt;
+    &lt;AutoComplete
+    floatingLabelText="Type 'peah', fuzzy search"
+    filter={AutoComplete.fuzzyFilter}
+    dataSource={fruit}
+    maxSearchResults={5}
+    /&gt;
+    &lt;/div&gt;
+    );
+
+    export default AutoCompleteExampleFilters;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Two examples of filtering. The first uses <code>caseInsensitiveFilter</code>, the second uses <code>fuzzyFilter</code>,
+    and limits the number of results displayed using the <code>maxSearchResults</code> property.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 72px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><label for="undefined-undefined-Typercaseinsensitive-45865" style="position: absolute; line-height: 22px; top: 38px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(1) translate(0px, 0px); transform-origin: left top 0px; pointer-events: none; user-select: none; color: rgba(0, 0, 0, 0.3);">Type 'r', case insensitive</label><input type="text" autocomplete="off" value="" id="undefined-undefined-Typercaseinsensitive-45865" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; box-sizing: border-box; margin-top: 14px; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2666 --><!-- react-empty: 2667 --></div></div><br><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 72px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><label for="undefined-undefined-Typepeahfuzzysearch-26237" style="position: absolute; line-height: 22px; top: 38px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(1) translate(0px, 0px); transform-origin: left top 0px; pointer-events: none; user-select: none; color: rgba(0, 0, 0, 0.3);">Type 'peah', fuzzy search</label><input type="text" autocomplete="off" value="" id="undefined-undefined-Typepeahfuzzysearch-26237" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; box-sizing: border-box; margin-top: 14px; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2677 --><!-- react-empty: 2678 --></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Controlled example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AutoComplete <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AutoComplete'</span>;
+
+    <span class="hljs-keyword">const</span> colors = [
+    <span class="hljs-string">'Red'</span>,
+    <span class="hljs-string">'Orange'</span>,
+    <span class="hljs-string">'Yellow'</span>,
+    <span class="hljs-string">'Green'</span>,
+    <span class="hljs-string">'Blue'</span>,
+    <span class="hljs-string">'Purple'</span>,
+    <span class="hljs-string">'Black'</span>,
+    <span class="hljs-string">'White'</span>,
+    ];
+
+<span class="hljs-comment">/**
+ * `AutoComplete` search text can be implemented as a controlled value,
+ * where `searchText` is handled by state in the parent component.
+ * That value is reseted with the `onNewRequest` callback.
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AutoCompleteExampleControlled</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    state = {
+    <span class="hljs-attr">searchText</span>: <span class="hljs-string">''</span>,
+    };
+
+    handleUpdateInput = <span class="hljs-function">(<span class="hljs-params">searchText</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">searchText</span>: searchText,
+    });
+    };
+
+    handleNewRequest = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">searchText</span>: <span class="hljs-string">''</span>,
+    });
+    };
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AutoComplete</span>
+          <span class="hljs-attr">hintText</span>=<span class="hljs-string">"Type 'r', case insensitive"</span>
+          <span class="hljs-attr">searchText</span>=<span class="hljs-string">{this.state.searchText}</span>
+          <span class="hljs-attr">onUpdateInput</span>=<span class="hljs-string">{this.handleUpdateInput}</span>
+          <span class="hljs-attr">onNewRequest</span>=<span class="hljs-string">{this.handleNewRequest}</span>
+          <span class="hljs-attr">dataSource</span>=<span class="hljs-string">{colors}</span>
+          <span class="hljs-attr">filter</span>=<span class="hljs-string">{(searchText,</span> <span class="hljs-attr">key</span>) =&gt;</span> (key.indexOf(searchText) !== -1)}
+          openOnFocus={true}
+        /&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p><code>AutoComplete</code> search text can be implemented as a controlled value,
+    where <code>searchText</code> is handled by state in the parent component.
+    That value is reseted with the <code>onNewRequest</code> callback.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">Type 'r', case insensitive</div><input type="text" autocomplete="off" value="" id="undefined-Typercaseinsensitive-undefined-62123" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2707 --><!-- react-empty: 2708 --></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">MenuProps example</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> AutoComplete <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/AutoComplete'</span>;
+
+    <span class="hljs-keyword">const</span> colors = [
+    <span class="hljs-string">'Red'</span>,
+    <span class="hljs-string">'Orange'</span>,
+    <span class="hljs-string">'Yellow'</span>,
+    <span class="hljs-string">'Green'</span>,
+    <span class="hljs-string">'Blue'</span>,
+    <span class="hljs-string">'Purple'</span>,
+    <span class="hljs-string">'Black'</span>,
+    <span class="hljs-string">'White'</span>,
+    ];
+
+    <span class="hljs-keyword">const</span> menuProps = {
+    <span class="hljs-attr">desktop</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">disableAutoFocus</span>: <span class="hljs-literal">true</span>,
+    };
+
+<span class="hljs-comment">/**
+ * Provide props to be passed into the Menu component.
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AutoCompleteExampleMenuProps</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AutoComplete</span>
+          <span class="hljs-attr">hintText</span>=<span class="hljs-string">"Type anything"</span>
+          <span class="hljs-attr">dataSource</span>=<span class="hljs-string">{colors}</span>
+          <span class="hljs-attr">menuProps</span>=<span class="hljs-string">{menuProps}</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}</span>
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Provide props to be passed into the Menu component.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; position: relative; width: 256px;"><div style="font-size: 16px; line-height: 24px; width: 256px; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;"><div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">Type anything</div><input type="text" autocomplete="off" value="" id="undefined-Typeanything-undefined-227" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; -webkit-appearance: textfield;"><div><hr style="border-top: none rgb(224, 224, 224); border-left: none rgb(224, 224, 224); border-right: none rgb(224, 224, 224); border-bottom: 1px solid rgb(224, 224, 224); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;"><hr style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"></div></div><div style="display: none;"><!-- react-empty: 2737 --><!-- react-empty: 2738 --></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">anchorOrigin</td>
+            <td style="text-align:left">propTypes.origin</td>
+            <td style="text-align:left">{  vertical: 'bottom',  horizontal: 'left',}</td>
+            <td style="text-align:left">Location of the anchor for the auto complete.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">animated</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">If true, the auto complete is animated as it is toggled.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">animation</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the default animation component used.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="color: #31a148">dataSource *</span></td>
+            <td style="text-align:left">array</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Array of strings or nodes used to populate the list.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">dataSourceConfig</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left">{  text: 'text',  value: 'value',}</td>
+            <td style="text-align:left">Config for objects list dataSource.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">disableFocusRipple</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">Disables focus ripple when true.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">errorStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override style prop for error.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">errorText</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The error content to display.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">filter</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">(searchText, key) =&gt; searchText !== '' &amp;&amp; key.indexOf(searchText) !== -1</td>
+            <td style="text-align:left">Callback function used to filter the auto complete.<br><br><strong>Signature:</strong><br><code>function(searchText: string, key: string) =&gt; boolean</code><br><em>searchText:</em> The text to search for within <code>dataSource</code>.<br><em>key:</em> <code>dataSource</code> element, or <code>text</code> property on that element if it's not a string.<br> <em>returns</em> (boolean): <code>true</code> indicates the auto complete list will include <code>key</code> when the input is <code>searchText</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">floatingLabelText</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The content to use for adding floating label element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">fullWidth</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the field receives the property <code>width: 100%</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">hintText</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The hint content to display.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">listStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override style for list.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">maxSearchResults</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The max number of search results to be shown. By default it shows all the items which matches filter.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuCloseDelay</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">300</td>
+            <td style="text-align:left">Delay for closing time of the menu.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuProps</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Props to be passed to menu.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override style for menu.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onClose</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Callback function fired when the menu is closed.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onNewRequest</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function that is fired when a list item is selected, or enter is pressed in the <code>TextField</code>.<br><br><strong>Signature:</strong><br><code>function(chosenRequest: string, index: number) =&gt; void</code><br><em>chosenRequest:</em> Either the <code>TextField</code> input value, if enter is pressed in the <code>TextField</code>, or the text value of the corresponding list item that was selected.<br><em>index:</em> The index in <code>dataSource</code> of the list item selected, or <code>-1</code> if enter is pressed in the <code>TextField</code>.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onUpdateInput</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function that is fired when the user updates the <code>TextField</code>.<br><br><strong>Signature:</strong><br><code>function(searchText: string, dataSource: array, params: object) =&gt; void</code><br><em>searchText:</em> The auto-complete's <code>searchText</code> value.<br><em>dataSource:</em> The auto-complete's <code>dataSource</code> array.<br><em>params:</em> Additional information linked the update.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">open</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">Auto complete menu is open if true.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">openOnFocus</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the list item is showed when a focus event triggers.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">popoverProps</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Props to be passed to popover.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">searchText</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Text being input to auto complete.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">targetOrigin</td>
+            <td style="text-align:left">propTypes.origin</td>
+            <td style="text-align:left">{  vertical: 'top',  horizontal: 'left',}</td>
+            <td style="text-align:left">Origin for location of target.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">textFieldStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of AutoComplete's TextField element.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;">* required property</div></div></div>

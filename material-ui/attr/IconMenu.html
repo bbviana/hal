@@ -1,0 +1,408 @@
+<div><!-- react-empty: 6350 --><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h2 id="icon-menu">Icon Menu</h2>
+    <p><a href="https://www.google.com/design/spec/components/menus.html#menus-usage">Icon Menus</a>
+        are menus that open from icons. They can give options related to the icon and use
+        a minimal space.</p>
+    <h3 id="examples">Examples</h3>
+</div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Icon Menu positioning</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> IconMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> MoreVertIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/more-vert'</span>;
+
+<span class="hljs-comment">/**
+ * Simple Icon Menus demonstrating some of the layouts possible using the `anchorOrigin` and
+ * `targetOrigin` properties.
+ */</span>
+    <span class="hljs-keyword">const</span> IconMenuExampleSimple = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;div&gt;
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;MoreVertIcon /&gt;&lt;/IconButton&gt;}
+    anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+    targetOrigin={{horizontal: 'left', vertical: 'top'}}
+    &gt;
+    &lt;MenuItem primaryText="Refresh" /&gt;
+    &lt;MenuItem primaryText="Send feedback" /&gt;
+    &lt;MenuItem primaryText="Settings" /&gt;
+    &lt;MenuItem primaryText="Help" /&gt;
+    &lt;MenuItem primaryText="Sign out" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;MoreVertIcon /&gt;&lt;/IconButton&gt;}
+    anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+    targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
+    &gt;
+    &lt;MenuItem primaryText="Refresh" /&gt;
+    &lt;MenuItem primaryText="Send feedback" /&gt;
+    &lt;MenuItem primaryText="Settings" /&gt;
+    &lt;MenuItem primaryText="Help" /&gt;
+    &lt;MenuItem primaryText="Sign out" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;MoreVertIcon /&gt;&lt;/IconButton&gt;}
+    anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+    targetOrigin={{horizontal: 'right', vertical: 'bottom'}}
+    &gt;
+    &lt;MenuItem primaryText="Refresh" /&gt;
+    &lt;MenuItem primaryText="Send feedback" /&gt;
+    &lt;MenuItem primaryText="Settings" /&gt;
+    &lt;MenuItem primaryText="Help" /&gt;
+    &lt;MenuItem primaryText="Sign out" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;MoreVertIcon /&gt;&lt;/IconButton&gt;}
+    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+    targetOrigin={{horizontal: 'right', vertical: 'top'}}
+    &gt;
+    &lt;MenuItem primaryText="Refresh" /&gt;
+    &lt;MenuItem primaryText="Send feedback" /&gt;
+    &lt;MenuItem primaryText="Settings" /&gt;
+    &lt;MenuItem primaryText="Help" /&gt;
+    &lt;MenuItem primaryText="Sign out" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;/div&gt;
+    );
+
+    export default IconMenuExampleSimple;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Simple Icon Menus demonstrating some of the layouts possible using the <code>anchorOrigin</code> and
+    <code>targetOrigin</code> properties.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6377 --><!-- react-empty: 6378 --></div></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6385 --><!-- react-empty: 6386 --></div></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6393 --><!-- react-empty: 6394 --></div></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6401 --><!-- react-empty: 6402 --></div></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Controlled Icon Menus</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> IconMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> RaisedButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/RaisedButton'</span>;
+    <span class="hljs-keyword">import</span> MoreVertIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/more-vert'</span>;
+    <span class="hljs-keyword">import</span> ContentFilter <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/content/filter-list'</span>;
+    <span class="hljs-keyword">import</span> FileFileDownload <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/file/file-download'</span>;
+
+<span class="hljs-comment">/**
+ * Three controlled examples, the first allowing a single selection, the second multiple selections,
+ * the third using internal state.
+ */</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IconMenuExampleControlled</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    state = {
+    <span class="hljs-attr">valueSingle</span>: <span class="hljs-string">'3'</span>,
+    <span class="hljs-attr">valueMultiple</span>: [<span class="hljs-string">'3'</span>, <span class="hljs-string">'5'</span>],
+    };
+
+    handleChangeSingle = <span class="hljs-function">(<span class="hljs-params">event, value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">valueSingle</span>: value,
+    });
+    };
+
+    handleChangeMultiple = <span class="hljs-function">(<span class="hljs-params">event, value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">valueMultiple</span>: value,
+    });
+    };
+
+    handleOpenMenu = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">openMenu</span>: <span class="hljs-literal">true</span>,
+    });
+    }
+
+    handleOnRequestChange = <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">openMenu</span>: value,
+    });
+    }
+
+    render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;MoreVertIcon /&gt;&lt;/IconButton&gt;}
+    onChange={this.handleChangeSingle}
+    value={this.state.valueSingle}
+    &gt;
+    &lt;MenuItem value="1" primaryText="Refresh" /&gt;
+    &lt;MenuItem value="2" primaryText="Send feedback" /&gt;
+    &lt;MenuItem value="3" primaryText="Settings" /&gt;
+    &lt;MenuItem value="4" primaryText="Help" /&gt;
+    &lt;MenuItem value="5" primaryText="Sign out" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;ContentFilter /&gt;&lt;/IconButton&gt;}
+    onChange={this.handleChangeMultiple}
+    value={this.state.valueMultiple}
+    multiple={true}
+    &gt;
+    &lt;MenuItem value="1" primaryText="Blu-ray" /&gt;
+    &lt;MenuItem value="2" primaryText="Cassette" /&gt;
+    &lt;MenuItem value="3" primaryText="CD" /&gt;
+    &lt;MenuItem value="4" primaryText="DVD Audio" /&gt;
+    &lt;MenuItem value="5" primaryText="Hybrid SACD" /&gt;
+    &lt;MenuItem value="6" primaryText="Vinyl" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;FileFileDownload /&gt;&lt;/IconButton&gt;}
+    open={this.state.openMenu}
+    onRequestChange={this.handleOnRequestChange}
+    &gt;
+    &lt;MenuItem value="1" primaryText="Windows App" /&gt;
+    &lt;MenuItem value="2" primaryText="Mac App" /&gt;
+    &lt;MenuItem value="3" primaryText="Android App" /&gt;
+    &lt;MenuItem value="4" primaryText="iOS App" /&gt;
+    &lt;/IconMenu&gt;
+    &lt;RaisedButton onTouchTap={this.handleOpenMenu} label="Downloads" /&gt;
+    &lt;/div&gt;
+    );
+    }
+    }
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Three controlled examples, the first allowing a single selection, the second multiple selections,
+    the third using internal state.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6429 --><!-- react-empty: 6430 --></div></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6437 --><!-- react-empty: 6438 --></div></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6445 --><!-- react-empty: 6446 --></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; display: inline-block; min-width: 88px;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(255, 255, 255); text-align: center;"><div><div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;"><span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgba(0, 0, 0, 0.87);">Downloads</span></div></div></button></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Scrollable Icon Menu</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> IconMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> MapsPlace <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/maps/place'</span>;
+
+<span class="hljs-comment">/**
+ * The `maxHeight` property limits the height of the menu, above which it will be scrollable.
+ */</span>
+    <span class="hljs-keyword">const</span> IconMenuExampleScrollable = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;MapsPlace /&gt;&lt;/IconButton&gt;}
+    anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+    targetOrigin={{horizontal: 'left', vertical: 'top'}}
+    maxHeight={272}
+    &gt;
+    &lt;MenuItem value="AL" primaryText="Alabama" /&gt;
+    &lt;MenuItem value="AK" primaryText="Alaska" /&gt;
+    &lt;MenuItem value="AZ" primaryText="Arizona" /&gt;
+    &lt;MenuItem value="AR" primaryText="Arkansas" /&gt;
+    &lt;MenuItem value="CA" primaryText="California" /&gt;
+    &lt;MenuItem value="CO" primaryText="Colorado" /&gt;
+    &lt;MenuItem value="CT" primaryText="Connecticut" /&gt;
+    &lt;MenuItem value="DE" primaryText="Delaware" /&gt;
+    &lt;MenuItem value="DC" primaryText="District Of Columbia" /&gt;
+    &lt;MenuItem value="FL" primaryText="Florida" /&gt;
+    &lt;MenuItem value="GA" primaryText="Georgia" /&gt;
+    &lt;MenuItem value="HI" primaryText="Hawaii" /&gt;
+    &lt;MenuItem value="ID" primaryText="Idaho" /&gt;
+    &lt;MenuItem value="IL" primaryText="Illinois" /&gt;
+    &lt;MenuItem value="IN" primaryText="Indiana" /&gt;
+    &lt;MenuItem value="IA" primaryText="Iowa" /&gt;
+    &lt;MenuItem value="KS" primaryText="Kansas" /&gt;
+    &lt;MenuItem value="KY" primaryText="Kentucky" /&gt;
+    &lt;MenuItem value="LA" primaryText="Louisiana" /&gt;
+    &lt;MenuItem value="ME" primaryText="Maine" /&gt;
+    &lt;MenuItem value="MD" primaryText="Maryland" /&gt;
+    &lt;MenuItem value="MA" primaryText="Massachusetts" /&gt;
+    &lt;MenuItem value="MI" primaryText="Michigan" /&gt;
+    &lt;MenuItem value="MN" primaryText="Minnesota" /&gt;
+    &lt;MenuItem value="MS" primaryText="Mississippi" /&gt;
+    &lt;MenuItem value="MO" primaryText="Missouri" /&gt;
+    &lt;MenuItem value="MT" primaryText="Montana" /&gt;
+    &lt;MenuItem value="NE" primaryText="Nebraska" /&gt;
+    &lt;MenuItem value="NV" primaryText="Nevada" /&gt;
+    &lt;MenuItem value="NH" primaryText="New Hampshire" /&gt;
+    &lt;MenuItem value="NJ" primaryText="New Jersey" /&gt;
+    &lt;MenuItem value="NM" primaryText="New Mexico" /&gt;
+    &lt;MenuItem value="NY" primaryText="New York" /&gt;
+    &lt;MenuItem value="NC" primaryText="North Carolina" /&gt;
+    &lt;MenuItem value="ND" primaryText="North Dakota" /&gt;
+    &lt;MenuItem value="OH" primaryText="Ohio" /&gt;
+    &lt;MenuItem value="OK" primaryText="Oklahoma" /&gt;
+    &lt;MenuItem value="OR" primaryText="Oregon" /&gt;
+    &lt;MenuItem value="PA" primaryText="Pennsylvania" /&gt;
+    &lt;MenuItem value="RI" primaryText="Rhode Island" /&gt;
+    &lt;MenuItem value="SC" primaryText="South Carolina" /&gt;
+    &lt;MenuItem value="SD" primaryText="South Dakota" /&gt;
+    &lt;MenuItem value="TN" primaryText="Tennessee" /&gt;
+    &lt;MenuItem value="TX" primaryText="Texas" /&gt;
+    &lt;MenuItem value="UT" primaryText="Utah" /&gt;
+    &lt;MenuItem value="VT" primaryText="Vermont" /&gt;
+    &lt;MenuItem value="VA" primaryText="Virginia" /&gt;
+    &lt;MenuItem value="WA" primaryText="Washington" /&gt;
+    &lt;MenuItem value="WV" primaryText="West Virginia" /&gt;
+    &lt;MenuItem value="WI" primaryText="Wisconsin" /&gt;
+    &lt;MenuItem value="WY" primaryText="Wyoming" /&gt;
+    &lt;/IconMenu&gt;
+    );
+
+    export default IconMenuExampleScrollable;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>The <code>maxHeight</code> property limits the height of the menu, above which it will be scrollable.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6477 --><!-- react-empty: 6478 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; border-radius: 2px; margin-bottom: 32px;"><div style="background: rgb(248, 248, 248); border-top: 1px solid rgb(224, 224, 224);"><div style="cursor: pointer;"><div style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(232, 232, 232); height: 56px; padding: 0px 24px; display: flex; justify-content: space-between;"><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><span style="padding-right: 16px; line-height: 56px; font-size: 20px; font-family: Roboto, sans-serif; position: relative; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: rgba(0, 0, 0, 0.4);">Nested Icon Menus</span></div><div style="position: relative; display: flex; justify-content: space-between; align-items: center;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><div style="position: absolute; font-family: Roboto, sans-serif; font-size: 14px; line-height: 32px; padding: 0px 16px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -32px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;"><div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div><span style="position: relative; white-space: nowrap;">Show source</span></div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></div></button></div></div></div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 0px 10px; overflow: auto; max-height: 0px; transition: max-height 800ms ease-in-out 0ms;"><pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> IconMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconMenu'</span>;
+    <span class="hljs-keyword">import</span> MenuItem <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/MenuItem'</span>;
+    <span class="hljs-keyword">import</span> IconButton <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/IconButton'</span>;
+    <span class="hljs-keyword">import</span> Divider <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/Divider'</span>;
+    <span class="hljs-keyword">import</span> Download <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/file/file-download'</span>;
+    <span class="hljs-keyword">import</span> ArrowDropRight <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation-arrow-drop-right'</span>;
+    <span class="hljs-keyword">import</span> MoreVertIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'material-ui/svg-icons/navigation/more-vert'</span>;
+
+<span class="hljs-comment">/**
+ * Example of nested menus within an IconMenu.
+ */</span>
+    <span class="hljs-keyword">const</span> IconMenuExampleNested = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+    &lt;IconMenu
+    iconButtonElement={&lt;IconButton&gt;&lt;MoreVertIcon /&gt;&lt;/IconButton&gt;}
+    anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+    targetOrigin={{horizontal: 'left', vertical: 'top'}}
+    &gt;
+    &lt;MenuItem
+    primaryText="Copy &amp; Paste"
+    rightIcon={&lt;ArrowDropRight /&gt;}
+    menuItems={[
+    &lt;MenuItem primaryText="Cut" /&gt;,
+    &lt;MenuItem primaryText="Copy" /&gt;,
+    &lt;Divider /&gt;,
+    &lt;MenuItem primaryText="Paste" /&gt;,
+    ]}
+    /&gt;
+
+    &lt;MenuItem
+    primaryText="Case Tools"
+    rightIcon={&lt;ArrowDropRight /&gt;}
+    menuItems={[
+    &lt;MenuItem primaryText="UPPERCASE" /&gt;,
+    &lt;MenuItem primaryText="lowercase" /&gt;,
+    &lt;MenuItem primaryText="CamelCase" /&gt;,
+    &lt;MenuItem primaryText="Propercase" /&gt;,
+    ]}
+    /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem primaryText="Download" leftIcon={&lt;Download /&gt;} /&gt;
+    &lt;Divider /&gt;
+    &lt;MenuItem value="Del" primaryText="Delete" /&gt;
+
+    &lt;/IconMenu&gt;
+    );
+
+    export default IconMenuExampleNested;
+</code></pre>
+</div><div class="markdown-body" style="margin-top: 0px; margin-bottom: 0px; padding: 10px 20px 0px; background: rgb(255, 255, 255); overflow: auto;"><p>Example of nested menus within an IconMenu.</p>
+</div></div><div style="border-radius: 0px 0px 2px; padding: 14px 24px 24px; margin: 0px;"><div style="box-sizing: border-box; content: &quot; &quot;; display: table;"></div><div style="display: inline-block; position: relative;"><button tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; z-index: 1; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;"><div><svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></div></button><div style="display: none;"><!-- react-empty: 6504 --><!-- react-empty: 6505 --></div></div><div style="box-sizing: border-box; content: &quot; &quot;; clear: both; display: table;"></div></div></div><div class="propTypeDescription"><div class="markdown-body" style="margin-top: 20px; margin-bottom: 20px; padding: 0px 10px;"><h3 id="properties">Properties</h3>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Type</th>
+            <th style="text-align:left">Default</th>
+            <th style="text-align:left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="text-align:left">anchorOrigin</td>
+            <td style="text-align:left">propTypes.origin</td>
+            <td style="text-align:left">{  vertical: 'top',  horizontal: 'left',}</td>
+            <td style="text-align:left">This is the point on the icon where the menu <code>targetOrigin</code> will attach. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">animated</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">true</td>
+            <td style="text-align:left">If true, the popover will apply transitions when it gets added to the DOM.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">animation</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the default animation component used.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">children</td>
+            <td style="text-align:left">node</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Should be used to pass <code>MenuItem</code> components.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">className</td>
+            <td style="text-align:left">string</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">The CSS class name of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="color: #31a148">iconButtonElement *</span></td>
+            <td style="text-align:left">element</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">This is the <code>IconButton</code> to render. This button will open the menu.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">iconStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the underlying icon element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">listStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the underlying <code>List</code> element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">menuStyle</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the menu element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">multiple</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the value can an be array and allow the menu to be a multi-select.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onItemTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function fired when a menu item is selected with a touch-tap.<br><br><strong>Signature:</strong><br><code>function(event: object, child: object) =&gt; void</code><br><em>event:</em> TouchTap event targeting the selected menu item element.<br><em>child:</em> The selected element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onKeyboardFocus</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function fired when the <code>IconButton</code> element is focused or blurred by the keyboard.<br><br><strong>Signature:</strong><br><code>function(event: object, keyboardFocused: boolean) =&gt; void</code><br><em>event:</em> <code>focus</code> or <code>blur</code> event targeting the <code>IconButton</code> element.<br><em>keyboardFocused:</em> If true, the <code>IconButton</code> element is focused.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onRequestChange</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function fired when the <code>open</code> state of the menu is requested to be changed.<br><br><strong>Signature:</strong><br><code>function(open: boolean, reason: string) =&gt; void</code><br><em>open:</em> If true, the menu was requested to be opened.<br><em>reason:</em> The reason for the open or close request. Possible values are 'keyboard' and 'iconTap' for open requests; 'enter', 'escape', 'itemTap', and 'clickAway' for close requests.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">onTouchTap</td>
+            <td style="text-align:left">function</td>
+            <td style="text-align:left">() =&gt; {}</td>
+            <td style="text-align:left">Callback function fired when the <code>IconButton</code> element is touch-tapped.<br><br><strong>Signature:</strong><br><code>function(event: object) =&gt; void</code><br><em>event:</em> TouchTap event targeting the <code>IconButton</code> element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">open</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">null</td>
+            <td style="text-align:left">If true, the <code>IconMenu</code> is opened.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">style</td>
+            <td style="text-align:left">object</td>
+            <td style="text-align:left"></td>
+            <td style="text-align:left">Override the inline-styles of the root element.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">targetOrigin</td>
+            <td style="text-align:left">propTypes.origin</td>
+            <td style="text-align:left">{  vertical: 'top',  horizontal: 'left',}</td>
+            <td style="text-align:left">This is the point on the menu which will stick to the menu origin. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">touchTapCloseDelay</td>
+            <td style="text-align:left">number</td>
+            <td style="text-align:left">200</td>
+            <td style="text-align:left">Sets the delay in milliseconds before closing the menu when an item is clicked. If set to 0 then the auto close functionality will be disabled.</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">useLayerForClickAway</td>
+            <td style="text-align:left">bool</td>
+            <td style="text-align:left">false</td>
+            <td style="text-align:left">If true, the popover will render on top of an invisible layer, which will prevent clicks to the underlying elements.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Other properties (not documented) are applied to the root element.</p>
+</div><div style="font-size: 90%; padding-left: 15px;">* required property</div></div></div>
