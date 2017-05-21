@@ -1,4 +1,4 @@
-package br.vom.viana;
+package br.vom.viana.tables;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

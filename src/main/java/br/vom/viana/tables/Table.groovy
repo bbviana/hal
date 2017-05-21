@@ -1,4 +1,4 @@
-package br.vom.viana
+package br.vom.viana.tables
 
 import groovy.transform.ToString
 

@@ -1,5 +1,8 @@
-package br.vom.viana
+package br.vom.viana.tables.fetch
 
+import br.vom.viana.tables.Table
+import br.vom.viana.tables.tableDef.TableColumnDefinition
+import br.vom.viana.tables.tableDef.TableDefinition
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
@@ -71,6 +74,10 @@ class Fetcher {
         }
 
         return row
+    }
+
+    void clearCache() {
+        cache.clear()
     }
 
 }

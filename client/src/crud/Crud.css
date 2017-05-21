@@ -1,3 +1,7 @@
 .AddButton {
     margin-left: 10px;
 }
+
+.TableRow {
+    cursor: pointer;
+}

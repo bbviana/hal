@@ -1,6 +1,3 @@
-.App {
-}
-
 .SearchBar {
 
 }
@@ -8,5 +5,9 @@
 .InputQuery {
     border: none;
     vertical-align: super;
+}
+
+.TableName {
+    text-align: center !important;
 }
 

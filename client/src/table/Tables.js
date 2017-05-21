@@ -11,7 +11,7 @@ import {
 
 import ActionSearch from 'material-ui/svg-icons/action/search';
 
-import './App.css';
+import './Tables.css';
 
 
 class App extends Component {
@@ -27,17 +27,21 @@ class App extends Component {
         this.setState({query: query});
 
         if (query.length >= 3) {
-            fetch(`/tables/${query}`)
-                .then(response => response.json())
-                .then(result => this.setState({
-                    tables: result
-                }))
+            clearTimeout(this.delayFunctionID);
+
+            this.delayFunctionID = setTimeout(() => {
+                fetch(`/api/tables/${query}`)
+                    .then(response => response.json())
+                    .then(result => this.setState({
+                        tables: result
+                    }))
+            }, 500);
         }
     };
 
     render() {
         return (
-            <div className="App">
+            <div className="Tables">
                 <div className="SearchBar">
                     <ActionSearch  />
 
@@ -55,6 +59,11 @@ class App extends Component {
                 {this.state.tables.map((table, i) =>
                     <Table key={i}>
                         <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                            <TableRow>
+                                <TableHeaderColumn className="TableName" colSpan={table.columnsNames.length}>
+                                    {table.name}
+                                </TableHeaderColumn>
+                            </TableRow>
                             <TableRow>
                                 {table.columnsNames.map((colName, i) =>
                                     <TableHeaderColumn key={i}>{colName}</TableHeaderColumn>

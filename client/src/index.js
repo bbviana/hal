@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import App from './App';
-import TableDefinitions from './TablesDefnitions';
+import Tables from './table/Tables';
+import TableDefinitions from './tableDef/TablesDefnitions';
 
 import './index.css';
 
@@ -16,10 +16,10 @@ let component;
 let path = window.location.pathname;
 
 if(path === "/"){
-    component = <App />
+    component = <Tables />
 }
 
-if(path === "/definitions"){
+if(path === "/definitions" || path === "/definitions/"){
     component = <TableDefinitions />
 }
 
