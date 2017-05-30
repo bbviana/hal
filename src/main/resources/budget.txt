@@ -1,0 +1,5 @@
+mercado=1500
+aluguel=3000
+contas=500
+carro=500
+drogaria=400

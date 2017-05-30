@@ -1,0 +1,6 @@
+cpf=123
+senha=123
+extratoPeriodo=30
+outDir=/tmp/money/
+extratoFile=extrato.txt
+cartaoFile=cartao.tx
