@@ -14,7 +14,7 @@ import java.text.DecimalFormat
 class SantanderParser {
 
     @Autowired
-    private Config config
+    private Settings config
 
     Summary parse(){
         Summary summary = new Summary()

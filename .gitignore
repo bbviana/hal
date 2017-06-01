@@ -1,5 +1,6 @@
-settings.txt
 application.properties
+settings.txt
+src/main/resources/phantomjs/phantomjs
 
 target/
 !.mvn/wrapper/maven-wrapper.jar

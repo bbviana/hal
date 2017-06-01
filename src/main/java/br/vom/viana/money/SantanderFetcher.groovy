@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 import java.nio.file.Files
+import java.util.concurrent.TimeUnit
 
 import static java.nio.file.StandardCopyOption.COPY_ATTRIBUTES
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING
+import static java.util.concurrent.TimeUnit.MINUTES
+import static java.util.concurrent.TimeUnit.MINUTES
 
 /**
  * @author bbviana
@@ -15,7 +18,7 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING
 class SantanderFetcher {
 
     @Autowired
-    private Config config
+    private Settings config
 
     void fetch(){
         def settings = config.settings
@@ -23,7 +26,14 @@ class SantanderFetcher {
         extractToTemp("phantomjs")
         extractToTemp("santander.js")
 
-        Process process = new ProcessBuilder(
+
+        // TODO
+        // System.getProperty("os.name")
+        // Linux
+        // Mac imprime o que?
+        // chamar phantom correspondente
+
+        def process = new ProcessBuilder(
                 "/tmp/money/phantomjs",
                 "/tmp/money/santander.js",
                 "cpf=${settings.cpf}",
@@ -37,6 +47,8 @@ class SantanderFetcher {
         process.inputStream.eachLine {
             System.out.println(it)
         }
+
+        process.waitFor(2, MINUTES)
     }
 
     private extractToTemp(String fileName) {

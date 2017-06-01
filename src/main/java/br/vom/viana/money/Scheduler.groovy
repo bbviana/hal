@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 /**
  * @author bbviana
  */
-@Component
+//@Component
 class Scheduler {
 
     @Autowired

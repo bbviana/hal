@@ -14,6 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling
 class TablesApplication {
 
     static void main(String[] args) {
+        println System.getProperty("os.name")
         SpringApplication.run(TablesApplication, args)
     }
 
