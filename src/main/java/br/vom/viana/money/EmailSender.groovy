@@ -19,7 +19,7 @@ class EmailSender {
         impl.protocol = "smtp"
         impl.host = "smtp.gmail.com"
         impl.port = 587
-        impl.username = "bbviana@gmail.com"
+        impl.username = ""
         impl.password = ""
 
         def properties = new Properties()
