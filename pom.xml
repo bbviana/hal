@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<start-class>br.vom.viana.TablesApplication</start-class>
 
 		<third.spock>1.0-groovy-2.4</third.spock>
 		<third.jsoup>1.10.2</third.jsoup>
