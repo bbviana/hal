@@ -8,7 +8,8 @@ var testindex = 0;
 var loadInProgress = false;
 
 var ctx = {
-    stepInterval: 300, //ms
+    stepInterval: 0, // ms
+    timeout: 0, // ms
     cpf: "",
     senha: "",
     extratoPeriodo: "", // 3, 7, 15, 30, 45, 60 dias
@@ -239,12 +240,10 @@ var steps = [
 
 extractArgs();
 
-var one_minute = 1000*60;
-
 var startTime = Date.now();
 
 interval = setInterval(function () {
-    if((Date.now() - startTime) > one_minute){
+    if((Date.now() - startTime) > ctx.timeout){
         console.log("[PROCESS_TIMEOUT]");
         phantom.exit(1);
     }

@@ -41,6 +41,8 @@ class SantanderFetcher {
         def process = new ProcessBuilder(
                 "/tmp/money/phantomjs",
                 "/tmp/money/santander.js",
+                "stepInterval=300",
+                "timeout=${1 * 1000 * 60}",
                 "cpf=${settings.cpf}",
                 "senha=${settings.senha}",
                 "extratoPeriodo=${settings.extratoPeriodo}",
@@ -49,11 +51,16 @@ class SantanderFetcher {
                 "cartaoFile=${settings.cartaoFile}"
         ).start()
 
+
         process.inputStream.eachLine {
             System.out.println(it)
+
+            if (it.contains("[PROCESS_TIMEOUT]")) {
+                throw new RuntimeException("PROCESS_TIMEOUT")
+            }
         }
 
-        process.waitFor(2, MINUTES)
+        process.waitFor(1, MINUTES)
     }
 
     private void cleanTempFolder() {
