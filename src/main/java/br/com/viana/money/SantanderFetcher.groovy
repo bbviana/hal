@@ -26,6 +26,8 @@ class SantanderFetcher {
     private Settings config
 
     void fetch() {
+        cleanTempFolder()
+
         def settings = config.settings
 
         if (System.getProperty("os.name").contains("Mac")) {
@@ -52,6 +54,14 @@ class SantanderFetcher {
         }
 
         process.waitFor(2, MINUTES)
+    }
+
+    private void cleanTempFolder() {
+        def dest = new File("/tmp/money")
+        if (dest.exists()) {
+            dest.listFiles().each { it.delete() }
+            dest.delete()
+        }
     }
 
     private extractToTemp(String fileName) {
