@@ -22,16 +22,21 @@ class Scheduler {
 
     // 8:00 e 16:00
 //    @Scheduled(cron = "0 8,16 * * *")
-    // 2h
-    @Scheduled(fixedRate = 7200_000L)
+    // 2h, delay inicial de 30s para não atrapalhar o boot
+    @Scheduled(fixedRate = 7200_000L, initialDelay = 30_000L)
     void run() {
         println "${new Date()}: Executando importação agendada..."
+
         fetcher.fetch()
 
         println "${new Date()}: Processando dados..."
+
         def summary = parser.parse()
 
         println "Enviando email..."
+
         emailSender.send(summary)
+
+        println "Email enviado com sucesso"
     }
 }
