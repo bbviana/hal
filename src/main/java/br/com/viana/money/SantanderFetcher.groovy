@@ -57,6 +57,8 @@ class SantanderFetcher {
     }
 
     private void cleanTempFolder() {
+        println "Apagando /tmp/money..."
+
         def dest = new File("/tmp/money")
         if (dest.exists()) {
             dest.listFiles().each { it.delete() }
@@ -65,6 +67,8 @@ class SantanderFetcher {
     }
 
     private extractToTemp(String fileName) {
+        println "Extraindo $fileName para /tmp/money..."
+
         def source = this.class.classLoader.getResource("phantomjs/${fileName}").openStream()
 
         new File("/tmp/money").mkdir()

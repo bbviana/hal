@@ -8,7 +8,7 @@ var testindex = 0;
 var loadInProgress = false;
 
 var ctx = {
-    stepInterval: 1000, //ms
+    stepInterval: 300, //ms
     cpf: "",
     senha: "",
     extratoPeriodo: "", // 3, 7, 15, 30, 45, 60 dias
@@ -52,16 +52,6 @@ page.onLoadStarted = function () {
 page.onLoadFinished = function () {
     loadInProgress = false;
     console.log("request finalizada");
-};
-
-var run = function(callback){
-    try {
-        callback();
-        return true;
-    }catch(e){
-        console.log("erro", e);
-        return false;
-    }
 };
 
 var steps = [
@@ -255,24 +245,26 @@ var startTime = Date.now();
 
 interval = setInterval(function () {
     if((Date.now() - startTime) > one_minute){
-        console.log("Timeout 1 minuto.");
+        console.log("[PROCESS_TIMEOUT]");
         phantom.exit(1);
     }
 
     if (!loadInProgress && typeof steps[testindex] == "function") {
-        console.log("Passo " + (testindex + 1));
+        console.log("[PASSO #" + (testindex + 1) + "]");
 
         var success =  steps[testindex]();
 
-        if(!success){
-            console.log("Abortando...");
-            phantom.exit(1);
+        // Só passa para o proximo passo se o anterior foi bem sucedido;
+        // Se houve erro, executa o passo novamente.
+        if(success){
+            testindex++;
+        } else{
+            console.log("[ERROR]: passo será executado novamente")
         }
-
-        testindex++;
     }
+
     if (typeof steps[testindex] != "function") {
-        console.log("Processo finalizado.");
+        console.log("[PROCESS_FINISHED]");
         phantom.exit();
     }
 }, ctx.stepInterval);
