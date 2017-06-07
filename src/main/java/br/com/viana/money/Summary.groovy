@@ -3,6 +3,9 @@ package br.com.viana.money
 import groovy.transform.ToString
 import groovy.xml.MarkupBuilder
 
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+
 @ToString(includePackage = false)
 class Summary {
     List<Account> accounts = []
@@ -13,11 +16,14 @@ class Summary {
         def writer = new StringWriter()
         def markup = new MarkupBuilder(writer)
 
+        DecimalFormat df = new DecimalFormat("#,##0.00")
+        df.decimalFormatSymbols = DecimalFormatSymbols.getInstance(new Locale("pt", "BR"))
+
         markup.html {
             accounts.each { account ->
                 section {
                     h3(account.name)
-                    h5("R\$ " + account.total)
+                    h5("R\$ " + df.format(account.total))
 
                     table {
                         thead {
@@ -33,7 +39,7 @@ class Summary {
                                 tr {
                                     td(transaction.date.format("dd/MM"))
                                     td(transaction.description)
-                                    td(transaction.valueReal)
+                                    td(df.format(transaction.valueReal))
                                     td(transaction.category)
                                 }
                             }
@@ -55,8 +61,8 @@ class Summary {
                         categories.each { category ->
                             tr {
                                 td(category.name)
-                                td(category.budget)
-                                td(category.total)
+                                td(df.format(category.budget))
+                                td(df.format(category.total))
                             }
                         }
                     }

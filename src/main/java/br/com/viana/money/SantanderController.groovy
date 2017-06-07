@@ -29,7 +29,7 @@ class SantanderController {
         <div>Importação concluída com sucesso</div>
 
         <div>
-            <a href="/santander">Consultar</a>
+            <a href="/santander/">Consultar</a>
         </div>
         """
     }
