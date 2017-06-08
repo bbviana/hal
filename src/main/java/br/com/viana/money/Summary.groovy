@@ -20,49 +20,55 @@ class Summary {
         df.decimalFormatSymbols = DecimalFormatSymbols.getInstance(new Locale("pt", "BR"))
 
         markup.html {
-            accounts.each { account ->
-                section {
-                    h3(account.name)
-                    h5("R\$ " + df.format(account.total))
+            head {
+                style(this.class.classLoader.getResource("public/santander.css").text)
+            }
 
-                    table {
-                        thead {
-                            tr {
-                                th("Data")
-                                th("Descrição")
-                                th("Valor")
-                                th("Categoria")
-                            }
-                        }
-                        tbody {
-                            account.transactions.each { transaction ->
+            body {
+                accounts.each { account ->
+                    div(class: "section") {
+                        h3(account.name)
+                        h5("R\$ " + df.format(account.total))
+
+                        table {
+                            thead {
                                 tr {
-                                    td(transaction.date.format("dd/MM"))
-                                    td(transaction.description)
-                                    td(df.format(transaction.valueReal))
-                                    td(transaction.category)
+                                    th("Data")
+                                    th("Descrição")
+                                    th("Valor")
+                                    th("Categoria")
+                                }
+                            }
+                            tbody {
+                                account.transactions.each { transaction ->
+                                    tr {
+                                        td(transaction.date.format("dd/MM"))
+                                        td(transaction.description)
+                                        td(df.format(transaction.valueReal))
+                                        td(transaction.category)
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            section {
-                table {
-                    tbody {
-                        thead {
-                            tr {
-                                th("Categoria")
-                                th("Meta")
-                                th("Total")
+                div(class: "section") {
+                    table {
+                        tbody {
+                            thead {
+                                tr {
+                                    th("Categoria")
+                                    th("Meta")
+                                    th("Total")
+                                }
                             }
-                        }
-                        categories.each { category ->
-                            tr {
-                                td(category.name)
-                                td(df.format(category.budget))
-                                td(df.format(category.total))
+                            categories.each { category ->
+                                tr {
+                                    td(category.name)
+                                    td(df.format(category.budget))
+                                    td(df.format(category.total))
+                                }
                             }
                         }
                     }

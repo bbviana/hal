@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #e7eaeb;
+}
+
+.section {
+    color: #616f77;
+    background-color: #FFF;
+    padding: 10px;
+    width: 800px;
+}
+
+table {
+    border-spacing: 0;
+    color: #616f77;
+    width: 100%;
+}
+
+thead {
+    text-align: left;
+}
+
+th, td {
+    padding: 8px;
+}
+
+th {
+    border-bottom: 2px solid #ddd;
+}
+
+td {
+    border-top: 1px solid #ddd;
+}

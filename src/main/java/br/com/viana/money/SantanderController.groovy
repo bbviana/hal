@@ -45,6 +45,8 @@ class SantanderController {
     String sendMail() {
         def summary = parser.parse()
         emailSender.send(summary)
+
+        return "Email enviado com sucesso"
     }
 
 }
