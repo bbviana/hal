@@ -25,6 +25,40 @@ class Summary {
             }
 
             body {
+                div(class: "section") {
+                    table {
+                        tbody {
+                            thead {
+                                tr {
+                                    th("Categoria")
+                                    th("Meta")
+                                    th("Total")
+                                    th("%")
+                                }
+                            }
+                            categories.each { category ->
+                                tr {
+                                    td(category.name)
+                                    td(df.format(category.budget))
+                                    td(df.format(category.total))
+                                    td(df.format(category.percent))
+                                }
+                            }
+                        }
+                    }
+
+                    categories.each { category ->
+                        div(class: "budget") {
+                            div {
+                                div(category.name)
+                                div(class: "progress-bar") {
+                                    div(class: "progress-bar-inner", style: "width: ${category.percent}%")
+                                }
+                            }
+                        }
+                    }
+                }
+
                 accounts.each { account ->
                     div(class: "section") {
                         h3(account.name)
@@ -47,27 +81,6 @@ class Summary {
                                         td(df.format(transaction.valueReal))
                                         td(transaction.category)
                                     }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                div(class: "section") {
-                    table {
-                        tbody {
-                            thead {
-                                tr {
-                                    th("Categoria")
-                                    th("Meta")
-                                    th("Total")
-                                }
-                            }
-                            categories.each { category ->
-                                tr {
-                                    td(category.name)
-                                    td(df.format(category.budget))
-                                    td(df.format(category.total))
                                 }
                             }
                         }

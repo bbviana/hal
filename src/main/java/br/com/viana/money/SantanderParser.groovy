@@ -16,7 +16,7 @@ class SantanderParser {
     @Autowired
     private Settings config
 
-    Summary parse(){
+    Summary parse() {
         Summary summary = new Summary()
 
         summary.accounts.addAll(parseCartao())
@@ -49,6 +49,11 @@ class SantanderParser {
                 continue
             }
 
+            // process categories?
+            account.processCategories = config.settings["processCategories"].split(",").contains {
+                account.name.contains(it)
+            }
+
             if (account == null) {
                 throw new RuntimeException("Não foi possivel determinar o nome da conta.")
             }
@@ -75,7 +80,7 @@ class SantanderParser {
         def nf = DecimalFormat.getInstance(new Locale("pt", "BR"))
 
         def document = Jsoup.parse(new File("/tmp/money/extrato.txt"), "UTF-8")
-        def account = new Account(name: "Conta Corrente")
+        def account = new Account(name: "Conta Corrente", processCategories: true)
 
         for (Element element : document.select("table").get(0).select("tbody tr")) {
             if (config.ignoreList.find { element.text().contains(it) } != null) {
@@ -111,7 +116,9 @@ class SantanderParser {
     }
 
     private void processCategories(Summary summary) {
-        List<Transaction> allTransactions = summary.accounts.transactions.flatten() as List<Transaction>
+        List<Transaction> allTransactions = summary.accounts.findAll {
+            it.processCategories
+        }.transactions.flatten() as List<Transaction>
 
         allTransactions.
                 groupBy { it.category }.

@@ -23,7 +23,7 @@ class Scheduler {
     // 8:00 e 16:00
 //    @Scheduled(cron = "0 8,16 * * *")
     // 2h, delay inicial de 30s para não atrapalhar o boot
-    @Scheduled(fixedRate = 7200_000L, initialDelay = 30_000L)
+//    @Scheduled(fixedRate = 7200_000L, initialDelay = 30_000L)
     void run() {
         println "${new Date()}: Executando importação agendada..."
 

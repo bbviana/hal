@@ -10,4 +10,12 @@ class Category {
     double budget
 
     double total
+
+    double getPercent() {
+        if(budget == 0){
+            return 0
+        }
+
+        return 100 * total / budget
+    }
 }

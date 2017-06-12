@@ -4,3 +4,5 @@ extratoPeriodo=30
 outDir=/tmp/money/
 extratoFile=extrato.txt
 cartaoFile=cartao.txt
+
+processCategories=

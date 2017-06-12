@@ -38,3 +38,13 @@ th {
 td {
     border-top: 1px solid #ddd;
 }
+
+.progress-bar {
+    background-color: #ebeef2;
+    height: 6px;
+}
+
+.progress-bar-inner {
+    background-color: #16a085;
+    height: 100%;
+}

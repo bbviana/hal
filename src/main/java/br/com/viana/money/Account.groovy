@@ -9,4 +9,6 @@ class Account {
     double total
 
     List<Transaction> transactions = []
+
+    boolean processCategories = false
 }
