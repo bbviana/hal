@@ -10,6 +10,10 @@ body {
     background-color: #e7eaeb;
 }
 
+.clearfix {
+    clear: both;
+}
+
 .section {
     color: #616f77;
     background-color: #FFF;
@@ -39,12 +43,38 @@ td {
     border-top: 1px solid #ddd;
 }
 
+.budget {
+    margin: 24px 0;
+}
+
+.budget .title {
+    float: left;
+    font-size: 15px;
+    line-height: 30px;
+    text-transform: capitalize;
+}
+
+.budget .total {
+    background: #ebeef2;
+    float: right;
+    font-size: 12px;
+    margin-bottom: 5px;
+    padding: 6px;
+    text-align: right;
+    width: 70px;
+}
+
 .progress-bar {
     background-color: #ebeef2;
-    height: 6px;
+    height: 8px;
+    overflow: hidden;
 }
 
 .progress-bar-inner {
     background-color: #16a085;
     height: 100%;
+}
+
+.progress-bar.overflow .progress-bar-inner {
+    background-color: #e05d6f;
 }

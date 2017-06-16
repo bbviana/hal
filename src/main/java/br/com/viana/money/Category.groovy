@@ -18,4 +18,8 @@ class Category {
 
         return 100 * total / budget
     }
+
+    boolean isOverflow(){
+        return getPercent() > 100
+    }
 }

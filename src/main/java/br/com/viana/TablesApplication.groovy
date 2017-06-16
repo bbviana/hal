@@ -14,6 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling
 class TablesApplication {
 
     static void main(String[] args) {
+        ExtendGroovyCLasses.process()
         SpringApplication.run(TablesApplication, args)
     }
 

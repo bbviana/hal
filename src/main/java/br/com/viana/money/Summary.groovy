@@ -16,9 +16,6 @@ class Summary {
         def writer = new StringWriter()
         def markup = new MarkupBuilder(writer)
 
-        DecimalFormat df = new DecimalFormat("#,##0.00")
-        df.decimalFormatSymbols = DecimalFormatSymbols.getInstance(new Locale("pt", "BR"))
-
         markup.html {
             head {
                 style(this.class.classLoader.getResource("public/santander.css").text)
@@ -39,9 +36,9 @@ class Summary {
                             categories.each { category ->
                                 tr {
                                     td(category.name)
-                                    td(df.format(category.budget))
-                                    td(df.format(category.total))
-                                    td(df.format(category.percent))
+                                    td(category.budget.format())
+                                    td(category.total.format())
+                                    td(category.percent.format())
                                 }
                             }
                         }
@@ -49,11 +46,14 @@ class Summary {
 
                     categories.each { category ->
                         div(class: "budget") {
-                            div {
-                                div(category.name)
-                                div(class: "progress-bar") {
-                                    div(class: "progress-bar-inner", style: "width: ${category.percent}%")
-                                }
+                            div(category.name ?: "Não especificado", class: "title")
+
+                            div(category.total.format(), class: "total")
+
+                            div(class: "clearfix")
+
+                            div(class: "progress-bar ${category.overflow ? 'overflow' : ''}", title: category.budget.format()) {
+                                div(" ", class: "progress-bar-inner", style: "width: ${category.percent}%")
                             }
                         }
                     }
@@ -62,7 +62,7 @@ class Summary {
                 accounts.each { account ->
                     div(class: "section") {
                         h3(account.name)
-                        h5("R\$ " + df.format(account.total))
+                        h5("R\$ " + account.total.format())
 
                         table {
                             thead {
@@ -78,7 +78,7 @@ class Summary {
                                     tr {
                                         td(transaction.date.format("dd/MM"))
                                         td(transaction.description)
-                                        td(df.format(transaction.valueReal))
+                                        td(transaction.valueReal.format())
                                         td(transaction.category)
                                     }
                                 }
