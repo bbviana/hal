@@ -1,3 +1,5 @@
+/* position absolute nao funciona no GMAIL */
+
 * {
     box-sizing: border-box;
 }
@@ -44,16 +46,8 @@ td {
 }
 
 .budget {
+    background-size: 1px;
     padding: 10px 0;
-    position: relative;
-}
-
-.budget .estimate{
-    border-right: 1px dotted #666;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .budget .category {

@@ -41,6 +41,9 @@ class Summary {
 
         markup.html {
             head {
+                // Gmail nao aceita base64 image; nao aceita background-image-position separado
+                // deve vir antes
+                style(".budget { background: url('http://i.imgur.com/VqPwuWR.png') repeat-y ${monthProgress}%;}")
                 style(this.class.classLoader.getResource("public/santander.css").text)
             }
 
@@ -68,8 +71,6 @@ class Summary {
                     }
 
                     div(class: "budget") {
-                        div(" ", class: "estimate", style: "width: ${monthProgress}%")
-
                         categories.each { category ->
                             div(class: "category") {
 

@@ -24,6 +24,8 @@ class EmailSender {
         messageHelper.setSubject("Santander Status ${new Date().format('dd/MM/yyyy')}")
         messageHelper.setText(summary.toHTML(), true)
 
+        println "Enviando e-mail..."
+
         javaMailSender.send(mail)
     }
 }
