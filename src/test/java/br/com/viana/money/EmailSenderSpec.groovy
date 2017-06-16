@@ -29,6 +29,6 @@ class EmailSenderSpec {
         impl.setJavaMailProperties(properties)
 
         sender.javaMailSender = impl
-        sender.send(new Summary())
+        sender.send(new Summary(new Date()))
     }
 }

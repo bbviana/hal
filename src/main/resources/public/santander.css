@@ -44,6 +44,19 @@ td {
 }
 
 .budget {
+    padding: 10px 0;
+    position: relative;
+}
+
+.budget .estimate{
+    border-right: 1px dotted #666;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.budget .category {
     margin: 24px 0;
 }
 
@@ -64,17 +77,17 @@ td {
     width: 70px;
 }
 
-.progress-bar {
+.budget .progress-bar {
     background-color: #ebeef2;
     height: 8px;
     overflow: hidden;
 }
 
-.progress-bar-inner {
+.budget .progress-bar-inner {
     background-color: #16a085;
     height: 100%;
 }
 
-.progress-bar.overflow .progress-bar-inner {
+.budget .progress-bar.overflow .progress-bar-inner {
     background-color: #e05d6f;
 }

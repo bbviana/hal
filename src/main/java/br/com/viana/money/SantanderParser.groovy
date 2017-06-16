@@ -17,7 +17,8 @@ class SantanderParser {
     private Settings config
 
     Summary parse() {
-        Summary summary = new Summary()
+        // TODO recuperar date do arquivo
+        Summary summary = new Summary(new Date())
 
         summary.accounts.addAll(parseCartao())
         summary.accounts << parseConta()
