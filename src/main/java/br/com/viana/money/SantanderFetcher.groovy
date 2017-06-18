@@ -31,7 +31,9 @@ class SantanderFetcher {
         def settings = config.settings
 
         if (System.getProperty("os.name").contains("Mac")) {
-            extractToTemp("phantomjs-mac")
+            extractToTemp("phantomjs-mac", "phantomjs")
+        } else if (System.getProperty("os.arch").contains("arm")) {
+            extractToTemp("phantomjs-arm", "phantomjs")
         } else {
             extractToTemp("phantomjs")
         }
@@ -73,13 +75,13 @@ class SantanderFetcher {
         }
     }
 
-    private extractToTemp(String fileName) {
+    private extractToTemp(String fileName, String fileNameDest = null) {
         println "Extraindo $fileName para /tmp/money..."
 
         def source = this.class.classLoader.getResource("phantomjs/${fileName}").openStream()
 
         new File("/tmp/money").mkdir()
-        def dest = new File("/tmp/money/${fileName}").toPath()
+        def dest = new File("/tmp/money/${fileNameDest ?: fileName}").toPath()
 
         Files.copy(source, dest, REPLACE_EXISTING)
         Files.setPosixFilePermissions(dest, [OWNER_EXECUTE, OWNER_READ] as HashSet)

@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Bean
 import org.springframework.scheduling.annotation.EnableScheduling
 
 @SpringBootApplication
-//@EnableScheduling
+@EnableScheduling
 class TablesApplication {
 
     static void main(String[] args) {
-        ExtendGroovyCLasses.process()
+        ExtendGroovyClasses.process()
         SpringApplication.run(TablesApplication, args)
     }
 

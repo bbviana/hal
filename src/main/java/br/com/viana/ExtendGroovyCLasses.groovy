@@ -6,7 +6,7 @@ import java.text.DecimalFormatSymbols
 /**
  * @author bbviana
  */
-class ExtendGroovyCLasses {
+class ExtendGroovyClasses {
 
     static void process(){
         addFormat()
