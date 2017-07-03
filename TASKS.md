@@ -1,5 +1,6 @@
 # TASKS
 
+- subir com menos memoria
 - criar graficos pra categorias
 - categoria vazia -> outros
 - terminar de configurar categorias (metas e regex)

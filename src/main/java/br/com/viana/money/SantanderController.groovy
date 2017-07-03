@@ -43,6 +43,8 @@ class SantanderController {
     @ResponseBody
     @RequestMapping(method = GET, path = "/send-mail")
     String sendMail() {
+        println "Enviar e-mail..."
+
         def summary = parser.parse()
         emailSender.send(summary)
 
