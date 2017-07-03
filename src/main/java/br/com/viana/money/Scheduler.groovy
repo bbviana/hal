@@ -19,11 +19,10 @@ class Scheduler {
     @Autowired
     private EmailSender emailSender
 
-
-    // 8:00 e 16:00
-//    @Scheduled(cron = "0 8,16 * * *")
+    // 8:00
+    @Scheduled(cron = "0 8 * * *", initialDelay = 60_000L)
     // 2h, delay inicial para não atrapalhar o boot
-    @Scheduled(fixedRate = 7200_000L, initialDelay = 60_000L)
+//    @Scheduled(fixedRate = 7200_000L, initialDelay = 60_000L)
     void run() {
         println "${new Date()}: Executando importação agendada..."
 
