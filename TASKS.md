@@ -7,7 +7,6 @@
 - mostrar seção resumida com os 3 ultimos dias
 - Enum despesa, receita
 - Corrigir sinais + -
-- Ordenar mais recentes antes
 - Múltiplas contas
     - Mudar processCategories pra accounts.txt
     - bbviana@gmail.com=Conta Corrente, Bruno Cartao

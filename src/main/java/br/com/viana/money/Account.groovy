@@ -8,7 +8,7 @@ class Account {
 
     double total
 
-    List<Transaction> transactions = []
+    SortedSet<Transaction> transactions = [] as SortedSet
 
     boolean processCategories = false
 }
