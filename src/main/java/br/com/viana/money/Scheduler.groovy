@@ -20,7 +20,7 @@ class Scheduler {
     private EmailSender emailSender
 
     // 8:00
-    @Scheduled(cron = "0 8 * * *")
+    @Scheduled(cron = "0 8 * * * *")
     // 2h, delay inicial para não atrapalhar o boot
 //    @Scheduled(fixedRate = 7200_000L, initialDelay = 60_000L)
     void run() {
