@@ -1,5 +1,6 @@
 # TASKS
 
+- resumo com receita x despesas
 - criar graficos pra categorias
 - categoria vazia -> outros
 - terminar de configurar categorias (metas e regex)
