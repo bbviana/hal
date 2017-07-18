@@ -1,4 +1,4 @@
-package br.com.viana
+package br.com.viana.hal
 
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols

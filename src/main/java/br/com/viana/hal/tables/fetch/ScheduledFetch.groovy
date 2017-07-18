@@ -1,6 +1,6 @@
-package br.com.viana.tables.fetch
+package br.com.viana.hal.tables.fetch
 
-import br.com.viana.tables.tableDef.TableDefinitionRepository
+import br.com.viana.hal.tables.tableDef.TableDefinitionRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional

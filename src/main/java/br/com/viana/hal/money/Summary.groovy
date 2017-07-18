@@ -1,13 +1,9 @@
-package br.com.viana.money
+package br.com.viana.hal.money
 
 import groovy.transform.ToString
 import groovy.xml.MarkupBuilder
 
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-
 import static java.util.Calendar.DATE
-import static java.util.Calendar.DAY_OF_MONTH
 import static java.util.Calendar.DAY_OF_MONTH
 import static java.util.Calendar.MONTH
 

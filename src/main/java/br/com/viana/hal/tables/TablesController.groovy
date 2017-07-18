@@ -1,7 +1,7 @@
-package br.com.viana.tables
+package br.com.viana.hal.tables
 
-import br.com.viana.tables.fetch.Fetcher
-import br.com.viana.tables.tableDef.TableDefinitionRepository
+import br.com.viana.hal.tables.fetch.Fetcher
+import br.com.viana.hal.tables.tableDef.TableDefinitionRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping

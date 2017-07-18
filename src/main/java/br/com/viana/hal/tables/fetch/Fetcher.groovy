@@ -1,8 +1,8 @@
-package br.com.viana.tables.fetch
+package br.com.viana.hal.tables.fetch
 
-import br.com.viana.tables.Table
-import br.com.viana.tables.tableDef.TableColumnDefinition
-import br.com.viana.tables.tableDef.TableDefinition
+import br.com.viana.hal.tables.Table
+import br.com.viana.hal.tables.tableDef.TableColumnDefinition
+import br.com.viana.hal.tables.tableDef.TableDefinition
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element

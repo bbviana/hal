@@ -1,4 +1,4 @@
-package br.com.viana.tables.tableDef
+package br.com.viana.hal.tables.tableDef
 
 import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.data.repository.query.Param

@@ -1,4 +1,4 @@
-package br.com.viana.tables.tableDef
+package br.com.viana.hal.tables.tableDef
 
 import javax.persistence.ElementCollection
 import javax.persistence.Entity

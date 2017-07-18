@@ -1,4 +1,4 @@
-package br.com.viana.money
+package br.com.viana.hal.money
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller

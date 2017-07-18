@@ -1,8 +1,8 @@
-package br.com.viana
+package br.com.viana.hal
 
-import br.com.viana.tables.tableDef.TableColumnDefinition
-import br.com.viana.tables.tableDef.TableDefinition
-import br.com.viana.tables.tableDef.TableDefinitionRepository
+import br.com.viana.hal.tables.tableDef.TableColumnDefinition
+import br.com.viana.hal.tables.tableDef.TableDefinition
+import br.com.viana.hal.tables.tableDef.TableDefinitionRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -11,11 +11,11 @@ import org.springframework.scheduling.annotation.EnableScheduling
 
 @SpringBootApplication
 @EnableScheduling
-class TablesApplication {
+class HalApplication {
 
     static void main(String[] args) {
         ExtendGroovyClasses.process()
-        SpringApplication.run(TablesApplication, args)
+        SpringApplication.run(HalApplication, args)
     }
 
     @Bean
