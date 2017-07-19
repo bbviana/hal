@@ -1,8 +1,5 @@
-var page = require('webpage').create();
 var system = require('system');
 var fs = require('fs');
-
-page.settings.userAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36';
 
 var testindex = 0;
 var loadInProgress = false;
@@ -18,22 +15,24 @@ var ctx = {
     cartaoFile: ""
 };
 
-function extractArgs(){
+function extractArgs() {
     var args = system.args;
+    console.log("args:");
     for (var i = 0; i < args.length; i++) {
         var argParts = args[i].split('=');
 
-        if(argParts.length == 2){
+        if (argParts.length == 2) {
             ctx[argParts[0].trim()] = argParts[1].trim();
+            console.log(args[i])
         }
     }
 }
 
-var hasContent = function(array, contentText) {
+var hasContent = function (array, contentText) {
     for (var i = 0; i < array.length; i++) {
         var el = array[i];
 
-        if(el.text.trim() === contentText){
+        if (el.text.trim() === contentText) {
             return el;
         }
     }
@@ -41,29 +40,42 @@ var hasContent = function(array, contentText) {
     return null;
 };
 
-page.onConsoleMessage = function (msg) {
-    console.log(msg);
+var page;
+
+var createPage = function() {
+    page && page.close();
+    page = require('webpage').create();
+    page.settings.userAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36';
+
+    page.onConsoleMessage = function (msg) {
+        console.log(msg);
+    };
+
+    page.onLoadStarted = function () {
+        loadInProgress = true;
+        console.log("request iniciada");
+    };
+
+    page.onLoadFinished = function () {
+        loadInProgress = false;
+        console.log("request finalizada");
+    };
 };
 
-page.onLoadStarted = function () {
-    loadInProgress = true;
-    console.log("request iniciada");
+var print = function () {
+    page.render(ctx.outDir + 'santander2.pdf', {format: 'pdf', quality: '100'});
+    return true;
 };
 
-page.onLoadFinished = function () {
-    loadInProgress = false;
-    console.log("request finalizada");
-};
-
-var steps = [
-    // 1: abrir pagina
+var logingSteps = [
+    // 1, 7: abrir pagina
     function () {
+        createPage();
         page.open("https://www.santandernet.com.br/");
         return true;
     },
 
-
-    // 2: Inserir CPF
+    // 2, 8: Inserir CPF
     function () {
         return page.evaluate(function (ctx) {
             var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
@@ -80,154 +92,76 @@ var steps = [
         }, ctx);
     },
 
-    // 3: debug
+    // 3, 9: inserir senha
     function () {
-        page.render(ctx.outDir + 'santander1.pdf', {format: 'pdf', quality: '100'});
-        return true;
-    },
-
-    // 4: inserir senha
-    function () {
-        return page.evaluate(function (ctx, hasContent) {
-            var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
-            doc = doc.querySelector("frame[name=MainFrame]").contentWindow.document;
-
-            var inputSenha = doc.querySelector("#txtSenha");
+        return page.evaluate(function (ctx) {
+            var inputSenha = document.querySelector("#senha");
             inputSenha.value = ctx.senha;
 
-            //contentWindow.tratapwd();
-            //doc.frmLogin.submit();
-
-            var btnContinuar = hasContent(doc.querySelectorAll("#divBotoes a"), "continuar");
-            btnContinuar.click();
+            var btnEntrar = document.querySelector("#Entrar");
+            btnEntrar.click();
 
             return true;
-        }, ctx, hasContent);
-    },
+        }, ctx);
+    }
+];
 
-    // 5: debug
-    function () {
-        page.render(ctx.outDir + 'santander2.pdf', {format: 'pdf', quality: '100'});
-        return true;
-    },
-
-    // 6: Selecionar periodo Extrato
+var extratoContaSteps = [
+    // 4: Selecionar periodo Extrato
     function () {
         return page.evaluate(function (ctx, hasContent) {
-            var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
-            doc = doc.querySelector("frame[name=Corpo]").contentWindow.document;
-            doc = doc.querySelector("iframe[name=iframePainel]").contentWindow.document;
-
-            var periodo = doc.querySelector("#extrato [name=cboSelectPeriodoExtrato]");
-            periodo.value = ctx.extratoPeriodo;
-
-            var btnVisualizar = hasContent(doc.querySelectorAll("#extrato a"), "visualizar");
-            btnVisualizar.click();
-
+            var link = hasContent(document.querySelectorAll("#subMenu-ctacorrente a"), "Extrato Conta Corrente");
+            link.click();
             return true;
         }, ctx, hasContent);
     },
 
-    // 7: debug
+    // 5
     function () {
-        page.render(ctx.outDir + 'santander3.pdf', {format: 'pdf', quality: '100'});
-        return true;
+        return page.evaluate(function (ctx) {
+            var linkPeriodo = document.querySelector("#dateRangeExtrato [data-value='" + ctx.extratoPeriodo + "']");
+            linkPeriodo.click();
+            return true;
+        }, ctx);
     },
 
-    // 8: Tela de extrato
+
+    // 6: Tela de extrato
     function () {
         var content = page.evaluate(function () {
-            var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
-            doc = doc.querySelector("frame[name=Corpo]").contentWindow.document;
-            doc = doc.querySelector("iframe[name=iframePrinc]").contentWindow.document;
-            doc = doc.querySelector("iframe[name=extrato]").contentWindow.document;
-
-            var table = doc.frmExtrato;
-
+            var table = document.querySelectorAll(".isban-box-content")[1];
             return table.outerHTML;
         });
 
-        if(!content){
+        if (!content) {
             return false;
         }
 
         fs.write(ctx.outDir + ctx.extratoFile, content, 'w');
 
         return true;
-    },
+    }
+];
 
-    // 9: Menu Cartoes
+var cartaoSteps = [
+    // 10: Menu Cartoes
     function () {
         return page.evaluate(function (hasContent) {
-            var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
-            doc = doc.querySelector("frame[name=Menu]").contentWindow.document;
-
-            var menu = hasContent(doc.querySelectorAll("a"), "Cartões");
-            menu.click();
-
+            var link = hasContent(document.querySelectorAll("#subMenu-cartoes a"), "Consultar faturas");
+            link.click();
             return true;
         }, hasContent);
     },
 
-    // 10: debug
-    function () {
-        page.render(ctx.outDir + 'santander4.pdf', {format: 'pdf', quality: '100'});
-        return true;
-    },
 
-    // 11: Link Faturas
-    function () {
-        return page.evaluate(function (hasContent) {
-            var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
-            doc = doc.querySelector("frame[name=Corpo]").contentWindow.document;
-
-            var link = hasContent(doc.querySelectorAll("#montaMenu a"), "Faturas");
-            link.click();
-
-            return true;
-        }, hasContent)
-    },
-
-    // 12: debug
-    function () {
-        page.render(ctx.outDir + 'santander5.pdf', {format: 'pdf', quality: '100'});
-        return true;
-    },
-
-    // 13: Link Nome do Cartao
-    function () {
-        return page.evaluate(function (hasContent) {
-            var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
-            doc = doc.querySelector("frame[name=Corpo]").contentWindow.document;
-            doc = doc.querySelector("iframe[name=iframePrinc]").contentWindow.document;
-
-            var link = hasContent(doc.querySelectorAll("#cartaoTitular a"), "SANTANDER ELITE MASTER VG");
-            link.click();
-
-            return true;
-        }, hasContent)
-    },
-
-    // 14: debug
-    function () {
-        page.render(ctx.outDir + 'santander6.pdf', {format: 'pdf', quality: '100'});
-        return true;
-    },
-
-    // 15: Tabela Fatura
+    // 11: Tabela Fatura
     function () {
         var content = page.evaluate(function () {
-            var doc = document.querySelector("frame[name=Principal]").contentWindow.document;
-            doc = doc.querySelector("frame[name=Corpo]").contentWindow.document;
-            doc = doc.querySelector("iframe[name=iframePrinc]").contentWindow.document;
-            doc = doc.querySelector("iframe[name=iDetalhes]").contentWindow.document;
-
-            var table = doc.querySelector("#detFatura table");
-
+            var table = document.querySelectorAll(".tabla_datos table")[0];
             return table.outerHTML;
         });
 
-        if(!content){
+        if (!content) {
             return false;
         }
 
@@ -240,10 +174,15 @@ var steps = [
 
 extractArgs();
 
+var steps = logingSteps
+    .concat(extratoContaSteps)
+    .concat(logingSteps)
+    .concat(cartaoSteps);
+
 var startTime = Date.now();
 
 interval = setInterval(function () {
-    if((Date.now() - startTime) > ctx.timeout){
+    if ((Date.now() - startTime) > ctx.timeout) {
         console.log("[PROCESS_TIMEOUT]");
         phantom.exit(1);
     }
@@ -251,13 +190,13 @@ interval = setInterval(function () {
     if (!loadInProgress && typeof steps[testindex] == "function") {
         console.log("[PASSO #" + (testindex + 1) + "]");
 
-        var success =  steps[testindex]();
+        var success = steps[testindex]();
 
         // Só passa para o proximo passo se o anterior foi bem sucedido;
         // Se houve erro, executa o passo novamente.
-        if(success){
+        if (success) {
             testindex++;
-        } else{
+        } else {
             console.log("[ERROR]: passo será executado novamente")
         }
     }
